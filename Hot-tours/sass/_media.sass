@@ -1,0 +1,105 @@
+@media (max-width: 1199.98px)
+	html
+		font-size: 16px
+
+@media (max-width: 991.98px)
+	html
+		font-size: 14px
+	.second-screen 
+		.card 
+			p
+				line-height: 13px
+
+	.thirst-screen 
+		.services 
+			ul 
+				li
+					padding-bottom: .5rem
+		.main
+			grid-column: 7 / 11
+
+@media (max-width: 767.98px)
+	html
+		font-size: 13px
+		.bg-1
+			height: auto
+			
+		.first-screen 
+			h1
+				font-size: 5.5rem
+
+		.second-screen
+			height: auto
+			display: grid
+			grid-template-rows: repeat(2, max-content)
+			.card-3, .card-4
+				grid-row: 2 / 3
+				margin-top: 4rem
+			.card-1, .card-3
+				grid-column: 4 / 8
+
+			.card-2, .card-4
+				grid-column: 8 / 12
+
+
+		.thirst-screen
+			padding-top: 2rem
+			height: auto
+			grid-template-rows: repeat(2,max-content)
+			.main
+				grid-column: 2 / 8
+				grid-row: 2 / 3
+				padding-top: 2rem
+			.news
+				grid-column: 2 / 6
+			.services
+				grid-column: 10 / 15
+
+@media (max-width: 575.98px)
+	html
+		font-size: 12px
+		.container
+			grid-template-columns: .5rem repeat(12, 1fr) .5rem
+			header 
+				nav 
+					.menu-nav
+						grid-column: 1 / 12
+						text-align: left
+						a
+							padding-left: 0
+							padding-right: 1rem
+					.hr-left
+						grid-column: 1 / 8
+
+		.first-screen 
+			h1
+				font-size: 4.5rem
+
+		.second-screen
+			.card-1, .card-3
+				grid-column: 2 / 8
+
+			.card-2, .card-4
+				grid-column: 8 / 14
+
+		.thirst-screen
+			grid-template-rows: repeat(3,max-content)
+			.main
+				grid-column: 2 / 10
+				grid-row: 2 / 3
+				padding-top: 2rem
+			.news
+				grid-column: 2 / 10
+			.services
+				padding-top: 2rem
+				grid-column: 2 / 10
+				grid-row: 3 / 4
+
+		.four-screen 
+			.ad-inf
+				grid-column: 2 / 7
+			.contacts
+				grid-column: 7 / 10
+
+	#back-top
+		bottom: 1%
