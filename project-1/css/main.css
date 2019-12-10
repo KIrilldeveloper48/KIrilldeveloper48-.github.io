@@ -1,0 +1,208 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, form, fieldset, input, textarea, p, blockquote, th, td {
+  padding: 0;
+  margin: 0; }
+
+fieldset, img {
+  border: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+ol, ul {
+  list-style: none; }
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-weight: normal;
+  font-style: normal; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%; }
+
+q:before, q:after {
+  content: ""; }
+
+abbr, acronym {
+  border: 0; }
+
+a {
+  text-decoration: none; }
+
+/* cyrillic-ext */
+@font-face {
+  font-family: "Philosopher";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../font/Philosopher-Regular.ttf) format("truetype"); }
+/* cyrillic */
+@font-face {
+  font-family: "Philosopher";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../font/Philosopher-Italic.ttf) format("truetype");
+  /* cyrillic */ }
+@font-face {
+  font-family: "Philosopher";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../font/Philosopher-Bold.ttf) format("truetype"); }
+@font-face {
+  font-family: "Philosopher";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../font/Philosopher-BoldItalic.ttf) format("truetype"); }
+html {
+  font-size: 20px;
+  color: black;
+  width: 100%;
+  overflow-x: hidden; }
+
+body {
+  font-family: "Philosopher", sans-serif;
+  line-height: 1.2;
+  padding-right: 0 !important;
+  margin: 0;
+  height: 200vh; }
+
+*:focus {
+  outline: none !important; }
+
+a {
+  color: black;
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+  cursor: pointer; }
+  a:hover {
+    color: blue;
+    -webkit-transition: 0.5s linear;
+    transition: 0.5s linear; }
+  a:active {
+    color: orange;
+    -webkit-transition: 0.5s linear;
+    transition: 0.5s linear; }
+
+p {
+  font-size: 0.8rem;
+  font-family: "Philosopher", sans-serif;
+  color: black; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  color: black; }
+
+h1 {
+  font-size: 3.6rem;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem; }
+
+h2 {
+  font-size: 3.1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 1.25rem; }
+
+h3 {
+  font-size: 2.6rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem; }
+
+h4 {
+  font-size: 2.1rem; }
+
+h5 {
+  font-size: 1.6rem; }
+
+h6 {
+  font-size: 1.1rem; }
+
+input {
+  cursor: pointer; }
+  input:invalid {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+  input:focus:invalid {
+    border-bottom: 2px solid red;
+    -webkit-transition: 0.5s linear;
+    transition: 0.5s linear; }
+  input:valid {
+    border-bottom: 2px solid green;
+    -webkit-transition: 0.5s linear;
+    transition: 0.5s linear; }
+  input:hover, input:active {
+    outline: none; }
+
+.dark-section a, .dark-section p, .dark-section h1, .dark-section h2, .dark-section h3, .dark-section h4, .dark-section h5, .dark-section h6 {
+  color: white; }
+
+.accent {
+  color: violet; }
+
+#back-top {
+  font-size: 20px;
+  position: fixed;
+  z-index: 99991;
+  right: 4%;
+  bottom: 1%;
+  display: none;
+  width: 55px;
+  height: 55px;
+  padding: 0;
+  text-align: center;
+  opacity: 0.7;
+  color: blue;
+  background: rgba(255, 255, 255, 0); }
+
+#back-top div {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-bottom: -0.8rem;
+  margin-left: 8px;
+  cursor: pointer;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  color: blue;
+  border-right: 8px solid;
+  border-bottom: 8px solid; }
+
+#back-top div:hover {
+  -webkit-transition: all linear 0.4s;
+  transition: all linear 0.4s;
+  color: orange; }
+
+#back-top:hover {
+  -webkit-transition: all linear 0.4s;
+  transition: all linear 0.4s;
+  color: orange; }
+
+@media (max-width: 1199.98px) {
+  html {
+    font-size: 16px; } }
+@media (max-width: 991.98px) {
+  html {
+    font-size: 14px; } }
+@media (max-width: 575.98px) {
+  html {
+    font-size: 12px; } }

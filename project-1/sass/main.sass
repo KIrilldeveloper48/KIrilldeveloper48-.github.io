@@ -1,0 +1,141 @@
+@charset 'utf-8'
+@import "reset"
+@import "font"
+@import "vars"
+html
+	font-size: 20px
+	color: $txt-color
+	width: 100%
+	overflow-x: hidden
+
+body
+	font-family: $p-font
+	line-height: 1.2
+	padding-right: 0 !important
+	margin: 0
+	height: 200vh
+
+*:focus
+	outline: none !important
+
+a
+	color: $txt-color
+	transition: $time
+	cursor: pointer
+	&:hover
+		color: $link-hover
+		transition: $time
+	&:active
+		color: $link-active
+		transition: $time
+
+p
+	font-size: .8rem
+	font-family: $p-font
+	color: $txt-color
+
+img
+	width: 100%
+	height: auto
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 
+	font-family: $h-font
+	font-weight: 700
+	text-align: center
+	letter-spacing: 1px
+	color: $txt-color
+
+h1
+	font-size: 3.6rem
+	padding-top: 3rem
+	padding-bottom: 1.5rem
+h2
+	font-size: 3.1rem
+	padding-top: 2.5rem
+	padding-bottom: 1.25rem
+h3
+	font-size: 2.6rem
+	padding-top: 2rem
+	padding-bottom: 1rem
+h4
+	font-size: 2.1rem
+h5
+	font-size: 1.6rem
+h6
+	font-size: 1.1rem
+
+input
+	cursor: pointer
+	&:invalid
+		box-shadow: none
+	&:focus:invalid
+		border-bottom: 2px solid $invalid
+		transition: $time
+	&:valid
+		border-bottom: 2px solid $valid
+		transition: $time
+	&:hover, &:active
+		outline: none
+
+
+//Общие классы
+.dark-section
+	a,p,h1,h2,h3,h4,h5,h6
+		color: $light-color
+
+.accent
+	color: $accent
+
+//Кнопка вверх
+#back-top 
+	font-size: 20px
+
+	position: fixed
+	z-index: 99991
+	right: 4%
+	bottom: 1%
+
+	display: none
+
+	width: 55px
+	height: 55px
+	padding: 0
+
+	
+	text-align: center
+
+	opacity: .7
+	color: $hover
+	background: rgba(255,255,255,0)
+
+#back-top div 
+	display: inline-block
+
+	width: 26px
+	height: 26px
+	margin-bottom: -.8rem
+	margin-left: 8px
+	cursor: pointer
+
+	transition: all linear .2s
+	transform: rotate(-135deg)
+
+	color: $hover
+	border-right: 8px solid
+	border-bottom: 8px solid
+
+#back-top div:hover 
+	transition: all linear .4s
+
+	color: $active
+
+#back-top:hover 
+	transition: all linear .4s
+
+	color: $active
+@import "media"
