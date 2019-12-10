@@ -125,6 +125,11 @@ input
 		background: $hover
 		transition: $time
 
+.d-none
+	display: none
+
+.show
+	opacity: 1 !important
 //Кнопка вверх
 #back-top
 	font-size: 20px
@@ -223,12 +228,15 @@ input
 	align-items: center
 	justify-items: center
 	height: 90vh
+	position: relative
 	&_wrapper
 		grid-column: 4/10
 		border: $border
 		padding: 2.5rem 4rem
 		position: relative
 		border-bottom: none
+		width: 100%
+		height: 10rem
 
 		h1
 			font-size: 2rem
@@ -262,5 +270,34 @@ input
 			left: 50%
 			bottom: -1.1rem
 			transform: translateX(-50%)
+
+	&_slider-item
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		opacity: 0
+
+	&_slider-button
+		position: absolute
+		top: 50%
+		width: .5rem
+		height: 1rem
+		padding: 0.5rem
+		border: $border
+		transform: translateY(-50%)
+		cursor: pointer
+		&:hover
+			border: 1px solid $hover
+		img
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			width: .5rem
+		&_left
+			left: 10%
+		&_right
+			right: 10%
 
 @import "media"
