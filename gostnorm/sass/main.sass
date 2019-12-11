@@ -224,10 +224,12 @@ input
 			grid-template-rows: 1fr
 			grid-template-columns: repeat(2, max-content)
 			border-left: 2px solid $hover
+			justify-self: end
 			a:hover
 				color: $hover
 		&_button
 			grid-column: 7/9
+			justify-self: center
 		&_city
 			grid-column: 10/12
 			justify-self: end
@@ -247,7 +249,7 @@ input
 		&_logo
 			grid-column: 2/3
 		&_item
-			grid-column: 3/10
+			grid-column: 3/11
 			font-size: 0.7rem
 			justify-self: center
 			li
@@ -260,7 +262,7 @@ input
 				img
 					width: .5rem
 		&_btn
-			grid-column: 10/12
+			grid-column: 11/12
 			justify-self: end
 			display: grid
 			grid-template-columns: repeat(2, max-content)

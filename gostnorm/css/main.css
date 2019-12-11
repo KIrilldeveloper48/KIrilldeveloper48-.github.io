@@ -314,11 +314,13 @@ input {
       grid-template-rows: 1fr;
       grid-template-columns: repeat(2, -webkit-max-content);
       grid-template-columns: repeat(2, max-content);
-      border-left: 2px solid #27a043; }
+      border-left: 2px solid #27a043;
+      justify-self: end; }
       .header .top-nav_phone a:hover {
         color: #27a043; }
     .header .top-nav_button {
-      grid-column: 7/9; }
+      grid-column: 7/9;
+      justify-self: center; }
     .header .top-nav_city {
       grid-column: 10/12;
       justify-self: end;
@@ -339,7 +341,7 @@ input {
   .header .nav-menu_logo {
     grid-column: 2/3; }
   .header .nav-menu_item {
-    grid-column: 3/10;
+    grid-column: 3/11;
     font-size: 0.7rem;
     justify-self: center; }
     .header .nav-menu_item li {
@@ -352,7 +354,7 @@ input {
       .header .nav-menu_item li img {
         width: 0.5rem; }
   .header .nav-menu_btn {
-    grid-column: 10/12;
+    grid-column: 11/12;
     justify-self: end;
     display: grid;
     grid-template-columns: repeat(2, -webkit-max-content);
