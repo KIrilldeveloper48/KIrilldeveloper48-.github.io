@@ -12,7 +12,7 @@
     <title>ГостНорм</title>
   </head>
   <body>
-    <header class="header grid" style="background: url(img/bg-1.jpg);">
+    <header class="header grid bg-1">
       <div class="top-nav container grid dark-section overlay">
         <div class="top-nav_location">
           <img class="top-nav_icons" src="img/icon/map_marker.png" alt="" />
@@ -114,6 +114,7 @@
                 <li><a href="#">Метрологическая поверка</a></li>
               </ul>
             </div>
+            <!--sub-menu-->
           </li>
           <!--nav-menu_item-1-->
 
@@ -202,6 +203,38 @@
         </div>
       </div>
     </header>
+
+    <section class="container dark-section grid first-screen bg-1">
+      <div class="first-screen_top container grid">
+        <form class="first-screen_top_search">
+          <input type="search" placeholder="Поиск" />
+          <img
+            src="img/icon/search.png"
+            alt=""
+            class="first-screen_top_search-icon"
+          />
+        </form>
+        <!--first-screen_search-->
+        <ul class="first-screen_top_nav">
+          <li><a href="#">О компании</a></li>
+          <li><a href="#">Бизнесу</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#">Вопрос-Ответ</a></li>
+        </ul>
+        <!--first-screen_nav-->
+      </div>
+      <div class="first-screen_slider dark-section grid container bg-1">
+        <h1>Центр сертификации</h1>
+        <p class="slider-txt">
+          Компания, которая появилась на рынке сертификации и услуг в 2002 году.
+          За все это время мы приобретали эксклюзивных и надежных партнеров. Мы
+          предлагаем свои услуги бизнесменам малого и среднего бизнеса!
+        </p>
+        <button class="button-fill slider-btn">Узнать больше</button>
+      </div>
+      <!--first-screen_slider-->
+    </section>
+    <!--first-screen-->
 
     <!--Кнопка Вверх-->
     <div onclick="return up()" id="back-top" hidden>
