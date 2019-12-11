@@ -70,8 +70,7 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.2;
   padding-right: 0 !important;
-  margin: 0;
-  height: 200vh; }
+  margin: 0; }
 
 *:focus {
   outline: none !important; }
@@ -194,6 +193,14 @@ input {
     background: #097e89;
     -webkit-transition: 0.5s linear;
     transition: 0.5s linear; }
+
+.button {
+  background: #05a0af;
+  border: none;
+  color: white;
+  padding: 0.4rem 1rem;
+  text-transform: uppercase;
+  font-weight: 700; }
 
 .d-none {
   display: none; }
@@ -362,6 +369,80 @@ input {
       left: 10%; }
     .first-screen_slider-button_right {
       right: 10%; }
+
+.second-screen_bg {
+  grid-column: 1/7; }
+.second-screen_content {
+  grid-column: 7/13;
+  padding: 2.5rem 2rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start; }
+  .second-screen_content h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    border-bottom: 1px solid #252525;
+    padding: 0;
+    text-align: left;
+    height: 1.8rem;
+    position: relative; }
+    .second-screen_content h2::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      width: 10%;
+      background: #000; }
+    .second-screen_content h2 p {
+      font-size: 0.5rem; }
+.second-screen_button {
+  width: 100%;
+  font-size: 0.5rem;
+  width: 30%; }
+
+.thirst-screen {
+  background-color: #373737; }
+  .thirst-screen_header {
+    grid-column: 1/-1;
+    justify-self: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    grid-template-columns: repeat(12, 1fr);
+    height: 7rem; }
+    .thirst-screen_header h2 {
+      text-align: center;
+      padding: 0;
+      font-size: 2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      grid-column: 5/9;
+      position: relative; }
+      .thirst-screen_header h2:after, .thirst-screen_header h2::before {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 20%;
+        background: white;
+        bottom: 13%; }
+      .thirst-screen_header h2:after {
+        right: -25%; }
+      .thirst-screen_header h2::before {
+        left: -25%; }
+    .thirst-screen_header hr {
+      width: 100%;
+      margin: 0;
+      position: absolute;
+      bottom: 15%;
+      background: white;
+      height: 1px;
+      border: none; }
+    .thirst-screen_header .hr-left {
+      left: -105%; }
+    .thirst-screen_header .hr-right {
+      right: -105%; }
 
 @media (max-width: 1199.98px) {
   html {
