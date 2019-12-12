@@ -336,7 +336,7 @@ input
 
 //Первый экран
 .first-screen
-	grid-template-rows: repeat(2, max-content)
+	grid-template-rows: max-content 1fr
 	font-family: $font-1
 	position: relative
 	height: 70vh
@@ -383,7 +383,8 @@ input
 	&_slider
 		grid-column: 4/11
 		grid-template-columns: 1fr
-		padding: 2rem 0
+		align-self: center
+		align-content: center
 		position: relative
 		.show
 			opacity: 1

@@ -427,8 +427,8 @@ input {
       grid-column: 2/3; }
 
 .first-screen {
-  grid-template-rows: repeat(2, -webkit-max-content);
-  grid-template-rows: repeat(2, max-content);
+  grid-template-rows: -webkit-max-content 1fr;
+  grid-template-rows: max-content 1fr;
   font-family: "Geometria", sans-serif;
   position: relative;
   height: 70vh; }
@@ -478,7 +478,10 @@ input {
   .first-screen_slider {
     grid-column: 4/11;
     grid-template-columns: 1fr;
-    padding: 2rem 0;
+    -ms-flex-item-align: center;
+        align-self: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
     position: relative; }
     .first-screen_slider .show {
       opacity: 1;
