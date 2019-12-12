@@ -430,7 +430,8 @@ input {
 .first-screen {
   grid-template-rows: repeat(2, -webkit-max-content);
   grid-template-rows: repeat(2, max-content);
-  font-family: "Geometria", sans-serif; }
+  font-family: "Geometria", sans-serif;
+  position: relative; }
   .first-screen_top {
     padding: 1rem 0;
     grid-row: 1/2;
@@ -476,31 +477,51 @@ input {
           color: #27a043; }
   .first-screen_slider {
     grid-column: 4/10;
-    grid-template-rows: repeat(3, -webkit-max-content);
-    grid-template-rows: repeat(3, max-content);
-    padding: 6rem 0; }
-    .first-screen_slider h1 {
-      font-size: 2.8rem;
-      font-family: "Geometria", sans-serif;
-      font-weight: 700;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
-      grid-row: 1/2;
-      grid-column: 1/-1;
-      text-align: left;
-      padding: 0; }
-    .first-screen_slider .slider-txt {
-      grid-row: 2/3;
-      grid-column: 1/-1;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 2.5rem 0;
-      font-family: "Geometria", sans-serif;
-      max-width: 32rem; }
-    .first-screen_slider .slider-btn {
-      grid-row: 3/4;
-      grid-column: 1/-1;
-      width: 7rem;
-      padding: 0.6rem 1rem; }
+    grid-template-columns: 1fr;
+    padding: 6rem 0;
+    position: relative; }
+    .first-screen_slider .show {
+      opacity: 1;
+      display: grid; }
+    .first-screen_slider-item {
+      grid-column: 1/2;
+      grid-template-rows: repeat(3, -webkit-max-content);
+      grid-template-rows: repeat(3, max-content);
+      opacity: 0;
+      display: none; }
+      .first-screen_slider-item h1 {
+        font-size: 2.8rem;
+        font-family: "Geometria", sans-serif;
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
+        grid-row: 1/2;
+        grid-column: 1/-1;
+        text-align: left;
+        padding: 0; }
+      .first-screen_slider-item .slider-txt {
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 2.5rem 0;
+        font-family: "Geometria", sans-serif;
+        max-width: 32rem; }
+      .first-screen_slider-item .slider-btn {
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        width: 7rem;
+        padding: 0.6rem 1rem; }
+  .first-screen .slider_arrow {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 1rem;
+    cursor: pointer; }
+    .first-screen .slider_arrow-right {
+      right: 10%; }
+    .first-screen .slider_arrow-left {
+      left: 10%; }
 
 .second-block {
   background: #eeeeee;
