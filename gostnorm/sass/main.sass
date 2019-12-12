@@ -129,6 +129,8 @@ input
 	background-attachment: fixed
 	background-repeat: no-repeat
 
+.accent
+	color: $accent-color
 //Кнопка вверх
 #back-top
 	font-size: 20px
@@ -204,15 +206,15 @@ input
 			grid-column: 2/3
 			padding: .3rem 0
 			align-self: center
-		&_location
-			grid-column: 2/5
+		&_logo
+			grid-column: 2/3
 			display: grid
 			grid-template-rows: 1fr
 			grid-template-columns: repeat(2, max-content)
 			img
 				padding-left: 0
 		&_mail
-			grid-column: 5/6
+			grid-column: 3/4
 			display: grid
 			grid-template-rows: 1fr
 			grid-template-columns: repeat(2, max-content)
@@ -223,17 +225,17 @@ input
 			a:hover
 				color: $hover
 		&_phone
-			grid-column: 6/7
+			grid-column: 4/5
 			display: grid
 			grid-template-rows: 1fr
 			grid-template-columns: repeat(2, max-content)
 			border-left: 2px solid $hover
-			justify-self: end
+			justify-self: start
 			a:hover
 				color: $hover
 		&_button
-			grid-column: 7/9
-			justify-self: center
+			grid-column: 5/7
+			justify-self: start
 		&_city
 			grid-column: 10/12
 			justify-self: end
@@ -250,15 +252,13 @@ input
 		grid-row: 2/3
 		padding: 1rem 0
 		align-items: center
-		&_logo
-			grid-column: 2/3
 		&_item
-			grid-column: 3/11
+			grid-column: 2/11
 			font-size: 0.7rem
-			justify-self: center
+			justify-self: start
 			li
 				display: inline-block
-				padding-right: 1rem
+				padding-right: 2rem
 				&:last-child
 					padding-right: 0
 				a:hover
@@ -270,6 +270,7 @@ input
 				.sub-menu
 					position: absolute
 					background: #000
+					z-index: 2
 					left: 0
 					top: 285%
 					border-top: 4px solid $hover
@@ -305,7 +306,6 @@ input
 					width: auto
 					grid-template-columns: repeat(3, max-content)
 					grid-template-rows: repeat(2, max-content)
-					left: -50%
 					&-item-1
 						grid-column: 1/2
 						grid-row: 1/2
@@ -403,5 +403,26 @@ input
 			grid-row: 3/4
 			grid-column: 1/ -1
 			width: 8rem
+
+//Второй блок
+.second-block
+	background: #eeeeee
+	font-family: $font-2
+	padding: 2rem 0
+	align-items: center
+	&_content
+		grid-column: 3/8
+		text-align: left
+		h2
+			font-size: 1.2rem
+			text-align: left
+			padding: 0
+		&-txt
+			font-size: 0.7rem
+			font-weight: 500
+			line-height: 0.9rem
+			padding: 1rem 0
+	img
+		grid-column: 9/11
 
 @import "media"
