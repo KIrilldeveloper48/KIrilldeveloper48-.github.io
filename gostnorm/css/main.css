@@ -648,12 +648,61 @@ input {
       -ms-flex-item-align: end;
           align-self: end;
       height: 2rem; }
+
+.fifth-block {
+  grid-template-rows: repeat(2, -webkit-max-content);
+  grid-template-rows: repeat(2, max-content);
+  padding: 2.5rem 0; }
+  .fifth-block_content {
+    grid-column: 3/11;
+    grid-row: 1/2;
+    padding-bottom: 2rem; }
+    .fifth-block_content h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0;
+      padding-bottom: 1rem; }
+    .fifth-block_content p {
+      padding-bottom: 1rem;
+      font-size: 0.8rem;
+      text-align: center;
+      justify-self: center; }
+    .fifth-block_content-txt-1 {
+      max-width: 33rem;
+      font-weight: 300; }
+    .fifth-block_content-txt-2 {
+      font-weight: 500; }
+  .fifth-block_icons {
+    grid-column: 3/11;
+    grid-row: 2/3;
+    justify-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    grid-template-columns: repeat(auto-fit, 160px);
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2.5rem;
+    -ms-flex-line-pack: center;
+        align-content: center; }
+    .fifth-block_icons img {
+      width: 3rem;
+      justify-self: center;
+      padding-bottom: 0.7rem; }
+    .fifth-block_icons p {
+      text-align: center;
+      height: 2rem;
+      -ms-flex-item-align: end;
+          align-self: end;
+      font-size: 0.6rem;
+      font-weight: 700; }
+    .fifth-block_icons .icons {
+      justify-self: center; }
   @media (max-width: 1199.98px) {
-    .four-block html {
+    .fifth-block html {
       font-size: 16px; } }
   @media (max-width: 991.98px) {
-    .four-block html {
+    .fifth-block html {
       font-size: 14px; } }
   @media (max-width: 575.98px) {
-    .four-block html {
+    .fifth-block html {
       font-size: 12px; } }

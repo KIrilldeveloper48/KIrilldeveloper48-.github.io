@@ -547,4 +547,50 @@ input
 				align-self: end
 				height: 2rem
 
+//Четвёртый блок
+.fifth-block
+	grid-template-rows: repeat(2, max-content)
+	padding: 2.5rem 0
+	&_content
+		grid-column: 3/11
+		grid-row: 1/2
+		padding-bottom: 2rem
+		h2
+			font-size: 1.1rem
+			font-weight: 700
+			padding: 0
+			padding-bottom: 1rem
+		p
+			padding-bottom: 1rem
+			font-size: .8rem
+			text-align: center
+			justify-self: center
+		&-txt-1
+			max-width: 33rem
+			font-weight: 300
+		&-txt-2
+			font-weight: 500
+
+	&_icons
+		grid-column: 3/11
+		grid-row: 2/3
+		justify-items: center
+		justify-content: center
+		grid-template-columns: repeat(auto-fit, 160px)
+		grid-column-gap: 1.5rem
+		grid-row-gap: 2.5rem
+		align-content: center
+		img
+			width: 3rem
+			justify-self: center
+			padding-bottom: 0.7rem
+		p
+			text-align: center
+			height: 2rem
+			align-self: end
+			font-size: 0.6rem
+			font-weight: 700
+		.icons
+			justify-self: center
+
 	@import "media"
