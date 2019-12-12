@@ -214,8 +214,7 @@ input {
 .overlay {
   background: rgba(0, 0, 0, 0.35); }
 
-.bg-1 {
-  background: url(../img/bg-1.jpg) center;
+.bg_0, .bg_1, .bg_2, .bg_3, .bg_4, .bg_5, .bg_6, .bg_7, .bg_8, .bg_9, .bg_10 {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat; }
@@ -431,7 +430,8 @@ input {
   grid-template-rows: repeat(2, -webkit-max-content);
   grid-template-rows: repeat(2, max-content);
   font-family: "Geometria", sans-serif;
-  position: relative; }
+  position: relative;
+  height: 80vh; }
   .first-screen_top {
     padding: 1rem 0;
     grid-row: 1/2;
@@ -490,7 +490,7 @@ input {
       opacity: 0;
       display: none; }
       .first-screen_slider-item h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         font-family: "Geometria", sans-serif;
         font-weight: 700;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
@@ -499,7 +499,7 @@ input {
         text-align: left;
         padding: 0; }
       .first-screen_slider-item h2 {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         font-family: "Geometria", sans-serif;
         font-weight: 700;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
@@ -514,13 +514,15 @@ input {
         font-weight: 500;
         padding: 2.5rem 0;
         font-family: "Geometria", sans-serif;
-        max-width: 32rem; }
+        max-width: 32rem;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.26); }
         .first-screen_slider-item .slider-txt li {
           font-size: 0.7rem;
           text-transform: uppercase;
           font-family: "Geometria", sans-serif;
           color: white;
-          font-weight: 400; }
+          font-weight: 400;
+          text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
         .first-screen_slider-item .slider-txt .hr-white {
           border: none;
           height: 4px;
