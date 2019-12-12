@@ -296,12 +296,13 @@ input {
       -ms-flex-item-align: center;
           align-self: center; }
     .header .top-nav_logo {
-      grid-column: 2/3;
+      grid-column: 2/4;
       display: grid; }
       .header .top-nav_logo img {
-        padding-left: 0; }
+        padding-left: 0;
+        max-width: 8rem; }
     .header .top-nav_mail {
-      grid-column: 3/4;
+      grid-column: 7/8;
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: repeat(2, -webkit-max-content);
@@ -313,7 +314,7 @@ input {
       .header .top-nav_mail a:hover {
         color: #27a043; }
     .header .top-nav_phone {
-      grid-column: 4/5;
+      grid-column: 8/9;
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: repeat(2, -webkit-max-content);
@@ -323,10 +324,10 @@ input {
       .header .top-nav_phone a:hover {
         color: #27a043; }
     .header .top-nav_button {
-      grid-column: 5/7;
+      grid-column: 9/11;
       justify-self: start; }
     .header .top-nav_city {
-      grid-column: 10/12;
+      grid-column: 11/12;
       justify-self: end;
       display: grid;
       grid-template-rows: 1fr;
