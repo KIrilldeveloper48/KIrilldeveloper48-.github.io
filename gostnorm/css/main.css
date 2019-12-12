@@ -297,10 +297,7 @@ input {
           align-self: center; }
     .header .top-nav_logo {
       grid-column: 2/3;
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-template-columns: repeat(2, -webkit-max-content);
-      grid-template-columns: repeat(2, max-content); }
+      display: grid; }
       .header .top-nav_logo img {
         padding-left: 0; }
     .header .top-nav_mail {
