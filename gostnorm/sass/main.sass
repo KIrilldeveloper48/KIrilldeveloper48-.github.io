@@ -412,18 +412,31 @@ input
 	padding: 2rem 0
 	align-items: center
 	&_content
-		grid-column: 3/8
+		grid-column: 4/12
+		grid-template-columns: repeat(2,1fr)
+		grid-template-rows: repeat(3,max-content)
 		text-align: left
+		justify-self: center
 		h2
 			font-size: 1.2rem
 			text-align: left
 			padding: 0
+			grid-column: 1/2
+			grid-row: 1/2
 		&-txt
 			font-size: 0.7rem
 			font-weight: 500
 			line-height: 0.9rem
 			padding: 1rem 0
-	img
-		grid-column: 9/11
+			grid-column: 1/2
+			grid-row: 2/3
+		&-btn
+			grid-column: 1/2
+			grid-row: 3/4
+			width: 7rem
+		img
+			grid-column: 2/3
+			grid-row: 1/4
+			width: 11rem
 
 @import "media"
