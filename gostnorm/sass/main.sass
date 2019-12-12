@@ -269,7 +269,7 @@ input
 				position: relative
 				.sub-menu
 					position: absolute
-					background: #000
+					background: rgba(#232222, .9)
 					z-index: 2
 					left: 0
 					top: 285%
@@ -339,7 +339,8 @@ input
 	grid-template-rows: max-content 1fr
 	font-family: $font-1
 	position: relative
-	height: 70vh
+	min-height: 70vh
+	padding-bottom: 2rem
 	&_top
 		padding: 1rem 0
 		grid-row: 1/2
@@ -488,5 +489,37 @@ input
 			grid-column: 2/3
 			grid-row: 1/4
 			width: 11rem
+
+//Третий блок
+.thirst-block
+	justify-content: center
+	padding: 2rem 0
+	&_icon
+		grid-column: 2/12
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) )
+		align-self: center
+		align-content: center
+		grid-gap: .5rem
+		&-content
+			grid-template-rows: max-content 1fr
+			img
+				width: 3rem
+				justify-self: center
+				display: block
+				padding-bottom: 1rem
+				grid-row: 1/2
+			p
+				text-align: center
+				font-size: 0.6rem
+				font-weight: 500
+				grid-row: 2/3
+				align-self: end
+				height: 2rem
+		.icon-2
+			img
+				width: 3.5rem
+		.icon-4
+			img
+				width: 5rem
 
 @import "media"

@@ -359,7 +359,7 @@ input {
       position: relative; }
       .header .nav-menu_item-1 .sub-menu, .header .nav-menu_item-2 .sub-menu, .header .nav-menu_item-3 .sub-menu, .header .nav-menu_item-4 .sub-menu, .header .nav-menu_item-5 .sub-menu {
         position: absolute;
-        background: #000;
+        background: rgba(35, 34, 34, 0.9);
         z-index: 2;
         left: 0;
         top: 285%;
@@ -431,7 +431,8 @@ input {
   grid-template-rows: max-content 1fr;
   font-family: "Geometria", sans-serif;
   position: relative;
-  height: 70vh; }
+  min-height: 70vh;
+  padding-bottom: 2rem; }
   .first-screen_top {
     padding: 1rem 0;
     grid-row: 1/2;
@@ -589,6 +590,41 @@ input {
       grid-column: 2/3;
       grid-row: 1/4;
       width: 11rem; }
+
+.thirst-block {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem 0; }
+  .thirst-block_icon {
+    grid-column: 2/12;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    -ms-flex-item-align: center;
+        align-self: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    grid-gap: 0.5rem; }
+    .thirst-block_icon-content {
+      grid-template-rows: -webkit-max-content 1fr;
+      grid-template-rows: max-content 1fr; }
+      .thirst-block_icon-content img {
+        width: 3rem;
+        justify-self: center;
+        display: block;
+        padding-bottom: 1rem;
+        grid-row: 1/2; }
+      .thirst-block_icon-content p {
+        text-align: center;
+        font-size: 0.6rem;
+        font-weight: 500;
+        grid-row: 2/3;
+        -ms-flex-item-align: end;
+            align-self: end;
+        height: 2rem; }
+    .thirst-block_icon .icon-2 img {
+      width: 3.5rem; }
+    .thirst-block_icon .icon-4 img {
+      width: 5rem; }
 
 @media (max-width: 1199.98px) {
   html {
