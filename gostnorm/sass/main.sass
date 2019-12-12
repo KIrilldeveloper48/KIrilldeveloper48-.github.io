@@ -185,7 +185,6 @@ input
 	font-family: $font-1
 	.top-nav
 		grid-row: 1/2
-		justify-items: start
 		align-items: center
 		text-align: left
 		padding: .7em 0
@@ -212,29 +211,30 @@ input
 			img
 				padding-left: 0
 				max-width: 8rem
+		&_button
+			grid-column: 7/9
+			justify-self: end
 		&_mail
-			grid-column: 7/8
+			grid-column: 9/10
 			display: grid
 			grid-template-rows: 1fr
 			grid-template-columns: repeat(2, max-content)
 			border-left: 2px solid $hover
+			justify-self: end
 			img
 				width: .8rem
 				padding-top: 0.2rem
 			a:hover
 				color: $hover
 		&_phone
-			grid-column: 8/9
+			grid-column: 10/11
 			display: grid
 			grid-template-rows: 1fr
 			grid-template-columns: repeat(2, max-content)
 			border-left: 2px solid $hover
-			justify-self: start
+			justify-self: end
 			a:hover
 				color: $hover
-		&_button
-			grid-column: 9/11
-			justify-self: start
 		&_city
 			grid-column: 11/12
 			justify-self: end
