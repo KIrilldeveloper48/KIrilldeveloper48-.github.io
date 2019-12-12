@@ -431,7 +431,7 @@ input {
   grid-template-rows: repeat(2, max-content);
   font-family: "Geometria", sans-serif;
   position: relative;
-  height: 80vh; }
+  height: 70vh; }
   .first-screen_top {
     padding: 1rem 0;
     grid-row: 1/2;
@@ -478,7 +478,7 @@ input {
   .first-screen_slider {
     grid-column: 4/11;
     grid-template-columns: 1fr;
-    padding: 6rem 0;
+    padding: 2rem 0;
     position: relative; }
     .first-screen_slider .show {
       opacity: 1;
