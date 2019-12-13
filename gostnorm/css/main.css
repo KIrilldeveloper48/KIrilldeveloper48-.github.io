@@ -539,7 +539,7 @@ input {
       -ms-flex-align: center;
           align-items: center; }
   .second-block_content {
-    grid-column: 4/12;
+    grid-column: 2/12;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, -webkit-max-content);
     grid-template-rows: repeat(3, max-content);
@@ -565,12 +565,13 @@ input {
     .second-block_content img {
       grid-column: 2/3;
       grid-row: 1/4;
-      width: 11rem; }
+      width: 11rem;
+      justify-self: end; }
 
 .thirst-block {
   padding: 2rem 0; }
   .thirst-block_icon {
-    grid-column: 3/11;
+    grid-column: 2/12;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     -ms-flex-item-align: center;
         align-self: center;
@@ -605,7 +606,7 @@ input {
   background-attachment: fixed;
   background-repeat: no-repeat; }
   .four-block_numbers {
-    grid-column: 3/11;
+    grid-column: 2/12;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 2rem;
     -ms-flex-item-align: center;

@@ -444,7 +444,7 @@ input
 	padding: 2rem 0
 	align-items: center
 	&_content
-		grid-column: 4/12
+		grid-column: 2/12
 		grid-template-columns: repeat(2,1fr)
 		grid-template-rows: repeat(3,max-content)
 		text-align: left
@@ -470,12 +470,13 @@ input
 			grid-column: 2/3
 			grid-row: 1/4
 			width: 11rem
+			justify-self: end
 
 //Третий блок
 .thirst-block
 	padding: 2rem 0
 	&_icon
-		grid-column: 3/11
+		grid-column: 2/12
 		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) )
 		align-self: center
 		grid-gap: .5rem
@@ -509,7 +510,7 @@ input
 	background-attachment: fixed
 	background-repeat: no-repeat
 	&_numbers
-		grid-column: 3/11
+		grid-column: 2/12
 		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr) )
 		grid-gap: 2rem
 		align-self: center
