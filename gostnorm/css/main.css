@@ -879,12 +879,70 @@ input {
           left: 50%;
           -webkit-transform: translateX(-50%);
                   transform: translateX(-50%); }
+
+.ninth-block {
+  padding: 2.5rem 0;
+  grid-template-rows: reepat(2, -webkit-max-content);
+  grid-template-rows: reepat(2, max-content);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .ninth-block_txt {
+    grid-column: 2/12;
+    grid-row: 1/2;
+    padding-bottom: 1.5rem; }
+    .ninth-block_txt h2 {
+      font-size: 1.1rem;
+      text-align: center;
+      font-weight: 700;
+      padding-bottom: 2.5rem; }
+  .ninth-block_link {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase; }
+    .ninth-block_link:hover {
+      color: #27a043; }
+  .ninth-block .active {
+    color: #27a043;
+    border-bottom: 3px solid #27a043; }
+  .ninth-block_news {
+    grid-column: 2/12;
+    grid-row: 2/3;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-column-gap: 5%;
+    grid-row-gap: 2rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    display: none; }
+    .ninth-block_news-card a {
+      margin-bottom: 1rem;
+      -webkit-box-shadow: 0 0 20px rgba(0, 1, 1, 0.2);
+              box-shadow: 0 0 20px rgba(0, 1, 1, 0.2);
+      border-radius: 25px; }
+    .ninth-block_news-card:hover a {
+      -webkit-box-shadow: 0 0 20px rgba(0, 162, 52, 0.6);
+              box-shadow: 0 0 20px rgba(0, 162, 52, 0.6); }
+    .ninth-block_news-card:hover p {
+      color: #27a043; }
+    .ninth-block_news-card img {
+      height: 100%; }
+    .ninth-block_news-card p {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer; }
+    .ninth-block_news-active {
+      display: grid; }
   @media (max-width: 1199.98px) {
-    .eighth-block html {
+    .ninth-block html {
       font-size: 16px; } }
   @media (max-width: 991.98px) {
-    .eighth-block html {
+    .ninth-block html {
       font-size: 14px; } }
   @media (max-width: 575.98px) {
-    .eighth-block html {
+    .ninth-block html {
       font-size: 12px; } }

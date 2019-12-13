@@ -768,4 +768,59 @@ input
 					left: 50%
 					transform: translateX(-50%)
 
+//Блок новостей
+.ninth-block
+	padding: 2.5rem 0
+	grid-template-rows: reepat(2,max-content)
+	justify-content: center
+	&_txt
+		grid-column: 2/12
+		grid-row: 1/2
+		padding-bottom: 1.5rem
+		h2
+			font-size: 1.1rem
+			text-align: center
+			font-weight: 700
+			padding-bottom: 2.5rem
+	&_link
+		display: inline-block
+		font-size: 0.9rem
+		font-weight: 700
+		margin-right: 0.5rem
+		cursor: pointer
+		text-transform: uppercase
+		&:hover
+			color: $hover
+	.active
+		color: $hover
+		border-bottom: 3px solid $hover
+
+	&_news
+		grid-column: 2/12
+		grid-row: 2/3
+		grid-template-columns: repeat(auto-fill, 220px)
+		grid-column-gap: 5%
+		grid-row-gap: 2rem
+		justify-content: space-between
+		display: none
+		&-card
+			a
+				margin-bottom: 1rem
+				box-shadow: 0 0 20px rgba(0, 1, 1, 0.2)
+				border-radius: 25px
+			&:hover
+				a
+					box-shadow: 0 0 20px rgba(0, 162, 52, 0.6)
+				p
+					color: $hover
+			img
+				height: 100%
+			p
+				text-align: center
+				font-size: 0.8rem
+				font-weight: 500
+				cursor: pointer
+		&-active
+			display: grid
+
 	@import "media"

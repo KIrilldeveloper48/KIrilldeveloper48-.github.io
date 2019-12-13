@@ -69,6 +69,31 @@ function click_item(n) {
   $("#sub-menu-" + n).toggleClass("sub-menu_active");
 }
 
+var card = document.querySelectorAll(".ninth-block_news");
+var link = document.querySelectorAll(".ninth-block_link");
+// прячем все подменю
+function news_off(n) {
+  card.forEach(el => {
+    if (el.id != "news-" + n) {
+      el.classList.remove("ninth-block_news-active");
+    }
+  });
+}
+function link_off(n) {
+  link.forEach(el => {
+    if (el.id != "link-news-" + n) {
+      el.classList.remove("active");
+    }
+  });
+}
+// переключаем видимость подменю по клику
+function click_news(n) {
+  news_off(n);
+  $("#news-" + n).addClass("ninth-block_news-active");
+  link_off(n);
+  $("#link-news-" + n).addClass("active");
+}
+
 /*
 $("#nav-menu_item-1").click(function() {
   sub_menu_off();
