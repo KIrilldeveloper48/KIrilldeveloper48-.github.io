@@ -47,25 +47,6 @@ h6
 	letter-spacing: 1px
 	color: $txt-color
 
-h1
-	font-size: 3.6rem
-	padding-top: 3rem
-	padding-bottom: 1.5rem
-h2
-	font-size: 3.1rem
-	padding-top: 2.5rem
-	padding-bottom: 1.25rem
-h3
-	font-size: 2.6rem
-	padding-top: 2rem
-	padding-bottom: 1rem
-h4
-	font-size: 2.1rem
-h5
-	font-size: 1.6rem
-h6
-	font-size: 1.1rem
-
 input
 	cursor: pointer
 	&:invalid
@@ -547,7 +528,7 @@ input
 				align-self: end
 				height: 2rem
 
-//Четвёртый блок
+//Пятый блок
 .fifth-block
 	grid-template-rows: repeat(2, max-content)
 	padding: 2.5rem 0
@@ -593,4 +574,90 @@ input
 		.icons
 			justify-self: center
 
+//Шестой блок
+.sixth-block
+	background: #eeeeee
+	grid-template-rows: max-content 1fr max-content
+	padding: 1rem 0
+	h2
+		font-size: 1.2rem
+		font-weight: 700
+		text-align: center
+		grid-row: 1/2
+		grid-column: 2/12
+		padding-bottom: 2.5rem
+	&_content
+		position: relative
+		grid-row: 2/3
+		max-width: 12rem
+		justify-self: center
+		grid-template-columns: 2rem repeat
+		&-1
+			grid-column: 2/4
+		&-2
+			grid-column: 4/6
+		&-3
+			grid-column: 6/8
+		&-4
+			grid-column: 8/10
+		&-5
+			grid-column: 10/12
+		&_img
+			width: 10rem
+			height: 10rem
+			border: 3px solid $accent-color
+			border-radius: 7px
+			position: relative
+			z-index: 2
+			justify-self: center
+		img
+			max-width: 5rem
+			display: inline-block
+			align-self: center
+			justify-self: center
+			position: relative
+			z-index: 2
+		p
+			font-size: 0.9rem
+			font-weight: 600
+			text-align: center
+			padding-top: 0.8rem
+			position: relative
+			z-index: 2
+			align-self: start
+			height: 2rem
+		&-line
+			width: 100%
+			max-width: 15rem
+			img
+				border: none
+				width: 100%
+				padding: 0
+				max-width: 15rem
+
+		.signature
+			font-size: 0.7rem
+			font-weight: 300
+			text-align: center
+			padding-top: 0.5rem
+			position: relative
+			z-index: 2
+			color: $txt-color
+		&_number
+			position: absolute
+			top: -30%
+			left: -10%
+			font-size: 10rem
+			z-index: 0
+			color: #e6e6e6
+			font-weight: 700
+
+	&_btn
+		grid-row: 3/4
+		grid-column: 2/12
+		width: 7rem
+		justify-self: center
+		margin-top: 2rem
+
+//Седьмой блок
 	@import "media"
