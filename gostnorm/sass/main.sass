@@ -661,4 +661,46 @@ input
 		margin-top: 2rem
 
 //Седьмой блок
+.seventh-block
+	padding: 2.5rem 0
+	&_content
+		grid-column: 3/11
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) )
+		grid-column-gap: 8%
+		grid-row-gap: 2.5rem
+		&-card
+			position: relative
+			text-align: left
+			align-content: baseline
+			h3
+				font-size: 0.9rem
+				color: #00408d
+				padding-bottom: 1rem
+				padding-top: 2rem
+				padding-left: 1rem
+				padding-right: 1rem
+				font-weight: 500
+				text-align: left
+			ul
+				padding-left: 1rem
+				align-self: start
+				padding-bottom: 2.5rem
+				padding-right: 1rem
+				li
+					display: block
+					padding-bottom: 0.7rem
+					a
+						color: #00408d
+						font-size: 0.6rem
+						font-weight: 500
+						cursor: pointer
+						&:hover
+							color: $hover
+			img
+				position: absolute
+				top: 0
+				left: 0
+				z-index: -1
+				height: 100%
+
 	@import "media"
