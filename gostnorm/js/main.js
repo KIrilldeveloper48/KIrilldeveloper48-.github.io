@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $(".tenth-block_slider-item").slick({
     infinite: true,
     slidesToShow: 5,
@@ -8,25 +8,23 @@ $(document).ready(function() {
     autoplay: false,
     autoplaySpeed: 2000,
     appendArrows: $(".slider-arrow"),
-    prevArrow:
-      '<button id="prev" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
-    nextArrow:
-      '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>'
+    prevArrow: '<button id="prev" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
+    nextArrow: '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>'
   });
 
   // On swipe event
-  $(".tenth-block_slider-item").on("swipe", function(event, slick, direction) {
+  $(".tenth-block_slider-item").on("swipe", function (event, slick, direction) {
     console.log(direction);
     // left
   });
 
   // On edge hit
-  $(".tenth-block_slider-item").on("edge", function(event, slick, direction) {
+  $(".tenth-block_slider-item").on("edge", function (event, slick, direction) {
     console.log("edge was hit");
   });
 
   // On before slide change
-  $(".tenth-block_slider-item").on("beforeChange", function(
+  $(".tenth-block_slider-item").on("beforeChange", function (
     event,
     slick,
     currentSlide,
@@ -83,10 +81,10 @@ function goToSlide(n) {
 var next = document.getElementById("next");
 var previous = document.getElementById("back");
 
-next.onclick = function() {
+next.onclick = function () {
   nextSlide();
 };
-previous.onclick = function() {
+previous.onclick = function () {
   previousSlide();
 };
 
@@ -118,6 +116,7 @@ function news_off(n) {
     }
   });
 }
+
 function link_off(n) {
   link.forEach(el => {
     if (el.id != "link-news-" + n) {
@@ -156,21 +155,19 @@ function click_content(n) {
 // массив слайдов(тексты)
 var faqslides = document.querySelectorAll("#faq-slides .faq-content_txt");
 var faqcurrentSlide = 0;
-// автопрокрутка
-var faqslideInterval = setInterval(nextSlide, 20000);
 
 // следующий слайд
-function nextSlide() {
-  goToSlide(faqcurrentSlide + 1);
+function nextSlide1() {
+  goToSlide1(faqcurrentSlide + 1);
 }
 
 // предыдущий слайд
-function previousSlide() {
-  goToSlide(faqcurrentSlide - 1);
+function previousSlide1() {
+  goToSlide1(faqcurrentSlide - 1);
 }
 
 // переключение на слайд n
-function goToSlide(n) {
+function goToSlide1(n) {
   // прячем текущий слайд
   faqslides[faqcurrentSlide].className = "faq-content_txt";
   // номер слайда для отображения
@@ -183,12 +180,17 @@ function goToSlide(n) {
 var faqnext = document.getElementById("faq-next");
 var faqprevious = document.getElementById("faq-back");
 
-faqnext.onclick = function() {
-  nextSlide();
+faqnext.onclick = function () {
+  nextSlide1();
 };
-faqprevious.onclick = function() {
-  previousSlide();
+faqprevious.onclick = function () {
+  previousSlide1();
 };
+
+
+document.getElementById("clearButton").onclick = function (e) {
+  document.getElementById("textInput").value = "";
+}
 
 /*
 $("#nav-menu_item-1").click(function() {

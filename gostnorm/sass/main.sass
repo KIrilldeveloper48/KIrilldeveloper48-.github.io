@@ -937,7 +937,6 @@ input
 					transition: $time
 		&-btn
 			text-align: center
-			padding-top: 3rem
 			grid-column: 1/2
 			grid-row: 2/3
 			.button-fill
@@ -957,5 +956,51 @@ input
 					top: 50%
 					left: 50%
 					transform: translate(-50%,-50%)
+
+		&_form
+			grid-column: 2/3
+			grid-row: 1/2
+			justify-content: center
+			align-content: center
+			img
+				width: 8rem
+				justify-self: center
+			h3
+				font-size: 1.2rem
+				font-weight: 800
+				font-family: $font-1
+				padding-top: 1rem
+			p
+				font-size: 0.6rem
+				font-weight: 500
+				font-family: $font-1
+				color: #b5b5b5
+				padding-top: 0.5rem
+				padding-bottom: 1rem
+			form
+				margin-bottom: 1.5rem
+				position: relative
+				input
+					border: 2px solid #e2e8eb
+					border-radius: 7px
+					font-family: $font-1
+					font-size: 0.6rem
+					font-weight: 500
+					padding-left: 1rem
+					color: #cac8c8
+					height: 1.5rem
+					width: 92%
+				img
+					position: absolute
+					top: 50%
+					right: 5%
+					width: 0.4rem
+					cursor: pointer
+					transform: translateY(-50%)
+			.button-fill
+				width: 6rem
+				height: 1.5rem
+				padding: 0
+				justify-self: center
 
 		@import "media"
