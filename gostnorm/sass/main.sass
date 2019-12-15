@@ -876,7 +876,6 @@ input
 				border-radius: 10px
 				padding: 1rem 1.5rem
 				padding-right: 2.5rem
-				background: gray
 				margin-bottom: 1rem
 			&-card
 				position: relative
@@ -890,7 +889,7 @@ input
 					right: -5%
 					width: 1rem
 					height: 1rem
-					display: none
+					background: $hover
 				.card-open
 					border-radius: 100px
 					img
@@ -900,14 +899,16 @@ input
 						left: 50%
 						transform: translate(-50%,-50%)
 				.btn-active
-					background: $hover
-					display: block
+					background: url(../img/faq/close.png)
+					img
+						display: none
 
 				&_content
 					position: relative
 					padding-bottom: 1rem
 					transform: scaleY(0)
 					display: none
+					transition: $time
 					p
 						padding-top: 0.7rem
 						font-size: 0.6rem
@@ -928,5 +929,6 @@ input
 				.content-active
 					transform: scaleY(1)
 					display: block
+					transition: $time
 
 	@import "media"

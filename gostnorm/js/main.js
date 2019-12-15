@@ -107,6 +107,7 @@ function click_item(n) {
   $("#sub-menu-" + n).toggleClass("sub-menu_active");
 }
 
+// Новости
 var card = document.querySelectorAll(".ninth-block_news");
 var link = document.querySelectorAll(".ninth-block_link");
 // прячем все подменю
@@ -132,6 +133,24 @@ function click_news(n) {
   $("#link-news-" + n).addClass("active");
 }
 
+// FAQ
+var wrapper = document.querySelectorAll(".faq-content_txt_wrapper");
+var btn = document.querySelectorAll(".card-btn");
+// прячем все подменю
+function content_off(n) {
+  wrapper.forEach(el => {
+    if (el.id != "card-content-" + n) {
+      el.classList.remove("content-active");
+    }
+  });
+}
+
+// переключаем видимость подменю по клику
+function click_content(n) {
+  content_off(n);
+  $("#card-content-" + n).toggleClass("content-active");
+  $("#card-open-" + n).toggleClass("btn-active");
+}
 /*
 $("#nav-menu_item-1").click(function() {
   sub_menu_off();
