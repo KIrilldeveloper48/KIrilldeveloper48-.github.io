@@ -868,9 +868,11 @@ input
 		grid-column: 2/12
 		grid-row: 2/3
 		grid-template-columns: 1fr 1fr
+		grid-template-row: repeat(2,max-content)
 		padding-top: 5rem
 		&_txt
 			grid-column: 1/2
+			grid-row: 1/2
 			display: none
 			&-show
 				display: block
@@ -936,6 +938,8 @@ input
 		&-btn
 			text-align: center
 			padding-top: 3rem
+			grid-column: 1/2
+			grid-row: 2/3
 			.button-fill
 				width: 1.2rem
 				height: 1.2rem

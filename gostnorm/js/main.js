@@ -154,55 +154,39 @@ function click_content(n) {
 
 // СЛАЙДЕР
 // массив слайдов(тексты)
-var slides = document.querySelectorAll("#slides .first-screen_slider-item");
-// массив элементов с картинкой-слайдом в качестве фона
-var bgs = document.querySelectorAll(".slider-bg");
-// текущие значения номера слайда и класса для фона
-var currentSlide = 0;
-var currentbg = "bg_0";
+var faqslides = document.querySelectorAll("#faq-slides .faq-content_txt");
+var faqcurrentSlide = 0;
 // автопрокрутка
-var slideInterval = setInterval(nextSlide, 20000);
+var faqslideInterval = setInterval(nextSlide, 20000);
 
 // следующий слайд
 function nextSlide() {
-  goToSlide(currentSlide + 1);
+  goToSlide(faqcurrentSlide + 1);
 }
 
 // предыдущий слайд
 function previousSlide() {
-  goToSlide(currentSlide - 1);
+  goToSlide(faqcurrentSlide - 1);
 }
 
 // переключение на слайд n
 function goToSlide(n) {
   // прячем текущий слайд
-  slides[currentSlide].className = "first-screen_slider-item";
+  faqslides[faqcurrentSlide].className = "faq-content_txt";
   // номер слайда для отображения
-  currentSlide = (n + slides.length) % slides.length;
+  faqcurrentSlide = (n + faqslides.length) % faqslides.length;
   // показываем новый слайд
-  slides[currentSlide].className = "first-screen_slider-item show";
-  // класс для нового фона
-  var newbg = "bg_" + currentSlide;
-
-  // для всех элементов с фоновой картинкой-слайдом:
-  bgs.forEach(el => {
-    // убираем класс  текущего фона
-    el.classList.remove(currentbg);
-    // добавляем класс нового фона
-    el.classList.add(newbg);
-  });
-  // новый фон стал текуцщим
-  currentbg = newbg;
+  faqslides[faqcurrentSlide].className = "faq-content_txt faq-content_txt-show";
 }
 
 // кнопки для переключения слайдов
-var next = document.getElementById("next");
-var previous = document.getElementById("back");
+var faqnext = document.getElementById("faq-next");
+var faqprevious = document.getElementById("faq-back");
 
-next.onclick = function() {
+faqnext.onclick = function() {
   nextSlide();
 };
-previous.onclick = function() {
+faqprevious.onclick = function() {
   previousSlide();
 };
 
