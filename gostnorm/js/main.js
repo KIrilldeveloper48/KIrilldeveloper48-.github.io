@@ -1,3 +1,41 @@
+$(document).ready(function() {
+  $(".tenth-block_slider-item").slick({
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "40px",
+    autoplay: false,
+    autoplaySpeed: 2000,
+    appendArrows: $(".slider-arrow"),
+    prevArrow:
+      '<button id="prev" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
+    nextArrow:
+      '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>'
+  });
+
+  // On swipe event
+  $(".tenth-block_slider-item").on("swipe", function(event, slick, direction) {
+    console.log(direction);
+    // left
+  });
+
+  // On edge hit
+  $(".tenth-block_slider-item").on("edge", function(event, slick, direction) {
+    console.log("edge was hit");
+  });
+
+  // On before slide change
+  $(".tenth-block_slider-item").on("beforeChange", function(
+    event,
+    slick,
+    currentSlide,
+    nextSlide
+  ) {
+    console.log(nextSlide);
+  });
+});
+
 // СЛАЙДЕР
 // массив слайдов(тексты)
 var slides = document.querySelectorAll("#slides .first-screen_slider-item");

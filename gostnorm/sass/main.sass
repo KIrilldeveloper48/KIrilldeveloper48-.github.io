@@ -823,4 +823,34 @@ input
 		&-active
 			display: grid
 
+//Блок новостей
+.tenth-block
+	padding: 1.5rem 8rem
+	h2
+		grid-column: 2/12
+		padding-bottom: 2rem
+	&_slider
+		position: relative
+		img
+			width: 80%
+		.slick-center
+			img
+				width: 100%
+		.slider-item
+			width: 100%
+			text-align: center
+			display: inline-block
+			img
+				text-align: center
+				display: inline-block
+	.slider-btn
+		background: transparent
+		position: absolute
+		border: none
+		top: 10%
+		cursor: pointer
+		&_prev
+			left: -5%
+		&_next
+			right: -5%
 	@import "media"
