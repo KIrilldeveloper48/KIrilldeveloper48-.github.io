@@ -853,4 +853,80 @@ input
 			left: -5%
 		&_next
 			right: -5%
+
+//FAQ
+.faq
+	grid-template-rows: repeat(2, max-content)
+	padding: 2.5rem 0
+	h2
+		grid-row: 1/2
+		grid-column: 2/12
+		font-size: 1.1rem
+		font-weight: 700
+		text-align: center
+	&-content
+		grid-column: 2/12
+		grid-row: 2/3
+		grid-template-columns: 1fr 1fr
+		padding-top: 5rem
+		&_txt
+			grid-column: 1/2
+			&_wrapper
+				box-shadow: 0 0 35px rgba(0, 0, 0, 0.03)
+				border-radius: 10px
+				padding: 1rem 1.5rem
+				padding-right: 2.5rem
+				background: gray
+				margin-bottom: 1rem
+			&-card
+				position: relative
+				h3
+					font-size: 0.7rem
+					font-weight: 700
+					text-align: left
+				.card-btn
+					position: absolute
+					top: 0
+					right: -5%
+					width: 1rem
+					height: 1rem
+					display: none
+				.card-open
+					border-radius: 100px
+					img
+						width: 0.5rem
+						position: absolute
+						top: 50%
+						left: 50%
+						transform: translate(-50%,-50%)
+				.btn-active
+					background: $hover
+					display: block
+
+				&_content
+					position: relative
+					padding-bottom: 1rem
+					transform: scaleY(0)
+					display: none
+					p
+						padding-top: 0.7rem
+						font-size: 0.6rem
+						font-weight: 500
+						font-family: $font-1
+					.card-view
+						font-size: 0.6rem
+						font-weight: 500
+						position: absolute
+						bottom: -7%
+						right: 0%
+						color: #a8a7a7
+					img
+						position: absolute
+						bottom: -5%
+						right: -5%
+						width: 1rem
+				.content-active
+					transform: scaleY(1)
+					display: block
+
 	@import "media"
