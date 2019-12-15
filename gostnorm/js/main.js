@@ -151,6 +151,61 @@ function click_content(n) {
   $("#card-content-" + n).toggleClass("content-active");
   $("#card-open-" + n).toggleClass("btn-active");
 }
+
+// СЛАЙДЕР
+// массив слайдов(тексты)
+var slides = document.querySelectorAll("#slides .first-screen_slider-item");
+// массив элементов с картинкой-слайдом в качестве фона
+var bgs = document.querySelectorAll(".slider-bg");
+// текущие значения номера слайда и класса для фона
+var currentSlide = 0;
+var currentbg = "bg_0";
+// автопрокрутка
+var slideInterval = setInterval(nextSlide, 20000);
+
+// следующий слайд
+function nextSlide() {
+  goToSlide(currentSlide + 1);
+}
+
+// предыдущий слайд
+function previousSlide() {
+  goToSlide(currentSlide - 1);
+}
+
+// переключение на слайд n
+function goToSlide(n) {
+  // прячем текущий слайд
+  slides[currentSlide].className = "first-screen_slider-item";
+  // номер слайда для отображения
+  currentSlide = (n + slides.length) % slides.length;
+  // показываем новый слайд
+  slides[currentSlide].className = "first-screen_slider-item show";
+  // класс для нового фона
+  var newbg = "bg_" + currentSlide;
+
+  // для всех элементов с фоновой картинкой-слайдом:
+  bgs.forEach(el => {
+    // убираем класс  текущего фона
+    el.classList.remove(currentbg);
+    // добавляем класс нового фона
+    el.classList.add(newbg);
+  });
+  // новый фон стал текуцщим
+  currentbg = newbg;
+}
+
+// кнопки для переключения слайдов
+var next = document.getElementById("next");
+var previous = document.getElementById("back");
+
+next.onclick = function() {
+  nextSlide();
+};
+previous.onclick = function() {
+  previousSlide();
+};
+
 /*
 $("#nav-menu_item-1").click(function() {
   sub_menu_off();

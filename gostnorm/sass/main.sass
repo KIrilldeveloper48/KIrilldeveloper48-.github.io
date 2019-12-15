@@ -871,6 +871,9 @@ input
 		padding-top: 5rem
 		&_txt
 			grid-column: 1/2
+			display: none
+			&-show
+				display: block
 			&_wrapper
 				box-shadow: 0 0 35px rgba(0, 0, 0, 0.03)
 				border-radius: 10px
@@ -930,5 +933,25 @@ input
 					transform: scaleY(1)
 					display: block
 					transition: $time
+		&-btn
+			text-align: center
+			padding-top: 3rem
+			.button-fill
+				width: 1.2rem
+				height: 1.2rem
+				padding: 0
+				border-radius: 100px
+				display: inline-block
+				text-align: center
+				margin-left: 2rem
+				position: relative
+				&:first-child
+					margin-left: 0
+				img
+					width: 0.3rem
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%,-50%)
 
-	@import "media"
+		@import "media"
