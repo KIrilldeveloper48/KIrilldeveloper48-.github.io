@@ -42,7 +42,13 @@ $(document).ready(function() {
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: false,
-    autoplaySpeed: 2000
+    autoplaySpeed: 2000,
+    appendArrows: $(".slider-arrow-2"),
+    prevArrow:
+      '<button id="prev1" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
+    nextArrow:
+      '<button id="next1" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>',
+    dots: true
   });
 });
 // СЛАЙДЕР

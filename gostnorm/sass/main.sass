@@ -823,7 +823,7 @@ input
 		&-active
 			display: grid
 
-//Блок новостей
+//Клиенты
 .tenth-block
 	padding: 1.5rem 8rem
 	h2
@@ -1005,10 +1005,22 @@ input
 
 //Review
 .review
-	padding: 2.5rem 3rem
+	padding: 2.5rem 8rem
+
 	.slick-list
 		padding: 2rem 0
 	&-slider
+		position: relative
+		.slider-btn
+			background: transparent
+			position: absolute
+			border: none
+			top: 50%
+			cursor: pointer
+			&_prev
+				left: -3%
+			&_next
+				right: -3%
 	h2
 		font-size: 1.1rem
 		font-weight: 700
@@ -1058,5 +1070,11 @@ input
 			left: 1.5rem
 			top: -20%
 			z-index: 3
+	.slick-dots li button::before
+		font-size: 20px
+
+	.slick-dots li.slick-active button::before
+		font-size: 30px
+		color: $hover
 
 		@import "media"

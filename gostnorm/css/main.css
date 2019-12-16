@@ -1126,9 +1126,21 @@ input {
         justify-self: center; }
 
 .review {
-  padding: 2.5rem 3rem; }
+  padding: 2.5rem 8rem; }
   .review .slick-list {
     padding: 2rem 0; }
+  .review-slider {
+    position: relative; }
+    .review-slider .slider-btn {
+      background: transparent;
+      position: absolute;
+      border: none;
+      top: 50%;
+      cursor: pointer; }
+      .review-slider .slider-btn_prev {
+        left: -3%; }
+      .review-slider .slider-btn_next {
+        right: -3%; }
   .review h2 {
     font-size: 1.1rem;
     font-weight: 700;
@@ -1179,12 +1191,17 @@ input {
       left: 1.5rem;
       top: -20%;
       z-index: 3; }
+  .review .slick-dots li button::before {
+    font-size: 20px; }
+  .review .slick-dots li.slick-active button::before {
+    font-size: 30px;
+    color: #27a043; }
     @media (max-width: 1199.98px) {
-      .review-slider-item html {
+      .review .slick-dots li.slick-active button::before html {
         font-size: 16px; } }
     @media (max-width: 991.98px) {
-      .review-slider-item html {
+      .review .slick-dots li.slick-active button::before html {
         font-size: 14px; } }
     @media (max-width: 575.98px) {
-      .review-slider-item html {
+      .review .slick-dots li.slick-active button::before html {
         font-size: 12px; } }
