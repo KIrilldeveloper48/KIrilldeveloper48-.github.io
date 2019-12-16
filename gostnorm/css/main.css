@@ -1124,12 +1124,67 @@ input {
         height: 1.5rem;
         padding: 0;
         justify-self: center; }
+
+.review {
+  padding: 2.5rem 3rem; }
+  .review .slick-list {
+    padding: 2rem 0; }
+  .review h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding-bottom: 2.5rem; }
+  .review-slider-item {
+    -webkit-box-shadow: 0 0 24px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 0 24px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    position: relative;
+    padding: 0.7rem 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem; }
+    .review-slider-item h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: "Geometria", sans-serif;
+      padding-bottom: 1.5rem;
+      text-align: right; }
+    .review-slider-item p {
+      font-size: 0.7rem;
+      font-weight: 400;
+      font-family: "Geometria", sans-serif;
+      color: #a8a7a7;
+      padding-bottom: 0.7rem; }
+    .review-slider-item hr {
+      margin: 0;
+      margin-bottom: 0.7rem;
+      background: #27a043;
+      border: none;
+      height: 2px;
+      width: 2.5rem; }
+    .review-slider-item .slider-link {
+      width: 100%;
+      text-align: right; }
+    .review-slider-item a {
+      font-size: 0.6rem;
+      font-family: "Geometria", sans-serif;
+      font-weight: 700;
+      color: #a8a7a7;
+      text-align: right;
+      display: inline-block; }
+      .review-slider-item a:hover {
+        color: #27a043; }
+    .review-slider-item img {
+      width: 4rem;
+      height: 4rem;
+      position: absolute;
+      left: 1.5rem;
+      top: -20%;
+      z-index: 3; }
     @media (max-width: 1199.98px) {
-      .faq-content html {
+      .review-slider-item html {
         font-size: 16px; } }
     @media (max-width: 991.98px) {
-      .faq-content html {
+      .review-slider-item html {
         font-size: 14px; } }
     @media (max-width: 575.98px) {
-      .faq-content html {
+      .review-slider-item html {
         font-size: 12px; } }
