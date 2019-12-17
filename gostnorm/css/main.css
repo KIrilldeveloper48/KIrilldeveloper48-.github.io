@@ -1432,7 +1432,49 @@ input {
     grid-template-columns: repeat(auto-fill, 150px); } }
 @media (max-width: 991.98px) {
   html {
-    font-size: 14px; } }
+    font-size: 14px; }
+
+  .container {
+    grid-template-columns: 1rem repeat(10, 1fr) 1rem; }
+
+  .header .top-nav_button {
+    grid-column: 6/9; }
+
+  .first-screen_top_search {
+    grid-column: 2/6; }
+
+  .first-screen_slider-item {
+    grid-column: 1/-1; }
+
+  .header .nav-menu_item-1 .sub-menu-item-3 {
+    grid-column: 3/4;
+    grid-row: 2/4; }
+
+  .header .nav-menu_item-1 .sub-menu-item-5 {
+    margin-top: 1rem;
+    grid-column: 1/2;
+    grid-row: 3/4; }
+
+  .block-form_img {
+    display: none; }
+
+  .block-form_form {
+    grid-column: 3/11; }
+
+  .seventh-block_content {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+  .eighth-block_content {
+    grid-template-columns: repeat(auto-fill, 350px); }
+
+  .ninth-block_news {
+    grid-template-columns: repeat(auto-fill, 200px); }
+
+  .faq-content_txt-card_content .card-view {
+    right: 2%; } }
+@media (max-width: 767.98px) {
+  html {
+    font-size: 13px; } }
 @media (max-width: 575.98px) {
   html {
     font-size: 12px; } }

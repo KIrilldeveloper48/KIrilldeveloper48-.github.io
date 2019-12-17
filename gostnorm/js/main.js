@@ -9,7 +9,15 @@ $(document).ready(function () {
     autoplaySpeed: 2000,
     appendArrows: $(".slider-arrow"),
     prevArrow: '<button id="prev" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
-    nextArrow: '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>'
+    nextArrow: '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>',
+    responsive: [{
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    }]
   });
 
   // On swipe event
@@ -44,7 +52,15 @@ $(document).ready(function () {
     appendArrows: $(".slider-arrow-2"),
     prevArrow: '<button id="prev1" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
     nextArrow: '<button id="next1" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>',
-    dots: true
+    dots: true,
+    responsive: [{
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+      }
+    }]
   });
 });
 // СЛАЙДЕР
