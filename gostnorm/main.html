@@ -636,6 +636,7 @@
     <img src="img/block-form/call_center2.png" alt="">
   </div>
 </section>
+<!--block-form-->
 
   <section class="seventh-block container grid">
     <div class="seventh-block_content grid">
@@ -1166,10 +1167,43 @@
       </div>
     </div>
   </footer>
-  <!--Кнопка Вверх-->
-  <div onclick="return up()" id="back-top" hidden>
-    <div></div>
+
+  <div id="modal" class="modal-search_wrapper" hidden>
+    <div class="modal-search_content">
+      <h3>Не нашли что искали?</h3>
+      <img id="modal-close" src="img/modal/close.png" alt="" class="close" onclick="closeModal()">
+      <form class="grid" action="">
+        <div class="doc">
+          <p>Какой документ Вам нужен?</p>
+          <select  name="" id="">
+            <option value="">пункт-1</option>
+            <option value="">пункт-2</option>
+          </select>
+        </div>
+
+        <div class="term">
+          <p>Срок?</p>
+          <select class="term" name="" id="">
+            <option value="">пункт-1</option>
+            <option value="">пункт-2</option>
+          </select>
+        </div>
+
+        <div class="product">
+          <p>На какую продукцию?</p>
+          <select class="product" name="" id="">
+            <option value="">пункт-1</option>
+            <option value="">пункт-2</option>
+          </select>
+        </div>
+        <input class="name" type="text" placeholder="Имя">
+        <input class="phone" type="phone" placeholder="+7 (999) 999-99-99">
+        <input class="mail" type="mail" placeholder="E-Mail">
+        <button type="submit" class="button-fill">Оставить заявку</button>
+      </form>
+    </div>
   </div>
+
 
   <script src="js/jquery.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

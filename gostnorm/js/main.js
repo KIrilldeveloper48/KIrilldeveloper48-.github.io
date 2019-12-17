@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   $(".tenth-block_slider-item").slick({
     infinite: true,
     slidesToShow: 5,
@@ -8,25 +8,23 @@ $(document).ready(function() {
     autoplay: false,
     autoplaySpeed: 2000,
     appendArrows: $(".slider-arrow"),
-    prevArrow:
-      '<button id="prev" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
-    nextArrow:
-      '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>'
+    prevArrow: '<button id="prev" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
+    nextArrow: '<button id="next" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>'
   });
 
   // On swipe event
-  $(".tenth-block_slider-item").on("swipe", function(event, slick, direction) {
+  $(".tenth-block_slider-item").on("swipe", function (event, slick, direction) {
     console.log(direction);
     // left
   });
 
   // On edge hit
-  $(".tenth-block_slider-item").on("edge", function(event, slick, direction) {
+  $(".tenth-block_slider-item").on("edge", function (event, slick, direction) {
     console.log("edge was hit");
   });
 
   // On before slide change
-  $(".tenth-block_slider-item").on("beforeChange", function(
+  $(".tenth-block_slider-item").on("beforeChange", function (
     event,
     slick,
     currentSlide,
@@ -36,7 +34,7 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   $(".review-slider_items").slick({
     infinite: true,
     slidesToShow: 3,
@@ -44,10 +42,8 @@ $(document).ready(function() {
     autoplay: false,
     autoplaySpeed: 2000,
     appendArrows: $(".slider-arrow-2"),
-    prevArrow:
-      '<button id="prev1" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
-    nextArrow:
-      '<button id="next1" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>',
+    prevArrow: '<button id="prev1" type="button" class="slider-btn slider-btn_prev"><img src="img/block-ten/icon/arrow-1.png" alt=""></button>',
+    nextArrow: '<button id="next1" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>',
     dots: true
   });
 });
@@ -98,10 +94,10 @@ function goToSlide(n) {
 var next = document.getElementById("next");
 var previous = document.getElementById("back");
 
-next.onclick = function() {
+next.onclick = function () {
   nextSlide();
 };
-previous.onclick = function() {
+previous.onclick = function () {
   previousSlide();
 };
 
@@ -197,38 +193,27 @@ function goToSlide1(n) {
 var faqnext = document.getElementById("faq-next");
 var faqprevious = document.getElementById("faq-back");
 
-faqnext.onclick = function() {
+faqnext.onclick = function () {
   nextSlide1();
 };
-faqprevious.onclick = function() {
+faqprevious.onclick = function () {
   previousSlide1();
 };
 
-document.getElementById("clearButton").onclick = function(e) {
+document.getElementById("clearButton").onclick = function (e) {
   document.getElementById("textInput").value = "";
 };
 
-/*
-$("#nav-menu_item-1").click(function() {
-  sub_menu_off();
-  $("#sub-menu-1").toggleClass("sub-menu_active");
-});
-$("#nav-menu_item-2").click(function() {
-  sub_menu_off();
-  $("#sub-menu-2").toggleClass("sub-menu_active");
-});
-
-$("#nav-menu_item-3").click(function() {
-  sub_menu_off();
-  $("#sub-menu-3").toggleClass("sub-menu_active");
+$(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 5000) {
+      $('#modal').fadeIn();
+    } else {
+      $('#modal').fadeOut();
+    }
+  });
 });
 
-$("#nav-menu_item-4").click(function() {
-  sub_menu_off();
-  $("#sub-menu-4").toggleClass("sub-menu_active");
-});
-$("#nav-menu_item-5").click(function() {
-  sub_menu_off();
-  $("#sub-menu-5").toggleClass("sub-menu_active");
-});
-*/
+function closeModal() {
+  $("#modal").addClass("modal-none");
+};

@@ -1293,6 +1293,121 @@ input {
         .footer-content_txt .footer-link:hover {
           color: #27a043; }
 
+.modal-search_wrapper {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 5s;
+  transition: 5s;
+  background: rgba(0, 0, 0, 0.8); }
+  .modal-search_wrapper .modal-search_content {
+    background: url(../img/modal/modal_bg.png) center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    padding: 2rem; }
+    .modal-search_wrapper .modal-search_content img {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      cursor: pointer; }
+    .modal-search_wrapper .modal-search_content h3 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff; }
+    .modal-search_wrapper .modal-search_content form {
+      padding-top: 2.5rem;
+      grid-template-rows: repeat(4, -webkit-max-content);
+      grid-template-rows: repeat(4, max-content);
+      grid-template-column: 1fr 1fr 1fr;
+      grid-row-gap: 1rem; }
+    .modal-search_wrapper .modal-search_content p {
+      font-size: 0.7rem;
+      color: #ffffff;
+      padding-bottom: 0.3rem;
+      font-weight: 500;
+      padding-left: 0.5rem; }
+    .modal-search_wrapper .modal-search_content select {
+      height: 1.8rem;
+      -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.63), inset 0 0 16px rgba(0, 1, 1, 0.31);
+              box-shadow: 0 0 35px rgba(0, 0, 0, 0.63), inset 0 0 16px rgba(0, 1, 1, 0.31);
+      border-radius: 10px;
+      opacity: 0.68;
+      width: 100%;
+      -webkit-appearance: none !important;
+         -moz-appearance: none !important;
+              appearance: none !important;
+      background: url(../img/modal/triangle.png) no-repeat 96% 50%;
+      background-color: #ffffff;
+      border: none;
+      padding: 10px;
+      font-family: "Geometria", sans-serif;
+      outline: none;
+      cursor: pointer; }
+      .modal-search_wrapper .modal-search_content select option {
+        opacity: 0.68;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.6) !important;
+        color: #222;
+        -webkit-box-sizing: content-box;
+                box-sizing: content-box;
+        -webkit-filter: hue-rotate(125deg);
+                filter: hue-rotate(125deg);
+        font-size: 14px !important;
+        padding: 10px; }
+        .modal-search_wrapper .modal-search_content select option:hover {
+          background-color: #27a043; }
+    .modal-search_wrapper .modal-search_content input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid #fff;
+      color: #fff;
+      padding-left: 0.5rem;
+      padding-bottom: 0.7rem;
+      font-family: "Geometria", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700; }
+    .modal-search_wrapper .modal-search_content .term {
+      grid-row: 1/2;
+      grid-column: 3/4;
+      padding-left: 1rem; }
+    .modal-search_wrapper .modal-search_content .doc {
+      grid-row: 1/2;
+      grid-column: 1/3; }
+    .modal-search_wrapper .modal-search_content .product {
+      grid-row: 2/3;
+      grid-column: 1/4;
+      margin-bottom: 1.5rem; }
+    .modal-search_wrapper .modal-search_content .name {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      margin-right: 1rem; }
+    .modal-search_wrapper .modal-search_content .phone {
+      grid-row: 3/4;
+      grid-column: 2/3;
+      margin-right: 1rem; }
+    .modal-search_wrapper .modal-search_content .mail {
+      grid-row: 3/4;
+      grid-column: 3/4; }
+    .modal-search_wrapper .modal-search_content .button-fill {
+      grid-row: 4/5;
+      grid-column: 1/4;
+      justify-self: center;
+      margin-top: 2rem; }
+
+.modal-none {
+  display: none !important; }
+
 @media (max-width: 1199.98px) {
   html {
     font-size: 16px; } }
