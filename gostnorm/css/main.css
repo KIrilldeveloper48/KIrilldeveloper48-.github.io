@@ -882,8 +882,8 @@ input {
 
 .ninth-block {
   padding: 2.5rem 0;
-  grid-template-rows: reepat(2, -webkit-max-content);
-  grid-template-rows: reepat(2, max-content);
+  grid-template-rows: repeat(2, -webkit-max-content);
+  grid-template-rows: repeat(2, max-content);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center; }
@@ -1196,12 +1196,58 @@ input {
   .review .slick-dots li.slick-active button::before {
     font-size: 30px;
     color: #27a043; }
-    @media (max-width: 1199.98px) {
-      .review .slick-dots li.slick-active button::before html {
-        font-size: 16px; } }
-    @media (max-width: 991.98px) {
-      .review .slick-dots li.slick-active button::before html {
-        font-size: 14px; } }
-    @media (max-width: 575.98px) {
-      .review .slick-dots li.slick-active button::before html {
-        font-size: 12px; } }
+
+.footer {
+  padding: 2.5rem 0;
+  background: #3b3b3b; }
+  .footer-content {
+    grid-column: 2/12;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-column-gap: 5%;
+    grid-row-gap: 2rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: start;
+        align-content: start; }
+    .footer-content_txt {
+      -ms-flex-line-pack: start;
+          align-content: start; }
+      .footer-content_txt h3 {
+        font-size: 0.9rem;
+        text-align: left;
+        font-weight: 700;
+        padding-bottom: 1rem; }
+      .footer-content_txt li {
+        padding-bottom: 0.5rem; }
+        .footer-content_txt li a {
+          font-size: 0.7rem;
+          font-weight: 500; }
+          .footer-content_txt li a:hover {
+            color: #27a043; }
+      .footer-content_txt .button-outline {
+        justify-self: center;
+        border-color: #fff;
+        height: 2rem;
+        max-width: 6rem; }
+      .footer-content_txt p {
+        font-size: 0.6rem;
+        font-weight: 500;
+        text-align: center;
+        padding: 1.5rem 0; }
+      .footer-content_txt .footer-link {
+        font-size: 0.6rem;
+        font-weight: 500;
+        text-align: center; }
+        .footer-content_txt .footer-link:hover {
+          color: #27a043; }
+
+@media (max-width: 1199.98px) {
+  html {
+    font-size: 16px; } }
+@media (max-width: 991.98px) {
+  html {
+    font-size: 14px; } }
+@media (max-width: 575.98px) {
+  html {
+    font-size: 12px; } }

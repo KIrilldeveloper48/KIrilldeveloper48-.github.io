@@ -771,7 +771,7 @@ input
 //Блок новостей
 .ninth-block
 	padding: 2.5rem 0
-	grid-template-rows: reepat(2,max-content)
+	grid-template-rows: repeat(2,max-content)
 	justify-content: center
 	&_txt
 		grid-column: 2/12
@@ -1077,4 +1077,46 @@ input
 		font-size: 30px
 		color: $hover
 
-		@import "media"
+//Footer
+.footer
+	padding: 2.5rem 0
+	background: #3b3b3b
+	&-content
+		grid-column: 2/12
+		grid-template-columns: repeat(auto-fill, 300px)
+		grid-column-gap: 5%
+		grid-row-gap: 2rem
+		justify-content: center
+		align-content: start
+		&_txt
+			align-content: start
+			h3
+				font-size: 0.9rem
+				text-align: left
+				font-weight: 700
+				padding-bottom: 1rem
+			li
+				padding-bottom: 0.5rem
+				a
+					font-size: 0.7rem
+					font-weight: 500
+					&:hover
+						color: $hover
+			.button-outline
+				justify-self: center
+				border-color: #fff
+				height: 2rem
+				max-width: 6rem
+			p
+				font-size: 0.6rem
+				font-weight: 500
+				text-align: center
+				padding: 1.5rem 0
+			.footer-link
+				font-size: 0.6rem
+				font-weight: 500
+				text-align: center
+				&:hover
+					color: $hover
+
+@import "media"
