@@ -59,6 +59,12 @@ $(document).ready(function () {
         slidesToShow: 2,
         slidesToScroll: 2,
         infinite: true,
+      },
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
       }
     }]
   });
@@ -222,7 +228,7 @@ document.getElementById("clearButton").onclick = function (e) {
 
 $(function () {
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 5000) {
+    if ($(this).scrollTop() > 4000) {
       $('#modal').fadeIn();
     } else {
       $('#modal').fadeOut();
