@@ -760,6 +760,57 @@ input {
     justify-self: center;
     margin-top: 2rem; }
 
+.block-form {
+  padding: 2.5rem; }
+  .block-form_form {
+    grid-column: 2/7; }
+    .block-form_form h2 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      font-family: "Geometria", sans-serif;
+      color: #00a234;
+      text-shadow: 0 0 4px rgba(0, 162, 52, 0.21);
+      text-align: left; }
+    .block-form_form p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #a8a7a7;
+      padding-top: 1.5rem;
+      padding-bottom: 2.5rem; }
+    .block-form_form input {
+      -webkit-box-shadow: 0 0 5px rgba(0, 162, 52, 0.26);
+              box-shadow: 0 0 5px rgba(0, 162, 52, 0.26);
+      border-radius: 8px;
+      border: 1px solid #cf661a;
+      width: 23rem;
+      padding: 1rem 0.7rem;
+      background: #fff;
+      margin-right: 2rem;
+      font-size: 0.7rem;
+      margin-bottom: 0.7rem; }
+    .block-form_form .button-fill {
+      width: 10rem;
+      height: 3rem;
+      font-size: 0.8rem; }
+    .block-form_form a {
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: #27a043;
+      position: relative;
+      margin-left: 15rem; }
+      .block-form_form a img {
+        position: absolute;
+        right: -20%;
+        top: 50%;
+        width: 0.5rem;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%); }
+  .block-form_img {
+    grid-column: 7/12; }
+    .block-form_img img {
+      max-width: 25rem;
+      justify-self: end; }
+
 .seventh-block {
   padding: 2.5rem 0; }
   .seventh-block_content {

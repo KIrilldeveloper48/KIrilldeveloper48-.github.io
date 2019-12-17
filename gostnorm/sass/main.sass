@@ -660,6 +660,57 @@ input
 		justify-self: center
 		margin-top: 2rem
 
+//Блок с формой
+.block-form
+	padding: 2.5rem
+	&_form
+		grid-column: 2/7
+		h2
+			font-size: 2.1rem
+			font-weight: 700
+			font-family: $font-1
+			color: #00a234
+			text-shadow: 0 0 4px rgba(0, 162, 52, 0.21)
+			text-align: left
+		p
+			font-size: 1rem
+			font-weight: 500
+			color: #a8a7a7
+			padding-top: 1.5rem
+			padding-bottom: 2.5rem
+		input
+			box-shadow: 0 0 5px rgba(0, 162, 52, 0.26)
+			border-radius: 8px
+			border: 1px solid #cf661a
+			width: 23rem
+			padding: 1rem 0.7rem
+			background: #fff
+			margin-right: 2rem
+			font-size: 0.7rem
+			margin-bottom: 0.7rem
+		.button-fill
+			width: 10rem
+			height: 3rem
+			font-size: 0.8rem
+		a
+			font-size: 0.6rem
+			font-weight: 400
+			color: $hover
+			position: relative
+			margin-left: 15rem
+			img
+				position: absolute
+				right: -20%
+				top: 50%
+				width: .5rem
+				transform: translateY(-50%)
+
+	&_img
+		grid-column: 7/12
+		img
+			max-width: 25rem
+			justify-self: end
+
 //Седьмой блок
 .seventh-block
 	padding: 2.5rem 0
