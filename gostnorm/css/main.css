@@ -782,7 +782,7 @@ input {
               box-shadow: 0 0 5px rgba(0, 162, 52, 0.26);
       border-radius: 8px;
       border: 1px solid #cf661a;
-      width: 23rem;
+      width: 100%;
       padding: 1rem 0.7rem;
       background: #fff;
       margin-right: 2rem;
@@ -805,6 +805,13 @@ input {
         width: 0.5rem;
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%); }
+    .block-form_form form {
+      grid-template-columns: 6fr 10rem;
+      grid-column-gap: 10%; }
+      .block-form_form form input {
+        grid-column: 1/2; }
+      .block-form_form form button {
+        grid-column: 2/3; }
   .block-form_img {
     grid-column: 7/12; }
     .block-form_img img {
@@ -1070,7 +1077,8 @@ input {
             -webkit-transform: translate(-50%, -50%);
                     transform: translate(-50%, -50%); }
         .faq-content_txt-card .btn-active {
-          background: url(../img/faq/close.png); }
+          background: url(../img/faq/close.png);
+          background-size: cover; }
           .faq-content_txt-card .btn-active img {
             display: none; }
         .faq-content_txt-card_content {
@@ -1338,7 +1346,6 @@ input {
       font-weight: 500;
       padding-left: 0.5rem; }
     .modal-search_wrapper .modal-search_content select {
-      height: 1.8rem;
       -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.63), inset 0 0 16px rgba(0, 1, 1, 0.31);
               box-shadow: 0 0 35px rgba(0, 0, 0, 0.63), inset 0 0 16px rgba(0, 1, 1, 0.31);
       border-radius: 10px;
@@ -1410,7 +1417,19 @@ input {
 
 @media (max-width: 1199.98px) {
   html {
-    font-size: 16px; } }
+    font-size: 16px; }
+
+  .block-form_form {
+    grid-column: 2/8; }
+
+  .block-form_img {
+    grid-column: 8/12; }
+
+  .eighth-block_content {
+    grid-template-columns: repeat(auto-fill, 400px); }
+
+  .footer-content {
+    grid-template-columns: repeat(auto-fill, 150px); } }
 @media (max-width: 991.98px) {
   html {
     font-size: 14px; } }

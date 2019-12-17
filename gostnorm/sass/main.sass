@@ -682,7 +682,7 @@ input
 			box-shadow: 0 0 5px rgba(0, 162, 52, 0.26)
 			border-radius: 8px
 			border: 1px solid #cf661a
-			width: 23rem
+			width: 100%
 			padding: 1rem 0.7rem
 			background: #fff
 			margin-right: 2rem
@@ -704,6 +704,13 @@ input
 				top: 50%
 				width: .5rem
 				transform: translateY(-50%)
+		form
+			grid-template-columns: 6fr 10rem
+			grid-column-gap: 10%
+			input
+				grid-column: 1/2
+			button
+				grid-column: 2/3
 
 	&_img
 		grid-column: 7/12
@@ -956,6 +963,7 @@ input
 						transform: translate(-50%,-50%)
 				.btn-active
 					background: url(../img/faq/close.png)
+					background-size: cover
 					img
 						display: none
 
@@ -1214,7 +1222,6 @@ input
 			font-weight: 500
 			padding-left: 0.5rem
 		select
-			height: 1.8rem
 			box-shadow: 0 0 35px rgba(0, 0, 0, 0.63), inset 0 0 16px rgba(0, 1, 1, 0.31)
 			border-radius: 10px
 			opacity: 0.68
