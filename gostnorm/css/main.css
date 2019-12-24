@@ -188,7 +188,7 @@ input {
     transition: 0.5s linear; }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.35); }
+  background: rgba(0, 0, 0, 0.6); }
 
 .bg_0, .bg_1, .bg_2, .bg_3, .bg_4, .bg_5, .bg_6, .bg_7, .bg_8, .bg_9, .bg_10 {
   background-size: cover;
@@ -415,23 +415,23 @@ input {
     grid-column: 1/-1;
     grid-template-rows: 1fr; }
     .first-screen_top_search {
-      grid-column: 2/4;
+      grid-column: 2/6;
       position: relative; }
       .first-screen_top_search input {
-        background: rgba(0, 0, 0, 0.4);
-        -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.55);
-                box-shadow: 0 0 18px rgba(0, 0, 0, 0.55);
+        background: rgba(0, 0, 0, 0.6);
         color: #ffffff;
-        width: 100%;
-        border: none;
+        width: 103%;
+        border: 1.5px solid white;
         font-family: "Geometria", sans-serif;
         padding: 0.5rem 1rem;
         border-radius: 10px; }
+        .first-screen_top_search input:hover, .first-screen_top_search input:focus {
+          border: 1.5px solid #27a043; }
       .first-screen_top_search-icon {
         position: absolute;
         width: 0.8rem;
         top: 50%;
-        right: 15px;
+        right: 0;
         -webkit-transform: translateY(-50%);
                 transform: translateY(-50%); }
     .first-screen_top_nav {
@@ -469,16 +469,7 @@ input {
       grid-template-rows: repeat(3, max-content);
       opacity: 0;
       display: none; }
-      .first-screen_slider-item h1 {
-        font-size: 1.8rem;
-        font-family: "Geometria", sans-serif;
-        font-weight: 700;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
-        grid-row: 1/2;
-        grid-column: 1/-1;
-        text-align: left;
-        padding: 0; }
-      .first-screen_slider-item h2 {
+      .first-screen_slider-item .header-slide {
         font-size: 1.8rem;
         font-family: "Geometria", sans-serif;
         font-weight: 700;
@@ -545,7 +536,7 @@ input {
     grid-template-rows: repeat(3, max-content);
     text-align: left;
     justify-self: center; }
-    .second-block_content h2 {
+    .second-block_content h1 {
       font-size: 1.2rem;
       text-align: left;
       padding: 0;
@@ -820,6 +811,13 @@ input {
 
 .seventh-block {
   padding: 2.5rem 0; }
+  .seventh-block h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    grid-row: 1/2;
+    grid-column: 2/12;
+    padding-bottom: 2.5rem; }
   .seventh-block_content {
     grid-column: 3/11;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1212,18 +1210,18 @@ input {
     padding: 0.7rem 1.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem; }
-    .review-slider-item h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      font-family: "Geometria", sans-serif;
-      padding-bottom: 1.5rem;
-      text-align: right; }
-    .review-slider-item p {
+    .review-slider-item .slider-txt {
       font-size: 0.7rem;
       font-weight: 400;
       font-family: "Geometria", sans-serif;
       color: #a8a7a7;
       padding-bottom: 0.7rem; }
+    .review-slider-item .slider-header {
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: "Geometria", sans-serif;
+      padding-bottom: 1.5rem;
+      text-align: right; }
     .review-slider-item hr {
       margin: 0;
       margin-bottom: 0.7rem;
@@ -1300,6 +1298,10 @@ input {
         text-align: center; }
         .footer-content_txt .footer-link:hover {
           color: #27a043; }
+      .footer-content_txt img {
+        max-width: 8rem;
+        padding-top: 1rem;
+        justify-self: center; }
 
 .modal-search_wrapper {
   position: fixed;

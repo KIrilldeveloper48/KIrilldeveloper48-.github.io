@@ -226,16 +226,18 @@ document.getElementById("clearButton").onclick = function (e) {
   document.getElementById("textInput").value = "";
 };
 
-$(function () {
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 4000) {
-      $('#modal').fadeIn();
-    } else {
-      $('#modal').fadeOut();
-    }
-  });
-});
-
+// Вызов модального окна
 function closeModal() {
   $("#modal").addClass("modal-none");
 };
+
+$(document).mouseleave(function (e) {
+  if (e.clientY < 10) {
+    $("#modal").fadeIn("fast");
+  }
+});
+$(document).click(function (e) {
+  if (($("#modal").is(':visible')) && (!$(e.target).closest(".#modal").length)) {
+    $("#modal").remove();
+  }
+});
