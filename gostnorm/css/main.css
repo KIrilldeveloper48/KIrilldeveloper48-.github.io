@@ -1882,6 +1882,10 @@ input:hover, input:active {
   html {
     font-size: 14px;
   }
+  html .container {
+    grid-template-columns: 0.2rem repeat(10, 1fr) 0.2rem;
+    grid-column-gap: 0.3rem;
+  }
 
   .header .top-nav {
     grid-template-row: 1fr 1fr;
@@ -1933,6 +1937,10 @@ input:hover, input:active {
   .header .nav-menu_item {
     grid-column: 2/12;
     font-size: 0.8rem;
+    grid-template-rows: 1fr 1fr;
+    display: grid;
+    grid-template-columns: auto;
+    grid-column-gap: 1.5rem;
   }
 
   .header .nav-menu_item-1 .sub-menu, .header .nav-menu_item-2 .sub-menu {
@@ -1979,5 +1987,14 @@ input:hover, input:active {
 
   .header .nav-menu_item-3 .sub-menu {
     width: 21rem;
+  }
+
+  .header .nav-menu_item-3, .header .nav-menu_item-4, .header .nav-menu_item-5 {
+    grid-row: 2/3;
+  }
+
+  .header .nav-menu_item li {
+    width: 120%;
+    padding-right: 0;
   }
 }
