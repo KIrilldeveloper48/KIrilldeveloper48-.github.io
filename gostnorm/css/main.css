@@ -230,9 +230,12 @@ input:hover, input:active {
 }
 
 .bg_0, .bg_1, .bg_2, .bg_3, .bg_4, .bg_5, .bg_6, .bg_7, .bg_8, .bg_9, .bg_10 {
+  height: 100%;
   background-size: cover;
-  background-attachment: fixed !important;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 .accent {
