@@ -54,26 +54,27 @@ $(document).ready(function () {
     nextArrow: '<button id="next1" type="button" class="slider-btn slider-btn_next"><img src="img/block-ten/icon/arrow-2.png" alt=""></button>',
     dots: true,
     responsive: [{
-      breakpoint: 900,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        infinite: true,
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
       },
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false
+        }
       },
-      breakpoint: 575,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: false
-      }
-    }]
+
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
   });
 });
 // СЛАЙДЕР
@@ -248,3 +249,12 @@ $(document).click(function (e) {
     $("#modal").remove();
   }
 });
+
+// Вызов модального окна
+function closeModalRewiew() {
+  $("#modal-rewiew").fadeOut("fast");
+};
+
+function RewiewModalOpen() {
+  $("#modal-rewiew").fadeIn("fast");
+};

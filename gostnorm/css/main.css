@@ -1604,7 +1604,7 @@ input:hover, input:active {
           transform: translate(-50%, -50%);
   padding: 2rem;
 }
-.modal-search_wrapper .modal-search_content img {
+.modal-search_wrapper .modal-search_content .img-close {
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -1707,6 +1707,12 @@ input:hover, input:active {
   grid-column: 1/4;
   justify-self: center;
   margin-top: 2rem;
+}
+.modal-search_wrapper .modal-rewiew_content {
+  background: none;
+}
+.modal-search_wrapper .modal-rewiew_content .rewiew-img {
+  width: 100%;
 }
 
 .modal-none {
