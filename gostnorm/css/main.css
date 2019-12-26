@@ -234,10 +234,7 @@ input:hover, input:active {
   background-size: cover !important;
   background-repeat: no-repeat;
   background-size: cover !important;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  position: static !important;
+  position: relative;
 }
 
 .accent {
