@@ -65,6 +65,13 @@ $(document).ready(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         infinite: true,
+      },
+      breakpoint: 575,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: false
       }
     }]
   });
