@@ -653,7 +653,7 @@ input:hover, input:active {
   grid-row: 1/2;
 }
 .second-block_content-txt {
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 0.9rem;
   padding: 1rem 0;
@@ -696,7 +696,7 @@ input:hover, input:active {
 }
 .thirst-block_icon-content p {
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 1rem;
   font-weight: 500;
   grid-row: 2/3;
   -ms-flex-item-align: end;
@@ -761,7 +761,7 @@ input:hover, input:active {
 }
 .fifth-block_content p {
   padding-bottom: 1rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-align: center;
   justify-self: center;
 }
@@ -786,7 +786,7 @@ input:hover, input:active {
       align-content: center;
 }
 .fifth-block_icons img {
-  width: 3rem;
+  width: 4rem;
   justify-self: center;
   padding-bottom: 0.7rem;
 }
@@ -795,7 +795,7 @@ input:hover, input:active {
   height: 2rem;
   -ms-flex-item-align: end;
       align-self: end;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
 .fifth-block_icons .icons {
@@ -857,7 +857,7 @@ input:hover, input:active {
   z-index: 2;
 }
 .sixth-block_content p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
   padding-top: 0.8rem;
@@ -1022,7 +1022,7 @@ input:hover, input:active {
 }
 .seventh-block_content-card ul li a {
   color: #00408d;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -1079,7 +1079,7 @@ input:hover, input:active {
       align-content: center;
 }
 .eighth-block_content-card_txt h3 {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-align: left;
   padding-bottom: 0.7rem;
@@ -1095,7 +1095,7 @@ input:hover, input:active {
 .eighth-block_content-card_txt p {
   color: #767474;
   font-weight: 500;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 .eighth-block_content-card_txt .signature {
   color: #3b3b3b;
@@ -1279,7 +1279,7 @@ input:hover, input:active {
   position: relative;
 }
 .faq-content_txt-card h3 {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-align: left;
 }
@@ -1319,8 +1319,8 @@ input:hover, input:active {
   transition: 0.5s linear;
 }
 .faq-content_txt-card_content p {
-  padding-top: 0.7rem;
-  font-size: 0.6rem;
+  padding-top: 0.8rem;
+  font-size: 0.8rem;
   font-weight: 500;
   font-family: "Geometria", sans-serif;
 }
@@ -1391,7 +1391,7 @@ input:hover, input:active {
   padding-top: 1rem;
 }
 .faq-content_form p {
-  font-size: 0.6rem;
+  font-size: 0.9rem;
   font-weight: 500;
   font-family: "Geometria", sans-serif;
   color: #b5b5b5;
@@ -1467,7 +1467,7 @@ input:hover, input:active {
   margin-right: 0.5rem;
 }
 .review-slider-item .slider-txt {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 400;
   font-family: "Geometria", sans-serif;
   color: #a8a7a7;
@@ -1493,7 +1493,7 @@ input:hover, input:active {
   text-align: right;
 }
 .review-slider-item a {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-family: "Geometria", sans-serif;
   font-weight: 700;
   color: #a8a7a7;
