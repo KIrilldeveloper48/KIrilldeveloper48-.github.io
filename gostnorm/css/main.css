@@ -639,7 +639,7 @@ input:hover, input:active {
 }
 .second-block_content {
   grid-column: 2/12;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 3fr 1fr;
   grid-template-rows: repeat(3, -webkit-max-content);
   grid-template-rows: repeat(3, max-content);
   text-align: left;
@@ -773,13 +773,13 @@ input:hover, input:active {
   font-weight: 500;
 }
 .fifth-block_icons {
-  grid-column: 3/11;
+  grid-column: 2/12;
   grid-row: 2/3;
   justify-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  grid-template-columns: repeat(auto-fit, 160px);
+  grid-template-columns: repeat(auto-fit, 260px);
   grid-column-gap: 1.5rem;
   grid-row-gap: 2.5rem;
   -ms-flex-line-pack: center;
@@ -1006,7 +1006,7 @@ input:hover, input:active {
   padding-top: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   text-align: left;
 }
 .seventh-block_content-card ul {
