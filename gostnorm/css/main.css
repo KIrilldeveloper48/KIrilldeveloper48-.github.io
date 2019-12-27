@@ -988,8 +988,8 @@ input:hover, input:active {
   padding-bottom: 2.5rem;
 }
 .seventh-block_content {
-  grid-column: 3/11;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column: 2/12;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-column-gap: 8%;
   grid-row-gap: 2.5rem;
 }
@@ -1046,7 +1046,6 @@ input:hover, input:active {
 }
 .eighth-block_content {
   grid-column: 2/12;
-  grid-template-columns: repeat(auto-fill, 600px);
   grid-column-gap: 5%;
   grid-row-gap: 1rem;
   -webkit-box-pack: center;
@@ -1528,9 +1527,8 @@ input:hover, input:active {
   grid-template-columns: repeat(auto-fill, 300px);
   grid-column-gap: 5%;
   grid-row-gap: 2rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-line-pack: start;
       align-content: start;
 }
