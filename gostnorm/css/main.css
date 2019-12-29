@@ -569,7 +569,7 @@ input:hover, input:active {
   display: none;
 }
 .first-screen_slider-item .header-slide {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-family: "Geometria", sans-serif;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
@@ -581,12 +581,13 @@ input:hover, input:active {
 .first-screen_slider-item .slider-txt {
   grid-row: 2/3;
   grid-column: 1/-1;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   padding: 2.5rem 0;
   font-family: "Geometria", sans-serif;
   max-width: 32rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
+  line-height: 1.5;
 }
 .first-screen_slider-item .slider-txt li {
   font-size: 0.7rem;
@@ -646,19 +647,20 @@ input:hover, input:active {
   justify-self: center;
 }
 .second-block_content h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: left;
   padding: 0;
   grid-column: 1/2;
   grid-row: 1/2;
 }
 .second-block_content-txt {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   line-height: 0.9rem;
   padding: 1rem 0;
   grid-column: 1/2;
   grid-row: 2/3;
+  line-height: 1.5;
 }
 .second-block_content-btn {
   grid-column: 1/2;
@@ -696,12 +698,13 @@ input:hover, input:active {
 }
 .thirst-block_icon-content p {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   grid-row: 2/3;
   -ms-flex-item-align: end;
       align-self: end;
   height: 2rem;
+  line-height: 1.5;
 }
 .thirst-block_icon .icon-2 img {
   width: 3.5rem;
@@ -734,12 +737,13 @@ input:hover, input:active {
 }
 .four-block_numbers .number p {
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-align: center;
   -ms-flex-item-align: end;
       align-self: end;
   height: 2rem;
+  line-height: 1.5;
 }
 
 .fifth-block {
@@ -754,16 +758,18 @@ input:hover, input:active {
   padding-bottom: 2rem;
 }
 .fifth-block_content h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   padding: 0;
   padding-bottom: 1rem;
+  line-height: 1.5;
 }
 .fifth-block_content p {
   padding-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-align: center;
   justify-self: center;
+  line-height: 1.5;
 }
 .fifth-block_content-txt-1 {
   max-width: 33rem;
@@ -776,9 +782,8 @@ input:hover, input:active {
   grid-column: 2/12;
   grid-row: 2/3;
   justify-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   grid-template-columns: repeat(auto-fit, 260px);
   grid-column-gap: 1.5rem;
   grid-row-gap: 2.5rem;
@@ -797,6 +802,7 @@ input:hover, input:active {
       align-self: end;
   font-size: 0.8rem;
   font-weight: 700;
+  line-height: 1.5;
 }
 .fifth-block_icons .icons {
   justify-self: center;
@@ -809,7 +815,7 @@ input:hover, input:active {
   padding: 1rem 0;
 }
 .sixth-block h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
   grid-row: 1/2;
@@ -857,7 +863,7 @@ input:hover, input:active {
   z-index: 2;
 }
 .sixth-block_content p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
   padding-top: 0.8rem;
@@ -866,6 +872,7 @@ input:hover, input:active {
   -ms-flex-item-align: start;
       align-self: start;
   height: 2rem;
+  line-height: 1.5;
 }
 .sixth-block_content-line {
   width: 100%;
@@ -911,7 +918,7 @@ input:hover, input:active {
   grid-column: 2/7;
 }
 .block-form_form h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   font-family: "Geometria", sans-serif;
   color: #00a234;
@@ -919,11 +926,12 @@ input:hover, input:active {
   text-align: left;
 }
 .block-form_form p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: #a8a7a7;
   padding-top: 1.5rem;
   padding-bottom: 2.5rem;
+  line-height: 1.5;
 }
 .block-form_form input {
   -webkit-box-shadow: 0 0 5px rgba(0, 162, 52, 0.26);
@@ -980,7 +988,7 @@ input:hover, input:active {
   background: #fff;
 }
 .seventh-block h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
   grid-row: 1/2;
@@ -1095,6 +1103,7 @@ input:hover, input:active {
   color: #767474;
   font-weight: 500;
   font-size: 0.8rem;
+  line-height: 1.5;
 }
 .eighth-block_content-card_txt .signature {
   color: #3b3b3b;
@@ -1140,7 +1149,7 @@ input:hover, input:active {
   padding-bottom: 1.5rem;
 }
 .ninth-block_txt h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: center;
   font-weight: 700;
   padding-bottom: 2.5rem;
@@ -1204,7 +1213,7 @@ input:hover, input:active {
 .tenth-block h2 {
   grid-column: 2/12;
   padding-bottom: 2rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 .tenth-block_slider {
   position: relative;
@@ -1247,7 +1256,7 @@ input:hover, input:active {
 .faq h2 {
   grid-row: 1/2;
   grid-column: 2/12;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
 }
@@ -1322,6 +1331,7 @@ input:hover, input:active {
   font-size: 0.8rem;
   font-weight: 500;
   font-family: "Geometria", sans-serif;
+  line-height: 1.5;
 }
 .faq-content_txt-card_content .card-view {
   font-size: 0.6rem;
@@ -1390,12 +1400,13 @@ input:hover, input:active {
   padding-top: 1rem;
 }
 .faq-content_form p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   font-family: "Geometria", sans-serif;
   color: #b5b5b5;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
+  line-height: 1.5;
 }
 .faq-content_form form {
   margin-bottom: 1.5rem;
@@ -1452,7 +1463,7 @@ input:hover, input:active {
   right: -3%;
 }
 .review h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   padding-bottom: 2.5rem;
 }
@@ -1466,11 +1477,12 @@ input:hover, input:active {
   margin-right: 0.5rem;
 }
 .review-slider-item .slider-txt {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
   font-family: "Geometria", sans-serif;
   color: #a8a7a7;
   padding-bottom: 0.7rem;
+  line-height: 1.5;
 }
 .review-slider-item .slider-header {
   font-size: 1.2rem;
