@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+  
   <!--Стили-->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap&subset=cyrillic"
@@ -201,42 +201,41 @@
     </g>
   </symbol>
 </svg>
-
 <body class="container grid">
 
   <header class="grid  container  header">
-
+  
     <a class="header__logo" href="#">
       <span class="logo__sx">in</span>Web
     </a>
-
+  
     <div class="header__nav">
       <a class="header__nav-item" href="index.html">Главная</a>
       <a class="header__nav-item" href="services.html">Услуги</a>
       <a class="header__nav-item" href="portfolio.html">Портфолио</a>
     </div>
-
+  
     <div class="header__lang">
       <a class="lang__item lang-active" href="#">ru</a>
       <a class="lang__item" href="#">en</a>
     </div>
-
-  </header>
+  
+  </header>  
   <div class="container grid main">
-
+  
     <div class="main__txt  grid">
-
+  
       <div class="offer">
         <p class="offer__subtitle">Меня зовут</p>
         <h2 class="offer__title">Дмитрий Валак</h2>
         <h1 class="offer__desc">я занимаюсь <span class="accent">веб-дизайном</span> и <span class="accent">созданием
             сайтов</span></h1>
       </div>
-
+  
       <div class="btn one  main__btn" id="openModal" onclick="openModal()">
         <div class="item">Оставить заявку</div>
       </div>
-
+  
       <div class="contacts">
         <a class="contacts__phone" href="tel:7891123345">
           +789-112-3345
@@ -246,14 +245,14 @@
           hello@inweb.com
         </a>
       </div>
-
+  
     </div><!-- /.main__txt -->
-
+  
     <div class="main__img">
       <img class="men" src="assets/img/home/human.png" alt="">
       <div class="ellipse"></div>
     </div>
-
+  
   </div>
 
 
@@ -276,8 +275,7 @@
         </svg>
       </a>
     </div>
-  </div>
-  <div class="modal" id="modal">
+  </div>  <div class="modal" id="modal">
     <div class="modal__content  grid  container">
       <div class="content__txt">
         <p class="content__header  accent">Оставить заявку</p>
@@ -285,24 +283,39 @@
           Заполните форму ниже и я свяжусь с вами в ближайшее время!
         </p>
       </div>
-
+  
       <form action="/" method="POST" class="content__form">
-        <input class="content__input  content__input--name" type="text" placeholder="Ваше имя" />
-        <input class="content__input  content__input--mail" type="email" placeholder="Ваш E-mail" />
-        <input class="content__input  content__input--tel" type="tel" placeholder="Ваш телефон" />
-
+        <input
+          class="content__input  content__input--name"
+          type="text"
+          placeholder="Ваше имя"
+        />
+        <input
+          class="content__input  content__input--mail"
+          type="email"
+          placeholder="Ваш E-mail"
+        />
+        <input
+          class="content__input  content__input--tel"
+          type="tel"
+          placeholder="Ваш телефон"
+        />
+  
         <button type="submit" class="content__btn button">Оставить заявку</button>
-
+  
         <div class="content__contacts">
           <a class="contacts__item  contacts__item--phone" href="tel:7891123345">
             +789-112-3345
           </a>
-          <a class="contacts__item  contacts__item--mail" href="mailto:hello@inweb.com">
+          <a
+            class="contacts__item  contacts__item--mail"
+            href="mailto:hello@inweb.com"
+          >
             hello@inweb.com
           </a>
         </div>
       </form>
-
+  
       <div class="content__close" onclick="closeModal()">
         <span class="close__item close__item--1"></span>
         <span class="close__item close__item--2"></span>
