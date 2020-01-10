@@ -1023,6 +1023,8 @@ input:hover, input:active {
       align-self: start;
   padding-bottom: 2.5rem;
   padding-right: 1rem;
+  position: relative;
+  z-index: 1;
 }
 .seventh-block_content-card ul li {
   display: block;
