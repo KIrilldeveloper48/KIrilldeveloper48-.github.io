@@ -1,0 +1,582 @@
+@charset 'utf-8'
+@import "reset"
+@import "font"
+@import "vars"
+html
+	font-size: 20px
+	color: $txt-color
+	width: 100%
+	overflow-x: hidden
+
+body
+	font-family: $p-font
+	line-height: 1.2
+	padding-right: 0 !important
+	margin: 0
+
+*:focus
+	outline: none !important
+
+a
+	color: $txt-color
+	transition: $time
+	cursor: pointer
+	&:hover
+		color: $active
+		transition: $time
+	&:active
+		color: $active
+		transition: $time
+
+p
+	font-size: .8rem
+	font-family: $p-font
+	color: $txt-color
+	font-weight: 400
+
+img
+	width: 100%
+	height: auto
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	font-family: $h-font
+	font-weight: 700
+	text-align: center
+	letter-spacing: 1px
+	color: $txt-color
+	line-height: 1
+
+h1
+	font-size: 3.6rem
+
+h2
+	font-size: 3.1rem
+
+h3
+	font-size: 2.6rem
+
+h4
+	font-size: 2.1rem
+h5
+	font-size: 1.6rem
+h6
+	font-size: 1.1rem
+
+input
+	cursor: pointer
+	&:invalid
+		box-shadow: none
+	&:focus:invalid
+		border-bottom: 2px solid $invalid
+		transition: $time
+	&:valid
+		border-bottom: 2px solid $valid
+		transition: $time
+	&:hover, &:active
+		outline: none
+
+//Общие классы
+.dark-section
+	a,p,h1,h2,h3,h4,h5,h6
+		color: $light-color
+
+.accent
+	color: $accent
+
+.container
+	display: grid
+	grid-template-columns: 5.7rem repeat(12, 1fr) 5.7rem
+	grid-column-gap: 1.5rem
+
+.d-n
+	display: none !important
+
+.button
+	text-transform: uppercase
+	color: $txt-color
+	padding: .6rem 0
+	background: $accent
+	border: none
+	width: 8.5rem
+	border-radius: 5px
+	cursor: pointer
+	&:hover
+		background: darken($accent, 10%)
+
+.bg-1
+	background: url(../img/bg-1.jpg) center center
+	background-size: cover
+	background-repeat: no-repeat
+	background-attachment: fixed
+	height: 49.7rem
+
+.bg-2
+	background: url(../img/bg-1.2.png) center center
+	background-size: cover
+	background-repeat: no-repeat
+	background-attachment: fixed
+
+.flower
+	position: absolute
+	bottom: -1rem
+	left: 50%
+	width: 1rem
+	transform: translate(-50%, 0)
+	z-index: 2
+
+.hr-right, .hr-left
+	height: 2px
+	opacity: .3
+	margin: 0
+	color: rgba(255,255,255,.3)
+	background: rgba(255,255,255,.3)
+	position: absolute
+	width: 100%
+	bottom: -.5rem
+	border: none
+	z-index: 2
+
+//Кнопка вверх
+#back-top
+	font-size: 20px
+
+	position: fixed
+	z-index: 99991
+	right: 4%
+	bottom: 4%
+
+	display: none
+
+	width: 3.5rem
+	height: 3.5rem
+	padding: 0
+
+	text-align: center
+	cursor: pointer
+
+	color: $hover
+	background: $accent
+
+	border-radius: 50%
+
+#back-top img
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	width: .7rem
+#back-top div:hover
+	transition: all linear .4s
+
+	color: $active
+
+#back-top:hover
+	transition: all linear .4s
+
+//Меню
+.container
+	grid-template-rows: 11.2rem
+	header
+		display: grid
+		grid-template-rows: 6.5rem 4.5rem
+		grid-template-columns: repeat(12, 1fr)
+		grid-column-gap: 1.5rem
+		grid-column: 2 / 14
+		grid-row: 1 / -1
+		.logo
+			padding-top: 1.8rem
+			width: 5rem
+			grid-column: 1 / -1
+			grid-row: 1 / 2
+			justify-self: center
+		nav
+			display: grid
+			grid-template-rows: 1fr
+			grid-template-columns: repeat(12, 1fr)
+			grid-column-gap: 1.5rem
+			grid-row: 2 / 3
+			grid-column: 1 / -1
+			padding-top: 1.5rem
+			padding-bottom: 2.5rem
+			position: relative
+			.menu-nav
+				grid-row: 1 / 2
+				grid-column: 2 / 12
+				text-align: center
+				li
+					display: inline
+				a
+					text-transform: uppercase
+					padding-right: 1rem
+					padding-left: 1rem
+					font-weight: 700
+					font-size: 1.1rem
+					&:hover
+						color: $accent
+			.login
+				width: 100%
+				grid-row: 1 / 2
+				grid-column: 12 / 13
+				text-align: right
+				position: relative
+				z-index: 2
+				img
+					width: 1.5rem
+					padding-right: (1.2rem+.8rem)
+			.lang
+				display: inline
+				grid-row: 1 / 2
+				grid-column: 12 / 13
+				a
+					width: 100%
+					padding-top: .25rem
+					display: inline-block
+					text-align: right
+					img
+						width: 1.2rem
+
+			.hr-left
+				grid-column: 1 / 7
+			.hr-right
+				grid-column: 7 / 13
+
+//Первый экран
+.first-screen
+	height: 23rem
+	grid-template-rows: repeat(4, max-content)
+	position: relative
+	h1
+		padding-top: 3rem
+		grid-column: 2/14
+		text-align: center
+		font-size: 6.5rem
+		text-transform: uppercase
+		grid-row: 1/2
+	h2
+		grid-column: 2/14
+		text-align: center
+		font-size: 2.1rem
+		font-weight: 400
+		grid-row: 2/3
+	h3
+		grid-row: 3/4
+		grid-column: 2/14
+		text-align: center
+		font-size: 1rem
+		opacity: .4
+		padding-top: 1rem
+		text-transform: uppercase
+		padding-bottom: 2.3rem
+
+	.button
+		grid-row: 4/5
+		grid-column: 7/9
+		text-align: center
+		font-size: 1.2rem
+		font-weight: 700
+		display: grid
+		justify-self: center
+
+	.hr-left
+		grid-column: 2 / 8
+	.hr-right
+		grid-column: 8 / 14
+
+//второй экран
+.second-screen
+	height: 20.1rem
+	position: relative
+	padding-top: 4.5rem
+
+	.bg-abs
+		position: absolute
+		width: 100%
+		height: 11.5rem
+		bottom: 0
+		background: #1d1d1d
+	.card
+		background: url(../img/card.png) top center
+		background-repeat: no-repeat
+		background-size: cover
+		position: relative
+		height: 17.5rem
+		z-index: 1
+		img
+			position: absolute
+			width: 3.5rem
+			top: -1.75rem
+			left: 50%
+			transform: translate(-50%, 0)
+		a
+			text-align: center
+			font-size: 2.1rem
+			color: $light-color
+			padding-top: 6.5rem
+			padding-bottom: 1.5rem
+			display: inline-block
+			width: 100%
+		p
+			text-align: center
+			font-size: .5rem
+			color: $txt-color
+			display: grid
+			justify-self: center
+			margin-left: auto
+			margin-right: auto
+			line-height: 18px
+			text-transform: uppercase
+			max-width: 90%
+
+	.card-1
+		grid-column: 2 / 5
+
+	.card-2
+		grid-column: 5 / 8
+
+	.card-3
+		grid-column: 8 / 11
+
+	.card-4
+		grid-column: 11 / 14
+
+//Третий экран
+.thirst-screen
+	height: 27rem
+	background: #1d1d1d
+	padding-top: 11.5rem
+	padding-bottom: 3rem
+	p,li
+		text-transform: uppercase
+		font-size: .5rem
+		line-height: 18px
+	h2
+		text-transform: uppercase
+		font-size: 1.8rem
+		padding-bottom: 3rem
+		font-weight: 400
+		grid-column: 1 / 2
+		text-align: left
+	a
+		text-transform: uppercase
+		font-size: 1rem
+		color: $accent
+		font-weight: 400
+		display: inline-block
+		position: relative
+		z-index: 2
+
+	small
+		color: #9a9a9a
+		font-size: .5rem
+
+	.news
+		display: grid
+		grid-column: 2 / 5
+		grid-template-rows: repeat(4, max-content)
+		img
+			width: 6.2rem
+		.content
+			display: grid
+			grid-template-columns: repeat(2, max-content)
+			grid-template-rows: repeat(2, max-content)
+			img
+				grid-column: 1 / 2
+				grid-row: 1 / -1
+				padding-right: 1rem
+			a
+				grid-column: 2 / 3
+				grid-row: 1 / 2
+			small
+				grid-column: 2 / 3
+				grid-row: 1 / 2
+				text-transform: uppercase
+				padding-top: 1rem
+			p
+				grid-column: 2 / 3
+				grid-row: 2 / 3
+				width: 10rem
+			&-1
+				grid-row: 2 / 3
+				padding-bottom: 1.5rem
+			&-2
+				grid-row: 3 / 4
+				padding-bottom: 1.5rem
+			&-3
+				grid-row: 4 / 5
+	.main
+		display: grid
+		grid-column: 6 / 10
+		grid-template-rows: repeat(3, max-content)
+		justify-items: center
+		h2
+			justify-self: start
+		img
+			padding-bottom: 2rem
+			grid-row: 2 / 3
+		&-content
+			grid-row: 3 / 4
+			p
+				padding-bottom: 1rem
+
+	.services
+		display: grid
+		grid-column: 11 / 15
+		grid-template-rows: repeat(2, max-content)
+		ul
+			grid-row: 2 / 3
+			li
+				color: $light-color
+				padding-bottom: 1rem
+				position: relative
+				span
+					background: url(../img/icons/check.png) center center
+					background-repeat: no-repeat
+					display: inline-block
+					width: .5rem
+					height: .5rem
+					margin-right: .7rem
+
+//Четвёртый блок
+.four-screen
+	background: #161616
+	height: 8rem
+	padding-bottom: 1rem
+	h3
+		color: #b9b9b9
+		font-size: .9rem
+		padding-bottom: 1.2rem
+		font-weight: 700
+		text-align: left
+		padding-top: 2rem
+	.ad-inf
+		grid-column: 2 / 6
+		ul
+			li
+				position: relative
+				padding-bottom: .7rem
+				&:before
+					content: ''
+					position: absolute
+					top: 40%
+					left: 0
+					background: $accent
+					width: .5rem
+					height: .5rem
+					border-radius: 50%
+					transform: translate(0, -50%)
+				a
+					color: #757575
+					font-size: .8rem
+					margin-left: 1rem
+					font-weight: 700
+					&:hover
+						color: $hover
+	.contacts
+		grid-column: 6 / 10
+		p,a
+			color: #757575
+			font-size: .8rem
+			font-weight: 700
+	.follow
+		grid-column: 11 / 14
+		.icons
+			background: $accent
+			position: relative
+			width: 1.5rem
+			height: 1.5rem
+			border-radius: 50%
+			display: inline-block
+			img
+				position: absolute
+				top: 50%
+				left: 50%
+				width: .5rem
+				transform: translate(-50%,-50%)
+			.twitter
+				width: .7rem
+			.google
+				width: 1rem
+			.rss
+				width: .7rem
+
+//Футер
+.footer
+	background: #000000
+	height: 2.5rem
+	display: grid
+	grid-template-rows: max-content
+	align-content: center
+	.privacy
+		grid-column: 2 / 12
+		p,a
+			color: #636262
+			font-size: .5rem
+			text-transform: uppercase
+			font-weight: 700
+		p
+			display: inline-block
+
+//Модальное окно
+.modal
+	position: fixed
+	z-index: 30
+	top: 0
+	left: 0
+	display: none
+	overflow: auto
+	width: 100%
+	height: 100%
+	-webkit-transition: 5s
+	transition: 5s
+	background: rgba(0,0,0,0.3)
+	&-card
+		position: absolute
+		width: 24rem
+		height: 22.5rem
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+		background: #383838
+		border-radius: 16px
+		padding-bottom: 1.8rem
+		h3
+			color: $light-color
+			font-size: 1.2rem
+			padding-top: 1.5rem
+			padding-bottom: .5rem
+			font-weight: 700
+		p
+			color: $light-color
+			font-size: 1.2rem
+			font-weight: 400
+			padding-left: 2.2rem
+			padding-right: 2.2rem
+			padding-bottom: .3rem
+		input
+			border: none
+			background: #474747
+			border-radius: 16px
+			height: 3rem
+			width: 18.5rem
+			margin-left: 2rem
+			margin-bottom: .5rem
+			padding-left: 1rem
+			outline: none
+			color: white
+			font-size: 1rem
+			font-family: 'PT Sans', sans-serif
+		.button
+			font-weight: 700
+			text-align: center
+			font-size: 1.2rem
+			margin-top: 1.7rem
+			margin-left: auto
+			margin-right: auto
+			display: block
+
+@import "media"
