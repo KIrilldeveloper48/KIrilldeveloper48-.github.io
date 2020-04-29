@@ -178,15 +178,15 @@ map.classList.remove("map--faded");
 
 //-----------------------------------------------------//
 
-//Starting generation card a house
+//Starting generation of the house card
 var generationCard = function() {
-  //finding container for card
+  //finding a container for the card
   var mapFilter = map.querySelector(".map__filters-container");
 
-  //finding card in template
+  //finding the card in the template
   var mapCard = templateMap.querySelector(".map__card");
 
-  //Cloning DOM element
+  //Cloning the DOM element
   let cloneMapCard = mapCard.cloneNode(true);
 
   let cardTitle = cloneMapCard.querySelector(".popup__title");
@@ -229,7 +229,7 @@ var generationCard = function() {
   mapFilter.before(cloneMapCard);
 };
 
-//Clear list of features
+//Clearing the list of features
 var removeChildPopupFeatures = function(cardFeatures) {
   var cardFeaturesChildren = cardFeatures.children;
   while (cardFeaturesChildren.length > 0) {
@@ -238,7 +238,7 @@ var removeChildPopupFeatures = function(cardFeatures) {
   }
 };
 
-//Creating list of features
+//Creating the list of features
 var createListFeatures = function(cardFeatures) {
   for (var i = 0; i < arrayAD[0].offer.features.length; i++) {
     let feature = document.createElement("li");
@@ -248,7 +248,7 @@ var createListFeatures = function(cardFeatures) {
   }
 };
 
-//Creating list of photos
+//Creating the list of photos
 var createlistPhotos = function(cardPhotos) {
   for (var i = 0; i < arrayAD[0].offer.photos.length; i++) {
     let li = document.createElement("li");
