@@ -22,10 +22,11 @@ var HOUSE_PRICE = {
 };
 
 var HOUSE_TYPE = ["palace", "flat", "house", "bungalo"];
+var HOUSE_TYPE_RU = ["Дворец", "Квартира", "Дом", "Бунгало"];
 
-var CHECKIN_THE_HOUSE = ["12: 00", "13: 00", "14: 00"];
+var CHECKIN_THE_HOUSE = ["12:00", "13:00", "14:00"];
 
-var CHECKOUT_HOUSE = ["12: 00", "13: 00", "14: 00"];
+var CHECKOUT_HOUSE = ["12:00", "13:00", "14:00"];
 
 //Collect an array of random length from the features of the house
 var getRandomFeaturesHouse = function() {
@@ -147,7 +148,7 @@ var mapPins = document.querySelector(".map__pins");
 var axisShiftY = mapPin.clientHeight / 2 + 18;
 
 //Map mark generation
-var generetionMapPin = function(arrayAD) {
+var generetionMapPin = function() {
   for (var i = 0; i < arrayAD.length; i++) {
     //Cloning DOM element
     let cloneMapPin = mapPin.cloneNode(true);
@@ -171,6 +172,91 @@ var addingMapPin = function(cloneMapPin) {
   mapPins.appendChild(cloneMapPin);
 };
 
-generetionMapPin(arrayAD);
+generetionMapPin();
 
 map.classList.remove("map--faded");
+
+//-----------------------------------------------------//
+
+//Starting generation card a house
+var generationCard = function() {
+  //finding container for card
+  var mapFilter = map.querySelector(".map__filters-container");
+
+  //finding card in template
+  var mapCard = templateMap.querySelector(".map__card");
+
+  //Cloning DOM element
+  let cloneMapCard = mapCard.cloneNode(true);
+
+  let cardTitle = cloneMapCard.querySelector(".popup__title");
+  cardTitle.textContent = arrayAD[0].offer.title;
+
+  let cardAddress = cloneMapCard.querySelector(".popup__text--address");
+  cardAddress.textContent = arrayAD[0].offer.address;
+
+  let cardPrice = cloneMapCard.querySelector(".popup__text--price");
+  cardPrice.textContent = arrayAD[0].offer.price + "₽/ночь";
+
+  let cardType = cloneMapCard.querySelector(".popup__type");
+  let houseTypeIndex = HOUSE_TYPE.indexOf(arrayAD[0].offer.type);
+  cardType.textContent = HOUSE_TYPE_RU[houseTypeIndex];
+
+  let cardCapacity = cloneMapCard.querySelector(".popup__text--capacity");
+  cardCapacity.textContent =
+    arrayAD[0].offer.rooms + " комнаты для гостей " + arrayAD[0].offer.guests;
+
+  let cardCheckInAndOut = cloneMapCard.querySelector(".popup__text--time");
+  cardCheckInAndOut.textContent =
+    "Заезд после " +
+    arrayAD[0].offer.checkin +
+    ", выезд до " +
+    arrayAD[0].offer.checkout;
+
+  let cardFeatures = cloneMapCard.querySelector(".popup__features");
+  removeChildPopupFeatures(cardFeatures);
+  createListFeatures(cardFeatures);
+
+  let cardDescription = cloneMapCard.querySelector(".popup__description");
+  cardDescription.textContent = arrayAD[0].offer.decription;
+
+  let cardPhotos = cloneMapCard.querySelector(".popup__photos");
+  createlistPhotos(cardPhotos);
+
+  let cardAvatar = cloneMapCard.querySelector(".popup__avatar");
+  cardAvatar.src = arrayAD[0].author.avatar;
+
+  mapFilter.before(cloneMapCard);
+};
+
+//Clear list of features
+var removeChildPopupFeatures = function(cardFeatures) {
+  var cardFeaturesChildren = cardFeatures.children;
+  while (cardFeaturesChildren.length > 0) {
+    let li = cardFeatures.firstElementChild;
+    li.remove();
+  }
+};
+
+//Creating list of features
+var createListFeatures = function(cardFeatures) {
+  for (var i = 0; i < arrayAD[0].offer.features.length; i++) {
+    let feature = document.createElement("li");
+    feature.classList.add("feature--" + arrayAD[0].offer.features[i]);
+    feature.classList.add("feature");
+    cardFeatures.append(feature);
+  }
+};
+
+//Creating list of photos
+var createlistPhotos = function(cardPhotos) {
+  for (var i = 0; i < arrayAD[0].offer.photos.length; i++) {
+    let li = document.createElement("li");
+    let img = document.createElement("img");
+    img.src = arrayAD[0].offer.photos[i];
+    li.append(img);
+    cardPhotos.append(li);
+  }
+};
+
+generationCard();

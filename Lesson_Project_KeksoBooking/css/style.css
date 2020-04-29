@@ -114,7 +114,7 @@ textarea:focus {
   font-size: 0;
 }
 
-.features input:checked + label {
+.features input:checked+label {
   background-color: #ff6547;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
 }
@@ -374,9 +374,14 @@ textarea:focus {
   margin-bottom: 0.3em;
 }
 
-.popup__pictures li {
-  display: inline-block;
-  vertical-align: middle;
+.popup__photos li {
+  display: inline;
+  vertical-align: top;
+  padding: 2px;
+}
+
+.popup__photos img {
+  width: 30%;
 }
 
 .popup__avatar {
@@ -539,7 +544,7 @@ textarea:focus {
   border-radius: 3px;
 }
 
-.notice__form input:checked + .feature {
+.notice__form input:checked+.feature {
   background-color: #ff5635;
 }
 
