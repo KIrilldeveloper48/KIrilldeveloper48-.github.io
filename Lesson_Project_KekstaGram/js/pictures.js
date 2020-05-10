@@ -158,27 +158,42 @@ var drawingPhotos = function () {
 drawingPhotos();
 
 //------------------------------------------------------------------------------
-//Window for upload and filtering selected file
+//The window for uploading and filtering the selected file
 var uploadFile = document.querySelector("#upload-file");
 var uploadOverlay = document.querySelector(".upload-overlay");
 var uploadCancel = document.querySelector("#upload-cancel");
 
-//Saturation selection
+//Transparency selection
 var levelPin = uploadOverlay.querySelector(".upload-effect-level-pin");
 var levelLine = uploadOverlay.querySelector(".upload-effect-level-line");
 
 var percentOFSaturation;
 
-//The List of filters
+//The filter list
 var effectInputsContainer = uploadOverlay.querySelector(
   ".upload-effect-controls"
 );
 var effectInputs = effectInputsContainer.querySelectorAll("input");
 
-//The List of effects
-var effects = [" ", "grayscale", "sepia", "invert", "blur", "brightness"];
+//The effect, value and unit list
+var effects = [
+  [" ", 1, ""],
+  ["grayscale", 0.01, ""],
+  ["sepia", 0.01, ""],
+  ["invert", 1, "%"],
+  ["blur", 0.05, "px"],
+  ["brightness", 0.03, ""],
+];
+//Creating the dictionary for matching filters and effects
+var dictionary = new Map();
+for (var i = 0; i < effectInputs.length; i++) {
+  dictionary.set(effectInputs[i].id, effects[i]);
+}
 
-//The Image for filtering
+//Storing the last filter selection
+var currentTg;
+
+//The image for filtering
 var imgPreview = uploadOverlay.querySelector(".effect-image-preview");
 
 uploadFile.addEventListener("change", function () {
@@ -190,74 +205,47 @@ uploadCancel.addEventListener("click", function () {
   uploadFile.value = "";
 });
 
-//Stares the last filter selected
-var currentTg;
-
-// Setting up event listener on filters and reset the saturation value
+// Setting up the event listener for filters and resetting the transparency value
 for (var i = 0; i < effectInputs.length; i++) {
   effectInputs[i].addEventListener("click", function (evt) {
     percentOFSaturation = 0;
-    currentTg = evt;
+    currentTg = evt.originalTarget.id;
   });
 }
 
-//When interacting whis the saturation slider, we calculate the filter saturation. Triggering the function for creating a dictionary of matching filters and effects.Triggering the according function for adding effect to the photo
+//When users interact whith the transparency slider, we calculate the filter transparency. Triggering the according function for adding the effect to the photo
 levelPin.addEventListener("mouseup", function () {
-  percentOFSaturation = String(
-    Math.floor(
-      (100 / levelLine.clientWidth) *
-        (levelPin.offsetLeft + levelPin.clientWidth / 2)
-    )
+  percentOFSaturation = Math.floor(
+    (100 / levelLine.clientWidth) *
+      (levelPin.offsetLeft + levelPin.clientWidth / 2)
   );
-  let dictionary = creatingDict();
-  addEffects(dictionary);
+
+  addEffects();
 });
 
-var addEffects = function (dictionary) {
-  for (var i = 0; i < effectInputs.length; i++) {
-    
-    //Finding in dictionary effect of mathing filter
-    effectName = dictionary.get(currentTg.originalTarget.id);
-
-    if (effectName === "grayscale" || effectName === "sepia") {
-      addGreyOrSepia(effectName);
-    } else if (effectName === "invert") {
-      addInvert(effectName);
-    } else if (effectName === "blur") {
-      addBlur(effectName);
-    } else if (effectName === "brightness") {
-      addBrightness(effectName);
-    } else if (effectName === " ") {
+var addEffects = function () {
+  //Finding the effect index that matches the filter in the dictionary
+  effectName = dictionary.get(currentTg);
+  
+    if (effectName[0] === " ") {
       clearFilter();
+    } else {
+      imgPreview.style.filter = setFilter(
+        effectName[0],
+        effectName[1],
+        effectName[2]
+      );
     }
+};
+
+var setFilter = function (effect, quantity, unit) {
+ 
+  let valueTransparency = percentOFSaturation * quantity ;
+  if (effect === "brightness") {
+    valueTransparency = valueTransparency + 1;
   }
-};
 
-//Creating dictionary of matching filters and effects
-var creatingDict = function () {
-  let dictOfEffects = new Map();
-  for (var i = 0; i < effectInputs.length; i++) {
-    dictOfEffects.set(effectInputs[i].id, effects[i]);
-  }
-  return dictOfEffects;
-};
-
-var addGreyOrSepia = function (effect) {
-  imgPreview.style.filter = effect + "(" + percentOFSaturation / 100 + ")";
-};
-
-var addInvert = function (effect) {
-  imgPreview.style.filter = effect + "(" + percentOFSaturation + "%" + ")";
-};
-
-var addBlur = function (effect) {
-  let pixelOFSaturation = (5 / 100) * percentOFSaturation;
-  imgPreview.style.filter = effect + "(" + pixelOFSaturation + "px" + ")";
-};
-
-var addBrightness = function (effect) {
-  let numberOFSaturation = (3 / 100) * percentOFSaturation + 1;
-  imgPreview.style.filter = effect + "(" + numberOFSaturation + ")";
+  return effect + "(" + valueTransparency + unit + ")";
 };
 
 var clearFilter = function () {
