@@ -23,6 +23,10 @@ const DESC = [
 
 const NUMBER_OF_PHOTOS = 25;
 
+var pictureContainer = document.querySelector(".pictures");
+
+var targetPicture;
+
 //Generating an array of photo data
 var descArrGen = function () {
   let descArr = [];
@@ -58,6 +62,8 @@ var genComments = function () {
   return commentsArr;
 };
 
+var descArr = descArrGen();
+
 //Filling the HTML template of the photo
 var fillingATemplateAndDrawing = function (descArr) {
   for (var i = 0; i < NUMBER_OF_PHOTOS; i++) {
@@ -78,40 +84,75 @@ var fillingATemplateAndDrawing = function (descArr) {
 
 //Drawing the picture on the page
 var drawingPicture = function (cloneTemplate) {
-  var pictureContainer = document.querySelector(".pictures");
   pictureContainer.append(cloneTemplate);
 };
 
-//Showing the big preview
+//The main function to trigger other functions
+fillingATemplateAndDrawing(descArr);
+
+//------------------------------------------------------------------------------
+var bigPicture = document.querySelector(".gallery-overlay");
+var overlayClose = document.querySelector(".gallery-overlay-close");
+var picturesArray = pictureContainer.querySelectorAll("img");
+var indexPhoto;
+
+pictureContainer.addEventListener("click", function (evt) {
+  evt.preventDefault();
+  let target = evt.target;
+  if (target.tagName == "IMG") {
+    var imgId = target.id;
+    findIndex(imgId);
+    fillingBigPicture(descArr, indexPhoto);
+    createComments(descArr, indexPhoto);
+    showBigPicture();
+  }
+});
+
+//Adding a id to the image for simple finding
+for (var i = 0; i < picturesArray.length; i++) {
+  picturesArray[i].id = "img" + "_" + i;
+}
+
+//Finding for the object index according tj the id of the image
+var findIndex = function (imgId) {
+  indexPhoto = imgId.slice(4, imgId.length);
+};
+
 var showBigPicture = function () {
-  var bigPicture = document.querySelector(".gallery-overlay");
   bigPicture.classList.remove("hidden");
 };
 
+overlayClose.addEventListener("click", function () {
+  bigPicture.classList.add("hidden");
+});
+
 //Filling the preview with content
-var fillingBigPicture = function (descArr) {
+var fillingBigPicture = function (descArr, index) {
   var bigPictureImg = document.querySelector(".gallery-overlay-image");
   var bigPictureLikes = document.querySelector(".likes-count");
   var bigPictureComments = document.querySelector(".comments-count");
 
-  bigPictureImg.src = descArr[0].url;
-  bigPictureLikes.textContent = descArr[0].likes;
-  bigPictureComments.textContent = descArr[0].comments.length;
+  bigPictureImg.src = descArr[index].url;
+  bigPictureLikes.textContent = descArr[index].likes;
+  bigPictureComments.textContent = descArr[index].comments.length;
 };
 
 //Creating DOM elements for the comments
-var createComments = function (descArr) {
-  var lengthArray = descArr[0].comments.length;
+var createComments = function (descArr, index) {
+  let lengthArray = descArr[index].comments.length;
   var listCommentsContainer = document.querySelector(".social__comments");
+
+  while (listCommentsContainer.firstChild) {
+    listCommentsContainer.firstChild.remove();
+  }
 
   for (var i = 0; i < lengthArray; i++) {
     var createListComments = document.createElement("li");
     var createImg = document.createElement("img");
     var createDesc = document.createElement("p");
-
     addingAtribytesToLi(createListComments);
     addingAtribytesToImg(createImg);
-    addingAtribytesToDesc(createDesc, descArr, i);
+    addingAtribytesToDesc(createDesc, descArr[index], i);
 
     addingElementsInListComments(createListComments, createImg, createDesc);
     addingListCommentsInContainer(listCommentsContainer, createListComments);
@@ -134,7 +175,7 @@ var addingAtribytesToImg = function (img) {
 
 var addingAtribytesToDesc = function (desc, arr, i) {
   desc.classList.add("social__text");
-  desc.textContent = arr[0].comments[i];
+  desc.textContent = arr.comments[i];
 };
 
 var addingElementsInListComments = function (listComments, img, desc) {
@@ -145,17 +186,6 @@ var addingElementsInListComments = function (listComments, img, desc) {
 var addingListCommentsInContainer = function (container, listComments) {
   container.append(listComments);
 };
-
-//The main function to trigger other functions
-var drawingPhotos = function () {
-  let descArr = descArrGen();
-  fillingATemplateAndDrawing(descArr);
-  fillingBigPicture(descArr);
-  //showBigPicture();
-  createComments(descArr);
-};
-
-drawingPhotos();
 
 //------------------------------------------------------------------------------
 //The window for uploading and filtering the selected file
@@ -226,21 +256,20 @@ levelPin.addEventListener("mouseup", function () {
 var addEffects = function () {
   //Finding the effect index that matches the filter in the dictionary
   effectName = dictionary.get(currentTg);
-  
-    if (effectName[0] === " ") {
-      clearFilter();
-    } else {
-      imgPreview.style.filter = setFilter(
-        effectName[0],
-        effectName[1],
-        effectName[2]
-      );
-    }
+
+  if (effectName[0] === " ") {
+    clearFilter();
+  } else {
+    imgPreview.style.filter = setFilter(
+      effectName[0],
+      effectName[1],
+      effectName[2]
+    );
+  }
 };
 
 var setFilter = function (effect, quantity, unit) {
- 
-  let valueTransparency = percentOFSaturation * quantity ;
+  let valueTransparency = percentOFSaturation * quantity;
   if (effect === "brightness") {
     valueTransparency = valueTransparency + 1;
   }

@@ -52,7 +52,7 @@ body {
   left: -100px;
 }
 
-.filters-radio:checked + .filters-item {
+.filters-radio:checked+.filters-item {
   color: #000000;
   text-decoration: none;
 
@@ -120,31 +120,31 @@ body {
 .upload-effect-label-chrome .upload-effect-preview,
 .effect-chrome {
   -webkit-filter: grayscale(1);
-          filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .upload-effect-label-sepia .upload-effect-preview,
 .effect-sepia {
   -webkit-filter: sepia(1);
-          filter: sepia(1);
+  filter: sepia(1);
 }
 
 .upload-effect-label-marvin .upload-effect-preview,
 .effect-marvin {
   -webkit-filter: invert(100%);
-          filter: invert(100%);
+  filter: invert(100%);
 }
 
 .upload-effect-label-phobos .upload-effect-preview,
 .effect-phobos {
   -webkit-filter: blur(5px);
-          filter: blur(5px);
+  filter: blur(5px);
 }
 
 .upload-effect-label-heat .upload-effect-preview,
 .effect-heat {
   -webkit-filter: brightness(3);
-          filter: brightness(3);
+  filter: brightness(3);
 }
 
 .upload-input {
@@ -179,11 +179,11 @@ body {
   display: none;
 }
 
-.upload-input-hasvalue + .upload-file {
+.upload-input-hasvalue+.upload-file {
   display: none;
 }
 
-.upload-input-hasvalue + .upload-file + .upload-submit {
+.upload-input-hasvalue+.upload-file+.upload-submit {
   display: block;
 }
 
@@ -310,11 +310,11 @@ body {
 }
 
 .upload-effect-label:hover,
-input[type=radio]:checked + .upload-effect-label {
+input[type=radio]:checked+.upload-effect-label {
   color: #ffe753;
 }
 
-input[type=radio]:checked + .upload-effect-label .upload-effect-preview {
+input[type=radio]:checked+.upload-effect-label .upload-effect-preview {
   border-color: #ffe753;
 }
 
@@ -649,9 +649,11 @@ input[type=radio]:checked + .upload-effect-label .upload-effect-preview {
   .picture:nth-child(1) {
     margin-right: 600px;
   }
+
   .picture:nth-child(3) {
     margin-right: 600px;
   }
+
   .picture:nth-child(5) {
     margin-right: 600px;
   }
@@ -672,13 +674,15 @@ input[type=radio]:checked + .upload-effect-label .upload-effect-preview {
   }
 }
 
-@media only screen and (max-width: 999px){
+@media only screen and (max-width: 999px) {
   .picture:nth-child(1) {
     margin-right: 600px;
   }
+
   .picture:nth-child(2) {
     margin-right: 600px;
   }
+
   .picture:nth-child(3) {
     margin-right: 600px;
   }
@@ -775,6 +779,10 @@ input[type=radio]:checked + .upload-effect-label .upload-effect-preview {
 
 .likes-count-liked:before {
   background-position-x: -18px;
+}
+
+.social__text {
+  color: black;
 }
 
 .footer {
