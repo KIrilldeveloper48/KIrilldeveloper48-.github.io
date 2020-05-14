@@ -27,6 +27,7 @@ var pictureContainer = document.querySelector(".pictures");
 
 var targetPicture;
 
+var currentModalWindow = '';
 //Generating an array of photo data
 var descArrGen = function () {
   let descArr = [];
@@ -65,16 +66,17 @@ var genComments = function () {
 var descArr = descArrGen();
 
 //Filling the HTML template of the photo
-var fillingATemplateAndDrawing = function (descArr) {
+var fillingATemplateAndDrawing = function () {
   for (var i = 0; i < NUMBER_OF_PHOTOS; i++) {
-    var pictureTemplate = document.querySelector("#picture-template").content;
+    var pictureTemplate = document.querySelector("#picture").content;
     var cloneTemplate = pictureTemplate.cloneNode(true);
 
     var pictureImg = cloneTemplate.querySelector("img");
-    var pictureLikes = cloneTemplate.querySelector(".picture-likes");
-    var pictureComments = cloneTemplate.querySelector(".picture-comments");
+    var pictureLikes = cloneTemplate.querySelector(".picture__likes");
+    var pictureComments = cloneTemplate.querySelector(".picture__comments");
 
     pictureImg.src = descArr[i].url;
+    pictureImg.id = "img" + "_" + i
     pictureLikes.textContent = descArr[i].likes;
     pictureComments.textContent = descArr[i].comments.length;
 
@@ -88,59 +90,56 @@ var drawingPicture = function (cloneTemplate) {
 };
 
 //The main function to trigger other functions
-fillingATemplateAndDrawing(descArr);
+fillingATemplateAndDrawing();
 
 //------------------------------------------------------------------------------
-var bigPicture = document.querySelector(".gallery-overlay");
-var overlayClose = document.querySelector(".gallery-overlay-close");
-var picturesArray = pictureContainer.querySelectorAll("img");
-var indexPhoto;
+var bigPicture = document.querySelector(".overlay");
+var overlayClose = document.querySelector(".big-picture__cancel");
+var bigPictureImg = document.querySelector(".big-picture__img>img");
+var bigPictureLikes = document.querySelector(".likes-count");
+var bigPictureComments = document.querySelector(".comments-count");
+var bigPictureDesc = document.querySelector('.social__caption');
+var bigPictureCommentsCount = document.querySelector('.social__comment-count');
+var listCommentsContainer = document.querySelector(".social__comments");
+var imgUploadContainer = document.querySelector('.img-upload');
+var pictureArray = pictureContainer.querySelectorAll('.picture__img')
 
-pictureContainer.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  let target = evt.target;
-  if (target.tagName == "IMG") {
-    var imgId = target.id;
-    findIndex(imgId);
-    fillingBigPicture(descArr, indexPhoto);
-    createComments(descArr, indexPhoto);
+for (var i = 0; i < pictureArray.length; i++) {
+  pictureArray[i].addEventListener("click", function (evt) {
+    evt.preventDefault();
+
+    let target = evt.target;
+    let imgId = target.id;
+    let indexPhoto = findIndex(imgId);
+
+    fillingBigPicture(indexPhoto);
+    createComments(indexPhoto);
+    bigPictureCommentsCount.classList.add('hidden')
     showBigPicture();
-  }
-});
-
-//Adding a id to the image for simple finding
-for (var i = 0; i < picturesArray.length; i++) {
-  picturesArray[i].id = "img" + "_" + i;
+  });
 }
 
-//Finding for the object index according tj the id of the image
+//Determinig the object index according to the id of the image
 var findIndex = function (imgId) {
-  indexPhoto = imgId.slice(4, imgId.length);
+  return imgId.slice(4, imgId.length);
 };
 
 var showBigPicture = function () {
   bigPicture.classList.remove("hidden");
+  currentModalWindow = bigPicture;
 };
 
-overlayClose.addEventListener("click", function () {
-  bigPicture.classList.add("hidden");
-});
-
 //Filling the preview with content
-var fillingBigPicture = function (descArr, index) {
-  var bigPictureImg = document.querySelector(".gallery-overlay-image");
-  var bigPictureLikes = document.querySelector(".likes-count");
-  var bigPictureComments = document.querySelector(".comments-count");
-
+var fillingBigPicture = function (index) {
   bigPictureImg.src = descArr[index].url;
   bigPictureLikes.textContent = descArr[index].likes;
   bigPictureComments.textContent = descArr[index].comments.length;
+  bigPictureDesc.textContent = descArr[index].description;
 };
 
 //Creating DOM elements for the comments
-var createComments = function (descArr, index) {
+var createComments = function (index) {
   let lengthArray = descArr[index].comments.length;
-  var listCommentsContainer = document.querySelector(".social__comments");
 
   while (listCommentsContainer.firstChild) {
     listCommentsContainer.firstChild.remove();
@@ -167,7 +166,7 @@ var addingAtribytesToLi = function (listComments) {
 var addingAtribytesToImg = function (img) {
   let randomNumber = Math.floor(Math.random() * 6) + 1;
   img.classList.add("social__picture");
-  img.src = "img/avatar-" + randomNumber + ".jpg";
+  img.src = "img/avatar-" + randomNumber + ".svg";
   img.alt = "Автар комментатора фотографии";
   img.style.width = "35px";
   img.style.heigth = "35px";
@@ -190,18 +189,18 @@ var addingListCommentsInContainer = function (container, listComments) {
 //------------------------------------------------------------------------------
 //The window for uploading and filtering the selected file
 var uploadFile = document.querySelector("#upload-file");
-var uploadOverlay = document.querySelector(".upload-overlay");
+var uploadOverlay = document.querySelector(".img-upload__overlay");
 var uploadCancel = document.querySelector("#upload-cancel");
 
 //Transparency selection
-var levelPin = uploadOverlay.querySelector(".upload-effect-level-pin");
-var levelLine = uploadOverlay.querySelector(".upload-effect-level-line");
+var levelPin = uploadOverlay.querySelector(".effect-level__pin");
+var levelLine = uploadOverlay.querySelector(".effect-level__line");
 
 var percentOFSaturation;
 
 //The filter list
 var effectInputsContainer = uploadOverlay.querySelector(
-  ".upload-effect-controls"
+  ".img-upload__effects"
 );
 var effectInputs = effectInputsContainer.querySelectorAll("input");
 
@@ -224,15 +223,11 @@ for (var i = 0; i < effectInputs.length; i++) {
 var currentTg;
 
 //The image for filtering
-var imgPreview = uploadOverlay.querySelector(".effect-image-preview");
+var imgPreview = uploadOverlay.querySelector(".img-upload__preview>img");
 
 uploadFile.addEventListener("change", function () {
   uploadOverlay.classList.remove("hidden");
-});
-
-uploadCancel.addEventListener("click", function () {
-  uploadOverlay.classList.add("hidden");
-  uploadFile.value = "";
+  currentModalWindow = uploadOverlay;
 });
 
 // Setting up the event listener for filters and resetting the transparency value
@@ -247,7 +242,7 @@ for (var i = 0; i < effectInputs.length; i++) {
 levelPin.addEventListener("mouseup", function () {
   percentOFSaturation = Math.floor(
     (100 / levelLine.clientWidth) *
-      (levelPin.offsetLeft + levelPin.clientWidth / 2)
+    (levelPin.offsetLeft + levelPin.clientWidth / 2)
   );
 
   addEffects();
@@ -279,4 +274,65 @@ var setFilter = function (effect, quantity, unit) {
 
 var clearFilter = function () {
   imgPreview.style.filter = "";
+};
+//----------------------------------------------------------------------------//
+
+var resizePlus = uploadOverlay.querySelector('.scale__control--bigger');
+var resizeMinus = uploadOverlay.querySelector('.scale__control--smaller');
+var resizeValue = uploadOverlay.querySelector('.scale__control--value');
+var val = 100;
+
+
+
+resizePlus.addEventListener('click', function () {
+  if (resizeValue.value != '100%') {
+    val += 25;
+    addResizeValue();
+    addResizeImg();
+  }
+});
+
+resizeMinus.addEventListener('click', function () {
+  if (resizeValue.value != "25%") {
+    val -= 25;
+    addResizeValue();
+    addResizeImg();
+  }
+})
+
+var addResizeValue = function () {
+  resizeValue.value = String(val) + '%';
+}
+
+var addResizeImg = function () {
+  imgPreview.style.transform = 'scale' + '(' + resizeValue.value + ')';
+}
+//----------------------------------------------------------------------------//
+
+document.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 27) {
+    if (currentModalWindow !== '') {
+      closeModal();
+    }
+  }
+})
+
+uploadCancel.addEventListener("click", function () {
+  closeModal();
+});
+
+overlayClose.addEventListener("click", function () {
+  closeModal();
+});
+
+var closeModal = function () {
+  currentModalWindow.classList.add("hidden");
+  if (currentModalWindow == uploadOverlay) {
+    resetValue();
+  }
+  currentModalWindow = '';
+}
+
+var resetValue = function () {
+  uploadFile.value = "";
 };
