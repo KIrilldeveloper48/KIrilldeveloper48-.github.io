@@ -27,7 +27,7 @@ var pictureContainer = document.querySelector(".pictures");
 
 var targetPicture;
 
-var currentModalWindow = '';
+var currentModalWindow = "";
 //Generating an array of photo data
 var descArrGen = function () {
   let descArr = [];
@@ -76,7 +76,7 @@ var fillingATemplateAndDrawing = function () {
     var pictureComments = cloneTemplate.querySelector(".picture__comments");
 
     pictureImg.src = descArr[i].url;
-    pictureImg.id = "img" + "_" + i
+    pictureImg.id = "img" + "_" + i;
     pictureLikes.textContent = descArr[i].likes;
     pictureComments.textContent = descArr[i].comments.length;
 
@@ -93,16 +93,18 @@ var drawingPicture = function (cloneTemplate) {
 fillingATemplateAndDrawing();
 
 //------------------------------------------------------------------------------
+//Collecting previously drawn photos into a collection
+var pictureArray = pictureContainer.querySelectorAll(".picture__img");
+
 var bigPicture = document.querySelector(".overlay");
-var overlayClose = document.querySelector(".big-picture__cancel");
 var bigPictureImg = document.querySelector(".big-picture__img>img");
 var bigPictureLikes = document.querySelector(".likes-count");
+var bigPictureDesc = document.querySelector(".social__caption");
+var bigPictureCommentsCount = document.querySelector(".social__comment-count");
 var bigPictureComments = document.querySelector(".comments-count");
-var bigPictureDesc = document.querySelector('.social__caption');
-var bigPictureCommentsCount = document.querySelector('.social__comment-count');
 var listCommentsContainer = document.querySelector(".social__comments");
-var imgUploadContainer = document.querySelector('.img-upload');
-var pictureArray = pictureContainer.querySelectorAll('.picture__img')
+
+var overlayClose = document.querySelector(".big-picture__cancel");
 
 for (var i = 0; i < pictureArray.length; i++) {
   pictureArray[i].addEventListener("click", function (evt) {
@@ -114,7 +116,7 @@ for (var i = 0; i < pictureArray.length; i++) {
 
     fillingBigPicture(indexPhoto);
     createComments(indexPhoto);
-    bigPictureCommentsCount.classList.add('hidden')
+    bigPictureCommentsCount.classList.add("hidden");
     showBigPicture();
   });
 }
@@ -199,9 +201,7 @@ var levelLine = uploadOverlay.querySelector(".effect-level__line");
 var percentOFSaturation;
 
 //The filter list
-var effectInputsContainer = uploadOverlay.querySelector(
-  ".img-upload__effects"
-);
+var effectInputsContainer = uploadOverlay.querySelector(".img-upload__effects");
 var effectInputs = effectInputsContainer.querySelectorAll("input");
 
 //The effect, value and unit list
@@ -242,10 +242,11 @@ for (var i = 0; i < effectInputs.length; i++) {
 levelPin.addEventListener("mouseup", function () {
   percentOFSaturation = Math.floor(
     (100 / levelLine.clientWidth) *
-    (levelPin.offsetLeft + levelPin.clientWidth / 2)
+      (levelPin.offsetLeft + levelPin.clientWidth / 2)
   );
 
   addEffects();
+  imgAddClass();
 });
 
 var addEffects = function () {
@@ -275,47 +276,53 @@ var setFilter = function (effect, quantity, unit) {
 var clearFilter = function () {
   imgPreview.style.filter = "";
 };
+
+var imgAddClass = function () {
+  imgPreview.className = "";
+  let nameClass = "effects__preview--" + currentTg.slice(7, currentTg.length);
+  imgPreview.classList.add(nameClass);
+};
 //----------------------------------------------------------------------------//
 
-var resizePlus = uploadOverlay.querySelector('.scale__control--bigger');
-var resizeMinus = uploadOverlay.querySelector('.scale__control--smaller');
-var resizeValue = uploadOverlay.querySelector('.scale__control--value');
+//Image scale control
+var resizePlus = uploadOverlay.querySelector(".scale__control--bigger");
+var resizeMinus = uploadOverlay.querySelector(".scale__control--smaller");
+var resizeValue = uploadOverlay.querySelector(".scale__control--value");
 var val = 100;
 
-
-
-resizePlus.addEventListener('click', function () {
-  if (resizeValue.value != '100%') {
+resizePlus.addEventListener("click", function () {
+  if (resizeValue.value != "100%") {
     val += 25;
     addResizeValue();
     addResizeImg();
   }
 });
 
-resizeMinus.addEventListener('click', function () {
+resizeMinus.addEventListener("click", function () {
   if (resizeValue.value != "25%") {
     val -= 25;
     addResizeValue();
     addResizeImg();
   }
-})
+});
 
 var addResizeValue = function () {
-  resizeValue.value = String(val) + '%';
-}
+  resizeValue.value = String(val) + "%";
+};
 
 var addResizeImg = function () {
-  imgPreview.style.transform = 'scale' + '(' + resizeValue.value + ')';
-}
+  imgPreview.style.transform = "scale" + "(" + resizeValue.value + ")";
+};
 //----------------------------------------------------------------------------//
 
-document.addEventListener('keydown', function (evt) {
+//The algorythms for closing the window
+document.addEventListener("keydown", function (evt) {
   if (evt.keyCode === 27) {
-    if (currentModalWindow !== '') {
+    if (currentModalWindow !== "") {
       closeModal();
     }
   }
-})
+});
 
 uploadCancel.addEventListener("click", function () {
   closeModal();
@@ -330,8 +337,8 @@ var closeModal = function () {
   if (currentModalWindow == uploadOverlay) {
     resetValue();
   }
-  currentModalWindow = '';
-}
+  currentModalWindow = "";
+};
 
 var resetValue = function () {
   uploadFile.value = "";
