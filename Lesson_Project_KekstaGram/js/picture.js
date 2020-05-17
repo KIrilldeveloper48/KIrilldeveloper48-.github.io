@@ -195,10 +195,12 @@ var uploadOverlay = document.querySelector(".img-upload__overlay");
 var uploadCancel = document.querySelector("#upload-cancel");
 
 //Transparency selection
+var levelContainer = uploadOverlay.querySelector(".effect-level");
 var levelPin = uploadOverlay.querySelector(".effect-level__pin");
 var levelLine = uploadOverlay.querySelector(".effect-level__line");
 
 var percentOFSaturation;
+var effectsValue = uploadOverlay.querySelector(".effect-level__value");
 
 //The filter list
 var effectInputsContainer = uploadOverlay.querySelector(".img-upload__effects");
@@ -210,7 +212,7 @@ var effects = [
   ["grayscale", 0.01, ""],
   ["sepia", 0.01, ""],
   ["invert", 1, "%"],
-  ["blur", 0.05, "px"],
+  ["blur", 0.03, "px"],
   ["brightness", 0.03, ""],
 ];
 //Creating the dictionary for matching filters and effects
@@ -230,38 +232,42 @@ uploadFile.addEventListener("change", function () {
   currentModalWindow = uploadOverlay;
 });
 
-// Setting up the event listener for filters and resetting the transparency value
+// Setting up the event listener for filters and resetting the transparency value. Cleaning the value of filter, deleting class of the image
 for (var i = 0; i < effectInputs.length; i++) {
   effectInputs[i].addEventListener("click", function (evt) {
     percentOFSaturation = 0;
     currentTg = evt.originalTarget.id;
+
+    clearFilter();
+    imgRemoveClass();
+    if (currentTg != "effect-none") levelContainer.classList.remove("hidden");
+    else levelHidden();
   });
 }
 
-//When users interact whith the transparency slider, we calculate the filter transparency. Triggering the according function for adding the effect to the photo
+//When users interact whith the transparency slider, we calculate the filter transparency. Triggering the according function for adding the effect to the photo, adding class to the image and rewriting the effect value
 levelPin.addEventListener("mouseup", function () {
   percentOFSaturation = Math.floor(
     (100 / levelLine.clientWidth) *
       (levelPin.offsetLeft + levelPin.clientWidth / 2)
   );
-
+  rewriteEffectValue();
   addEffects();
   imgAddClass();
 });
 
+var rewriteEffectValue = function () {
+  effectsValue.value = percentOFSaturation;
+};
+
 var addEffects = function () {
   //Finding the effect index that matches the filter in the dictionary
   effectName = dictionary.get(currentTg);
-
-  if (effectName[0] === " ") {
-    clearFilter();
-  } else {
-    imgPreview.style.filter = setFilter(
-      effectName[0],
-      effectName[1],
-      effectName[2]
-    );
-  }
+  imgPreview.style.filter = setFilter(
+    effectName[0],
+    effectName[1],
+    effectName[2]
+  );
 };
 
 var setFilter = function (effect, quantity, unit) {
@@ -277,10 +283,17 @@ var clearFilter = function () {
   imgPreview.style.filter = "";
 };
 
+var levelHidden = function () {
+  levelContainer.classList.add("hidden");
+};
+
 var imgAddClass = function () {
-  imgPreview.className = "";
   let nameClass = "effects__preview--" + currentTg.slice(7, currentTg.length);
   imgPreview.classList.add(nameClass);
+};
+
+var imgRemoveClass = function () {
+  imgPreview.className = "";
 };
 //----------------------------------------------------------------------------//
 
