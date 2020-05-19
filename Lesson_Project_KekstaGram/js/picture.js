@@ -20,13 +20,11 @@ const DESC = [
   "Цените каждое мгновенье. Цените тех, кто рядом с вами и отгоняйте все сомненья. Не обижайте всех словами......",
   "Вот это тачка!",
 ];
-
 const NUMBER_OF_PHOTOS = 25;
 
 var pictureContainer = document.querySelector(".pictures");
 
 var targetPicture;
-
 var currentModalWindow = "";
 //Generating an array of photo data
 var descArrGen = function () {
@@ -67,8 +65,9 @@ var descArr = descArrGen();
 
 //Filling the HTML template of the photo
 var fillingATemplateAndDrawing = function () {
+  var pictureTemplate = document.querySelector("#picture").content;
+
   for (var i = 0; i < NUMBER_OF_PHOTOS; i++) {
-    var pictureTemplate = document.querySelector("#picture").content;
     var cloneTemplate = pictureTemplate.cloneNode(true);
 
     var pictureImg = cloneTemplate.querySelector("img");
@@ -232,7 +231,7 @@ uploadFile.addEventListener("change", function () {
   currentModalWindow = uploadOverlay;
 });
 
-// Setting up the event listener for filters and resetting the transparency value. Cleaning the value of filter, deleting class of the image
+// Setting up the event listener for filters and resetting the transparency value. Cleaning the filter value, deleting the image class
 for (var i = 0; i < effectInputs.length; i++) {
   effectInputs[i].addEventListener("click", function (evt) {
     percentOFSaturation = 0;
@@ -245,11 +244,11 @@ for (var i = 0; i < effectInputs.length; i++) {
   });
 }
 
-//When users interact whith the transparency slider, we calculate the filter transparency. Triggering the according function for adding the effect to the photo, adding class to the image and rewriting the effect value
+//When users interact whith the transparency slider, we calculate the filter transparency. Triggering the function for adding the effect to the photo, adding a class name to the image and rewriting the effect value
 levelPin.addEventListener("mouseup", function () {
   percentOFSaturation = Math.floor(
     (100 / levelLine.clientWidth) *
-      (levelPin.offsetLeft + levelPin.clientWidth / 2)
+    (levelPin.offsetLeft + levelPin.clientWidth / 2)
   );
   rewriteEffectValue();
   addEffects();
@@ -356,3 +355,90 @@ var closeModal = function () {
 var resetValue = function () {
   uploadFile.value = "";
 };
+
+//----------------------------------------------------------------------------//
+//checking a hashTag
+//TODO: Проставить комментарии
+var hashTagInput = uploadOverlay.querySelector(".text__hashtags");
+var uploadButton = uploadOverlay.querySelector(".img-upload__submit");
+var hashTagInputVal;
+var hashTagArray = [];
+var erorrString;
+
+uploadButton.addEventListener("click", function () {
+  erorrString = "";
+  hashTagInputVal = hashTagInput.value;
+  hashTagArray = [];
+  hashTagInput.setCustomValidity("");
+  hastTagFillingArray();
+  checkingTags();
+  checkingTagsForDuplicates();
+  checkingTagsForLength();
+  erorrOutPut();
+});
+
+var hastTagFillingArray = function () {
+  let space;
+  let hashTagString = "";
+  for (var i = 0; i < hashTagInputVal.length; i++) {
+    if (hashTagInputVal[i] != " ") {
+      space = false;
+    } else space = true;
+
+    if (!space) {
+      hashTagString += hashTagInputVal[i];
+    }
+
+    if (space || i == hashTagInputVal.length - 1) {
+      if (hashTagString !== "") {
+        hashTagArray.push(hashTagString.toLowerCase());
+      }
+      hashTagString = "";
+    }
+  }
+};
+
+var checkingTags = function () {
+  for (var i = 0; i < hashTagArray.length; i++) {
+    if (hashTagArray[i][0] !== "#") {
+      erorrString += " У хеш-тега №" + (i + 1) + " отсутствует знак #";
+    }
+    if (hashTagArray[i].length == 1) {
+      erorrString +=
+        " хеш-тег не может состоять из одного символа (хеш-тег №" +
+        (i + 1) +
+        ")";
+    }
+    if (hashTagArray[i].indexOf("#", 1) > 0) {
+      erorrString += " хэш-теги нужно разделять пробелами";
+    }
+    if (hashTagArray[i].length > 20) {
+      erorrString +=
+        "максимальная длина одного хэш-тега 20 символов, включая решётку";
+    }
+  }
+};
+
+var checkingTagsForDuplicates = function () {
+  for (var i = 0; i < hashTagArray.length - 1; i++) {
+    let theOneBeingChecked = hashTagArray[i];
+    for (var j = i + 1; j < hashTagArray.length; j++) {
+      if (theOneBeingChecked === hashTagArray[j]) {
+        erorrString += " хэш-теги не должны повторяться";
+      }
+    }
+  }
+};
+
+var checkingTagsForLength = function () {
+  if (hashTagArray.length > 5) {
+    erorrString += " Нельзя указать более пяти хэш-тегов";
+  }
+};
+
+var erorrOutPut = function () {
+  if (erorrString !== "") {
+    hashTagInput.setCustomValidity(erorrString);
+  }
+};
+//----------------------------------------------------------------------------//
