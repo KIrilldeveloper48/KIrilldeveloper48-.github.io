@@ -248,7 +248,7 @@ for (var i = 0; i < effectInputs.length; i++) {
 levelPin.addEventListener("mouseup", function () {
   percentOFSaturation = Math.floor(
     (100 / levelLine.clientWidth) *
-    (levelPin.offsetLeft + levelPin.clientWidth / 2)
+      (levelPin.offsetLeft + levelPin.clientWidth / 2)
   );
   rewriteEffectValue();
   addEffects();
@@ -327,53 +327,29 @@ var addResizeImg = function () {
 };
 //----------------------------------------------------------------------------//
 
-//The algorythms for closing the window
-document.addEventListener("keydown", function (evt) {
-  if (evt.keyCode === 27) {
-    if (currentModalWindow !== "") {
-      closeModal();
-    }
-  }
-});
-
-uploadCancel.addEventListener("click", function () {
-  closeModal();
-});
-
-overlayClose.addEventListener("click", function () {
-  closeModal();
-});
-
-var closeModal = function () {
-  currentModalWindow.classList.add("hidden");
-  if (currentModalWindow == uploadOverlay) {
-    resetValue();
-  }
-  currentModalWindow = "";
-};
-
-var resetValue = function () {
-  uploadFile.value = "";
-};
-
-//----------------------------------------------------------------------------//
 //checking a hashTag
 //TODO: Проставить комментарии
 var hashTagInput = uploadOverlay.querySelector(".text__hashtags");
 var uploadButton = uploadOverlay.querySelector(".img-upload__submit");
+var uploadDescription = uploadOverlay.querySelector(".text__description");
+var uploadform = document.querySelector(".img-upload__form");
+var currentFocusEl = "";
+
 var hashTagInputVal;
-var hashTagArray = [];
+var hashTagArray;
 var erorrString;
 
-uploadButton.addEventListener("click", function () {
-  erorrString = "";
+//Tracking the element in focus
+uploadform.addEventListener("focusin", function () {
+  currentFocusEl = document.activeElement;
+});
+
+//When 'submit the form' button is pressed, reading and checking the entered data. Showing the error message, if any found
+uploadButton.addEventListener("submit", function () {
   hashTagInputVal = hashTagInput.value;
-  hashTagArray = [];
-  hashTagInput.setCustomValidity("");
+  clearValue();
   hastTagFillingArray();
   checkingTags();
-  checkingTagsForDuplicates();
-  checkingTagsForLength();
   erorrOutPut();
 });
 
@@ -417,6 +393,8 @@ var checkingTags = function () {
         "максимальная длина одного хэш-тега 20 символов, включая решётку";
     }
   }
+  checkingTagsForDuplicates();
+  checkingTagsForLength();
 };
 
 var checkingTagsForDuplicates = function () {
@@ -436,9 +414,47 @@ var checkingTagsForLength = function () {
   }
 };
 
+var clearValue = function () {
+  erorrString = "";
+  hashTagArray = [];
+  hashTagInput.setCustomValidity("");
+};
+
 var erorrOutPut = function () {
   if (erorrString !== "") {
     hashTagInput.setCustomValidity(erorrString);
   }
 };
 //----------------------------------------------------------------------------//
+
+//The algorythms for closing the window
+document.addEventListener("keydown", function (evt) {
+  if (evt.keyCode === 27) {
+    if (currentModalWindow !== "") {
+      if (currentFocusEl != "") {
+        currentFocusEl.blur();
+        currentFocusEl = "";
+      } else closeModal();
+    }
+  }
+});
+
+uploadCancel.addEventListener("click", function () {
+  closeModal();
+});
+
+overlayClose.addEventListener("click", function () {
+  closeModal();
+});
+
+var closeModal = function () {
+  currentModalWindow.classList.add("hidden");
+  if (currentModalWindow == uploadOverlay) {
+    resetValue();
+  }
+  currentModalWindow = "";
+};
+
+var resetValue = function () {
+  uploadFile.value = "";
+};
