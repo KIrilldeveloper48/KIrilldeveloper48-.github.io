@@ -1,4 +1,4 @@
-var OFFER_TITLE = [
+const OFFER_TITLE = [
   "Большая уютная квартира",
   "Маленькая неуютная квартира",
   "Огромный прекрасный дворец",
@@ -8,219 +8,207 @@ var OFFER_TITLE = [
   "Уютное бунгало далеко от моря",
   "Неуютное бунгало по колено в воде"
 ];
+const HOUSE_TYPE = ["palace", "flat", "house", "bungalo"];
+const HOUSE_TYPE_RU = ["Дворец", "Квартира", "Дом", "Бунгало"];
+const CHECKIN_THE_HOUSE = ["12:00", "13:00", "14:00"];
+const CHECKOUT_HOUSE = ["12:00", "13:00", "14:00"];
 
-var AD_Y = {
+const FEATURES_HOUSE = [
+  "wifi",
+  "dishwasher",
+  "parking",
+  "washer",
+  "elevator",
+  "conditioner"
+];
+
+var photos = [
+  "http://o0.github.io/assets/images/tokyo/hotel1.jpg",
+  "http://o0.github.io/assets/images/tokyo/hotel2.jpg",
+  "http://o0.github.io/assets/images/tokyo/hotel3.jpg"
+];
+
+const AD_Y = {
   min: 130,
   max: 630
 };
-
-var AD_X = 1200;
-
-var HOUSE_PRICE = {
+const AD_X = 1200;
+const HOUSE_PRICE = {
   min: 1000,
   max: 1000000
 };
 
-var HOUSE_TYPE = ["palace", "flat", "house", "bungalo"];
-var HOUSE_TYPE_RU = ["Дворец", "Квартира", "Дом", "Бунгало"];
+var createAdForm = document.querySelector('.ad-form');
+var createAdFormEl = createAdForm.querySelectorAll('fieldset');
 
-var CHECKIN_THE_HOUSE = ["12:00", "13:00", "14:00"];
+for (var i = 0; i < createAdFormEl.length; i++) {
+  createAdFormEl[i].disabled = 'disable';
+}
 
-var CHECKOUT_HOUSE = ["12:00", "13:00", "14:00"];
-
-//Collect an array of random length from the features of the house
-var getRandomFeaturesHouse = function () {
-  let FEATURES_HOUSE = [
-    "wifi",
-    "dishwasher",
-    "parking",
-    "washer",
-    "elevator",
-    "conditioner"
-  ];
-  let RandomFeaturesHouse = [];
-  for (
-    var i = 0; i < Math.floor(Math.random() * FEATURES_HOUSE.length) + 1; i++
-  ) {
-    let randomIndex = Math.floor(Math.random() * FEATURES_HOUSE.length);
-    RandomFeaturesHouse.push(FEATURES_HOUSE[randomIndex]);
-    FEATURES_HOUSE.splice(randomIndex, 1);
+var activeAdForm = function () {
+  for (var i = 0; i < createAdFormEl.length; i++) {
+    createAdFormEl[i].disabled = '';
   }
-  return RandomFeaturesHouse;
-};
-
-//Collect an array with a random arrangement of photos
-var getRandomArrayPhotos = function () {
-  let photos = [
-    "http://o0.github.io/assets/images/tokyo/hotel1.jpg",
-    "http://o0.github.io/assets/images/tokyo/hotel2.jpg",
-    "http://o0.github.io/assets/images/tokyo/hotel3.jpg"
-  ];
-  let randomPhotos = [];
-  while (photos.length > 0) {
-    let randomIndex = Math.floor(Math.random() * photos.length);
-    randomPhotos.push(photos[randomIndex]);
-    photos.splice(randomIndex, 1);
-  }
-  return randomPhotos;
-};
+}
 
 //Generation an array with objects
 var generationAd = function () {
-  //creating an empty array
   let arrayAd = [];
 
-  //filling the array with objects
   for (var i = 0; i < 8; i++) {
-    //adding a new object in the array
     arrayAd.push({});
 
-    //adding a random avatar
     arrayAd[i].author = {
       avatar: "img/avatars/user" + "0" + String(i + 1) + ".png"
     };
 
-    //adding random x y coordinates
+    //adding random x y coordinates for map pin
     arrayAd[i].location = {
       x: Math.floor(Math.random() * AD_X),
       y: Math.floor(Math.random() * (AD_Y.max - AD_Y.min + 1)) + AD_Y.min
     };
 
-    //adding an offer
     arrayAd[i].offer = {
-      //adding an offer title from the OFFER_TITLE array
       title: OFFER_TITLE[i],
 
-      //adding an address
       address: String(arrayAd[i].location.x) + ", " + String(arrayAd[i].location.y),
 
-      //adding a random price
-      price: Math.floor(Math.random() * (HOUSE_PRICE.max - HOUSE_PRICE.min + 1)) +
-        HOUSE_PRICE.min,
+      price: Math.floor(Math.random() * (HOUSE_PRICE.max - HOUSE_PRICE.min + 1)) + HOUSE_PRICE.min,
 
-      //adding a random house type from the HOUSE_TYPE array
       type: HOUSE_TYPE[Math.floor(Math.random() * HOUSE_TYPE.length)],
 
-      //adding a random room quantity
       rooms: Math.floor(Math.random() * 5) + 1,
 
-      //adding a random guest quantity
       guests: Math.floor(Math.random() * 5),
 
-      //adding a random time of checking in from the CHECKIN_THE_HOUSE array
       checkin: CHECKIN_THE_HOUSE[Math.floor(Math.random() * CHECKIN_THE_HOUSE.length)],
-      //adding a random time of checking out from the CHECKOUT_HOUSE array
+
       checkout: CHECKOUT_HOUSE[Math.floor(Math.random() * CHECKOUT_HOUSE.length)],
 
-      //adding random house features
       features: getRandomFeaturesHouse(),
 
-      //adding a description
       decription: "",
 
-      //adding a photos
       photos: getRandomArrayPhotos()
     };
   }
   return arrayAd;
 };
 
+//Collect an array of random length from the features of the house
+var getRandomFeaturesHouse = function () {
+  let RandomFeaturesHouse = [];
+  let randomCycleTime = Math.ceil(Math.random() * FEATURES_HOUSE.length) - 1;
+  if (randomCycleTime == 0) {
+    randomCycleTime++;
+  }
+  for (var i = 0; i < randomCycleTime; i++) {
+    let randomIndexFeatures = Math.ceil(Math.random() * FEATURES_HOUSE.length) - 1;
+    if (RandomFeaturesHouse.indexOf(FEATURES_HOUSE[randomIndexFeatures]) >= 0) {
+      i--
+    } else RandomFeaturesHouse.push(FEATURES_HOUSE[randomIndexFeatures]);
+
+  }
+  return RandomFeaturesHouse;
+};
+
+//Collect an array with a random arrangement of photos
+var getRandomArrayPhotos = function () {
+  let randomPhotos = [];
+  for (var i = 0; i < photos.length; i++) {
+    let randomIndexPhotos = Math.ceil(Math.random() * photos.length) - 1;
+    if (randomPhotos.indexOf(photos[randomIndexPhotos]) >= 0) {
+      i--
+    } else randomPhotos.push(photos[randomIndexPhotos]);
+  }
+  return randomPhotos;
+};
+
 var arrayAD = generationAd();
-
 //---------------------------------------------------------------//
+
 var map = document.querySelector(".map");
-
-//finding map mark ana card templates
-var templateMap = document.querySelector("template").content;
-
+var templateMap = document.querySelector("#pin").content;
 var mapPin = templateMap.querySelector(".map__pin");
-
-//Finding a container for map marks
 var mapPins = document.querySelector(".map__pins");
 
+var currentAdindex;
 //Setting the offset along the Y axis based on the heigth of the map mark
-var axisShiftY = mapPin.clientHeight / 2 + 18;
+var axisShiftY = mapPin.clientHeight;
+
+var axisShiftX = mapPin.clientWidth / 2;
+
 
 //Map mark generation
 var generetionMapPin = function () {
   for (var i = 0; i < arrayAD.length; i++) {
-    //Cloning DOM element
     let cloneMapPin = mapPin.cloneNode(true);
-
     let mapAvatar = cloneMapPin.querySelector("img");
-    let left = String(arrayAD[i].location.x) + "px";
+    let left = String(arrayAD[i].location.x - axisShiftX) + "px";
     let top = String(arrayAD[i].location.y - axisShiftY) + "px";
 
     //Setting the parameters
     cloneMapPin.style.left = left;
     cloneMapPin.style.top = top;
+    cloneMapPin.id = 'pin-' + i;
     mapAvatar.src = arrayAD[i].author.avatar;
     mapAvatar.alt = arrayAD[i].offer.title;
 
-    addingMapPin(cloneMapPin);
+    mapPins.append(cloneMapPin);
   }
 };
 
-//Adding the pins on the map
-var addingMapPin = function (cloneMapPin) {
-  mapPins.appendChild(cloneMapPin);
-};
+mapPins.addEventListener('click', function (evt) {
 
-generetionMapPin();
+  if (evt.target.parentElement.id != '' && evt.target.parentElement != 'SVG') {
+    let currentAdClick = evt.target.offsetParent.id;
+    currentAdindex = currentAdClick.slice(4, currentAdClick.length);
+    generationCard();
+  }
 
-map.classList.remove("map--faded");
-
+});
 //-----------------------------------------------------//
+
+
+
+var templateCard = document.querySelector('#card').content;
 
 //Starting generation of the house card
 var generationCard = function () {
-  //finding a container for the card
   var mapFilter = map.querySelector(".map__filters-container");
-
-  //finding the card in the template
-  var mapCard = templateMap.querySelector(".map__card");
-
-  //Cloning the DOM element
+  var mapCard = templateCard.querySelector(".map__card");
   let cloneMapCard = mapCard.cloneNode(true);
-
   let cardTitle = cloneMapCard.querySelector(".popup__title");
-  cardTitle.textContent = arrayAD[0].offer.title;
-
   let cardAddress = cloneMapCard.querySelector(".popup__text--address");
-  cardAddress.textContent = arrayAD[0].offer.address;
-
   let cardPrice = cloneMapCard.querySelector(".popup__text--price");
-  cardPrice.textContent = arrayAD[0].offer.price + "₽/ночь";
-
   let cardType = cloneMapCard.querySelector(".popup__type");
-  let houseTypeIndex = HOUSE_TYPE.indexOf(arrayAD[0].offer.type);
-  cardType.textContent = HOUSE_TYPE_RU[houseTypeIndex];
-
   let cardCapacity = cloneMapCard.querySelector(".popup__text--capacity");
-  cardCapacity.textContent =
-    arrayAD[0].offer.rooms + " комнаты для гостей " + arrayAD[0].offer.guests;
-
   let cardCheckInAndOut = cloneMapCard.querySelector(".popup__text--time");
+  let cardFeatures = cloneMapCard.querySelector(".popup__features");
+  let cardDescription = cloneMapCard.querySelector(".popup__description");
+  let cardPhotos = cloneMapCard.querySelector(".popup__photos");
+  let cardAvatar = cloneMapCard.querySelector(".popup__avatar");
+
+  let houseTypeIndex = HOUSE_TYPE.indexOf(arrayAD[currentAdindex].offer.type);
+
+  cardTitle.textContent = arrayAD[currentAdindex].offer.title;
+  cardAddress.textContent = arrayAD[currentAdindex].offer.address;
+  cardPrice.textContent = arrayAD[currentAdindex].offer.price + "₽/ночь";
+  cardType.textContent = HOUSE_TYPE_RU[houseTypeIndex];
+  cardCapacity.textContent =
+    arrayAD[currentAdindex].offer.rooms + " комнаты для гостей " + arrayAD[currentAdindex].offer.guests;
   cardCheckInAndOut.textContent =
     "Заезд после " +
-    arrayAD[0].offer.checkin +
+    arrayAD[currentAdindex].offer.checkin +
     ", выезд до " +
-    arrayAD[0].offer.checkout;
+    arrayAD[currentAdindex].offer.checkout;
+  cardDescription.textContent = arrayAD[currentAdindex].offer.decription;
+  cardAvatar.src = arrayAD[currentAdindex].author.avatar;
+  mapFilter.before(cloneMapCard);
 
-  let cardFeatures = cloneMapCard.querySelector(".popup__features");
   removeChildPopupFeatures(cardFeatures);
   createListFeatures(cardFeatures);
-
-  let cardDescription = cloneMapCard.querySelector(".popup__description");
-  cardDescription.textContent = arrayAD[0].offer.decription;
-
-  let cardPhotos = cloneMapCard.querySelector(".popup__photos");
   createlistPhotos(cardPhotos);
-
-  let cardAvatar = cloneMapCard.querySelector(".popup__avatar");
-  cardAvatar.src = arrayAD[0].author.avatar;
-
-  mapFilter.before(cloneMapCard);
 };
 
 //Clearing the list of features
@@ -234,23 +222,75 @@ var removeChildPopupFeatures = function (cardFeatures) {
 
 //Creating the list of features
 var createListFeatures = function (cardFeatures) {
-  for (var i = 0; i < arrayAD[0].offer.features.length; i++) {
+  for (var i = 0; i < arrayAD[currentAdindex].offer.features.length; i++) {
     let feature = document.createElement("li");
-    feature.classList.add("feature--" + arrayAD[0].offer.features[i]);
-    feature.classList.add("feature");
+    feature.classList.add("popup__feature--" + arrayAD[currentAdindex].offer.features[i]);
+    feature.classList.add("popup__feature");
     cardFeatures.append(feature);
   }
 };
 
 //Creating the list of photos
 var createlistPhotos = function (cardPhotos) {
-  for (var i = 0; i < arrayAD[0].offer.photos.length; i++) {
-    let li = document.createElement("li");
+  for (var i = 0; i < arrayAD[currentAdindex].offer.photos.length; i++) {
     let img = document.createElement("img");
-    img.src = arrayAD[0].offer.photos[i];
-    li.append(img);
-    cardPhotos.append(li);
+    img.src = arrayAD[currentAdindex].offer.photos[i];
+    img.classList.add('popup__photo');
+    img.width = '45';
+    img.heigth = '45';
+    img.alt = 'Фотография жилья'
+    cardPhotos.append(img);
   }
 };
 
-generationCard();
+
+//------------------------------------------------------------------------------
+var mainPin = document.querySelector('.map__pin--main');
+var adFormAddres = createAdForm.querySelector('#address');
+
+var mainPinHalfWidth = Math.floor(mainPin.clientWidth / 2);
+var mainPinHalfHeigth = Math.floor(mainPin.clientHeight / 2);
+var mainPinSharpEndHeigth = 22;
+
+mainPin.addEventListener('mouseup', function () {
+  deleteDisable();
+  generetionMapPin();
+  activeAdForm();
+  adFormAddres.value = fillingFormAdAddress(mainPinSharpEndHeigth);
+});
+
+var deleteDisable = function () {
+  createAdForm.classList.remove('ad-form--disabled');
+  map.classList.remove("map--faded");
+};
+
+
+//------------------------------------------------------------------------------
+//Filling the adrress field
+var fillingFormAdAddress = function (heigth) {
+  return getCoordinate(mainPin.style.left, mainPinHalfWidth) + ', ' + (getCoordinate(mainPin.style.top, mainPinHalfHeigth) + heigth);
+}
+
+var getCoordinate = function (side, parameter) {
+  return Number(side.slice(0, side.indexOf('px'))) - parameter
+};
+
+adFormAddres.value = fillingFormAdAddress(0);
+
+//------------------------------------------------------------------------------
+//Setting the fields price and type house conformity
+var typeAdForm = createAdForm.querySelector('#type');
+var priceAdForm = createAdForm.querySelector('#price');
+
+var houseMap = new Map([
+  ['bungalo', 0],
+  ['flat', 1000],
+  ['house', 5000],
+  ['palace', 10000]
+]);
+
+typeAdForm.addEventListener('change', function () {
+  priceAdForm.placeholder = houseMap.get(typeAdForm.value);
+  priceAdForm.min = houseMap.get(typeAdForm.value);
+})
+//----------------------------------------------------------------------------
