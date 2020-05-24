@@ -278,7 +278,7 @@ var getCoordinate = function (side, parameter) {
 adFormAddres.value = fillingFormAdAddress(0);
 
 //------------------------------------------------------------------------------
-//Setting the fields price and type house conformity
+//Matching the fields of price to the fields of house type
 var typeAdForm = createAdForm.querySelector('#type');
 var priceAdForm = createAdForm.querySelector('#price');
 
@@ -294,3 +294,49 @@ typeAdForm.addEventListener('change', function () {
   priceAdForm.min = houseMap.get(typeAdForm.value);
 })
 //----------------------------------------------------------------------------
+//Mathing the fields of checkin to the fields of checkout 
+var checkinAdForm = createAdForm.querySelector('#timein');
+var checkoutAdForm = createAdForm.querySelector('#timeout');
+
+checkinAdForm.addEventListener('change', function () {
+  checkoutAdForm.value = checkinAdForm.value;
+});
+
+checkoutAdForm.addEventListener('change', function () {
+  checkinAdForm.value = checkoutAdForm.value;
+});
+//----------------------------------------------------------------------------
+//Validation the form and showing any errors
+var submitAdForm = createAdForm.querySelector('.ad-form__submit');
+
+var quatityRoomsAdForm = createAdForm.querySelector('#room_number');
+var capacityAdForm = createAdForm.querySelector('#capacity');
+var errorMessageCapacity = ''
+var errorMessageCapacityHelp = 'Пожалуйста выберите другое кол-во гостей'
+
+submitAdForm.addEventListener('click', function () {
+  checkinGuest();
+  showErrors();
+  errorMessageCapacity = '';
+})
+
+var checkinGuest = function () {
+  if (quatityRoomsAdForm.value != capacityAdForm.value && quatityRoomsAdForm.value != '100') {
+    if (quatityRoomsAdForm.value == '1') {
+      errorMessageCapacity = 'Выбранное вами кол-во комнат подходит для 1 гостей. ' + errorMessageCapacityHelp;
+    }
+    if (quatityRoomsAdForm.value == '2') {
+      errorMessageCapacity = 'Выбранное вами кол-во комнат подходит для 1 или 2 гостей. ' + errorMessageCapacityHelp;
+    }
+    if (quatityRoomsAdForm.value == '3') {
+      errorMessageCapacity = 'Выбранное вами кол-во комнат подходит для 1, 2  или 3 гостей. ' + errorMessageCapacityHelp;
+    }
+  }
+  if (quatityRoomsAdForm.value == '100') {
+    errorMessageCapacity = 'Выбранное вами кол-во комнат не подходит для гостей. ' + errorMessageCapacityHelp;
+  }
+}
+
+var showErrors = function () {
+  capacityAdForm.setCustomValidity(errorMessageCapacity);
+}
