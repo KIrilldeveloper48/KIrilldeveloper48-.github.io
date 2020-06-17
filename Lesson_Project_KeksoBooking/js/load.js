@@ -1,6 +1,9 @@
 (function () {
 
-  window.load = function (url, onSuccess, onError) {
+  window.load = function (onSuccess, onError) {
+
+    let URL
+
     let xhr = new XMLHttpRequest();
 
     xhr.responseType = 'json';

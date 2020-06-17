@@ -78,9 +78,12 @@
     showErrors();
     //Если нет ошибок, отправляем данные на сервер
     if (errorMessage == "") {
-      window.upload(new FormData(createAdForm), function (response) {
-        createAdForm.reset();
-      });
+      window.upload(new FormData(createAdForm), function () {
+          createAdForm.reset();
+        },
+        function (message) {
+          console.error(message);
+        });
       evt.preventDefault();
     }
 
