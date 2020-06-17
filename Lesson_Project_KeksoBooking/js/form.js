@@ -4,7 +4,7 @@
 
   var deleteDisableForm = function () {
     createAdForm.classList.remove("ad-form--disabled");
-  }
+  };
 
   var formManagement = function (parameter) {
     let fieldset = createAdForm.querySelectorAll("fieldset");
@@ -13,7 +13,7 @@
     }
   };
 
-  formManagement('disable');
+  formManagement("disable");
 
   //Filling form address
   var fillingFormAddress = function (mod) {
@@ -25,11 +25,14 @@
     };
     let adFormAddres = createAdForm.querySelector("#address");
 
-    adFormAddres.value = getCoord(parameter.left, parameter.width) + ',' + (getCoord(parameter.top, parameter.heigth) + mod)
+    adFormAddres.value =
+      getCoord(parameter.left, parameter.width) +
+      "," +
+      (getCoord(parameter.top, parameter.heigth) + mod);
   };
 
   var getCoord = function (side, parameter) {
-    return Number(side.slice(0, side.indexOf("px"))) + parameter
+    return Number(side.slice(0, side.indexOf("px"))) + parameter;
   };
 
   fillingFormAddress(0);
@@ -48,7 +51,6 @@
 
     price.placeholder = houseMap.get(type.value);
     price.min = houseMap.get(type.value);
-
   });
 
   //----------------------------------------------------------------------------
@@ -71,35 +73,42 @@
   let capacity = createAdForm.querySelector("#capacity");
   let errorMessage = "";
 
-  submitButton.addEventListener("click", function () {
+  submitButton.addEventListener("click", function (evt) {
     checkinGuest();
     showErrors();
+    //Если нет ошибок, отправляем данные на сервер
+    if (errorMessage == "") {
+      window.upload(new FormData(createAdForm), function (response) {
+        createAdForm.reset();
+      });
+      evt.preventDefault();
+    }
+
     errorMessage = "";
   });
 
   var checkinGuest = function () {
-    let errorMessageHelp = "Пожалуйста выберите другое кол-во гостей или комнат";
+    let errorMessageHelp =
+      "Пожалуйста выберите другое кол-во гостей или комнат";
     let rooms = createAdForm.querySelector("#room_number");
 
-    if (
-      rooms.value != capacity.value &&
-      capacity.value > rooms.value
-    ) {
+    if (rooms.value != capacity.value && capacity.value > rooms.value) {
       for (var i = 0; i < 3; i++) {
         if (rooms.value == i) {
           errorMessage =
-            'Выбранное вами кол-во комнат подходит для ' + i + ' или менее гостей. ' +
+            "Выбранное вами кол-во комнат подходит для " +
+            i +
+            " или менее гостей. " +
             errorMessageHelp;
         }
       }
     }
 
-    if (rooms.value == "100" && capacity.value != '0') {
+    if (rooms.value == "100" && capacity.value != "0") {
       errorMessage =
         "Выбранное вами кол-во комнат не подходит для гостей. " +
         errorMessageHelp;
     }
-
   };
 
   var showErrors = function () {
@@ -109,8 +118,7 @@
   window.mainPin.addEventListener("mouseup", function () {
     let modifier = 22 + Math.floor(window.mainPin.clientHeight / 2);
     deleteDisableForm();
-    formManagement('');
+    formManagement("");
     fillingFormAddress(modifier);
   });
-
 })();
