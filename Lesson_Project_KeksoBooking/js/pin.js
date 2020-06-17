@@ -27,6 +27,6 @@
     }
   };
 
-  window.mainPin.addEventListener("mouseup", genMapPin)
+  window.mainPin.addEventListener("mouseup", genMapPin);
 
 })();

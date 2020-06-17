@@ -20,6 +20,7 @@
   };
 
   var createCard = function (index) {
+    let container = document.querySelector('.map__pins')
 
     let template = document.querySelector('#card').content;
     let mapFilter = document.querySelector(".map__filters-container");
@@ -55,11 +56,15 @@
     description.textContent = currentEl.offer.decription;
     avatar.src = currentEl.author.avatar;
 
-    mapFilter.before(clone);
-
     removeChildPopupFeats(feats);
     createListFeats(feats, currentEl);
     createListPhotos(photos, currentEl);
+
+    if (document.querySelector('.map__card')) {
+      document.querySelector('.map__card').remove();
+    }
+
+    container.append(clone);
   };
 
   //Clearing the list of features

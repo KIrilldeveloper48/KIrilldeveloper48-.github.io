@@ -1,56 +1,34 @@
-(function () {
+  'use strict';
 
-  window.load = function (onSuccess, onError) {
+  (function () {
+    let URL = 'https://javascript.pages.academy/keksobooking/data1';
 
-    let URL
+    window.load = function (onSuccess, onError) {
 
-    let xhr = new XMLHttpRequest();
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = 'json';
 
-    xhr.responseType = 'json';
-
-    xhr.addEventListener('load', function () {
-      let error;
-      switch (xhr.status) {
-        case 200:
+      xhr.addEventListener('load', function () {
+        if (xhr.status === 200) {
           onSuccess(xhr.response);
-          break;
+          //shownSuccess();
+        } else {
+          onError(xhr.status + ' ' + xhr.statusText);
+          //shownError(xhr.status + ' ' + xhr.statusText);
+        }
+      });
 
-        case 400:
-          error = 'Неверный запрос';
-          break;
+      xhr.addEventListener('error', function () {
+        onError('Произошла ошибка соединения');
+      })
 
-        case 401:
-          error = 'Пользователь не авторизован';
-          break;
+      xhr.addEventListener('timeout', function () {
+        onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+      })
 
-        case 404:
-          error = 'Ничего не найдено';
-          break;
+      xhr.timeout = 10000;
 
-        default:
-          error = 'Статус ответа: ' + xhr.status + ' ' + xhr.statusText;
-          break;
-      }
-
-      if (error) {
-        onError(error);
-      }
-
-    });
-
-    xhr.addEventListener('error', function () {
-      onError('Произошла ошибка соединения');
-    })
-
-    xhr.addEventListener('timeout', function () {
-      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
-    })
-
-    xhr.timeout = 10000;
-
-    //Конфигурация запроса
-    xhr.open('GET', 'https://javascript.pages.academy/keksobooking/data');
-    //Отправка запроса
-    xhr.send();
-  };
-})();
+      xhr.open('GET', URL);
+      xhr.send();
+    };
+  })();
