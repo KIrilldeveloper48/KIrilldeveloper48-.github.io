@@ -2,28 +2,40 @@
   //checking a hashTag
   var hashTagInput = window.uploadOverlay.querySelector(".text__hashtags");
   var uploadButton = window.uploadOverlay.querySelector(".img-upload__submit");
-  var uploadDescription = window.uploadOverlay.querySelector(".text__description");
+  var uploadDescription = window.uploadOverlay.querySelector(
+    ".text__description"
+  );
   var uploadform = document.querySelector(".img-upload__form");
   var currentFocusEl = "";
 
   var hashTagInputVal;
   var hashTagArray;
-  var erorrString;
+  var erorrString = "";
 
   //Tracking the element in focus
   uploadform.addEventListener("focusin", function () {
     currentFocusEl = document.activeElement;
   });
 
-
-
   //When 'submit the form' button is pressed, reading and checking the entered data. Showing the error message, if any found
   uploadButton.addEventListener("click", function (evt) {
+    evt.preventDefault;
     hashTagInputVal = hashTagInput.value;
     clearValue();
     hastTagFillingArray();
     checkingTags();
     erorrOutPut();
+    if (erorrString == "") {
+      window.upload(
+        new FormData(uploadform),
+        function () {
+          window.uploadOverlay.classList.add("hidden");
+        },
+        function (message) {
+          console.error(message);
+        }
+      );
+    }
   });
 
   var clearValue = function () {
@@ -98,5 +110,4 @@
       hashTagInput.setCustomValidity(erorrString);
     }
   };
-
 })();
