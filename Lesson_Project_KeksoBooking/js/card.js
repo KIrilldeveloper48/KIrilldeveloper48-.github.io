@@ -60,11 +60,11 @@
     createListFeats(feats, currentEl);
     createListPhotos(photos, currentEl);
 
-    if (document.querySelector('.map__card')) {
-      document.querySelector('.map__card').remove();
-    }
+    removeCard();
 
     container.append(clone);
+
+    cardClose();
   };
 
   //Clearing the list of features
@@ -96,6 +96,21 @@
       cardPhotos.append(img);
     }
   };
+
+  var removeCard = function () {
+    if (document.querySelector('.map__card')) {
+      document.querySelector('.map__card').remove();
+    }
+  }
+
+  var cardClose = function () {
+    let card = document.querySelector('.map__card');
+    let button = card.querySelector('.popup__close');
+
+    button.addEventListener('click', function () {
+      card.remove();
+    })
+  }
 
   window.mainPin.addEventListener("mouseup", addClickPin);
 })();

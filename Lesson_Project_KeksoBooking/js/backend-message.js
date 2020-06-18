@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-  //Показ сообщений об ошибках при загрузке формы сервер
+  //Показ сообщений об ошибках при загрузке формы на сервер
   window.shownError = function (message) {
     let container = document.querySelector('body')
     let template = document.querySelector('#error').content;

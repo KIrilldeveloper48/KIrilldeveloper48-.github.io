@@ -1,7 +1,7 @@
   'use strict';
 
   (function () {
-    let URL = 'https://javascript.pages.academy/keksobooking/data1';
+    let URL = 'https://javascript.pages.academy/keksobooking/data';
 
     window.load = function (onSuccess, onError) {
 
