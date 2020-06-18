@@ -44,10 +44,10 @@
     xhr.addEventListener("load", function () {
       if (xhr.status === 200) {
         onSuccess();
-        //shownSuccess();
+        shownSuccess();
       } else {
         onError(xhr.status + " " + xhr.statusText);
-        //shownError(xhr.status + " " + xhr.statusText);
+        shownError(xhr.status + " " + xhr.statusText);
       }
     });
 
