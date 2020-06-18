@@ -19,7 +19,6 @@
 
   //When 'submit the form' button is pressed, reading and checking the entered data. Showing the error message, if any found
   uploadButton.addEventListener("click", function (evt) {
-    evt.preventDefault;
     hashTagInputVal = hashTagInput.value;
     clearValue();
     hastTagFillingArray();
@@ -35,6 +34,7 @@
           console.error(message);
         }
       );
+      evt.preventDefault();
     }
   });
 
