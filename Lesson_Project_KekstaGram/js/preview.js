@@ -1,5 +1,6 @@
 (function () {
   window.preview = function () {
+    let overlay = document.querySelector(".overlay");
     var addOnClick = (function () {
       var pictures = document.querySelectorAll(".picture__img");
 
@@ -88,9 +89,27 @@
     };
 
     var showPreview = function () {
-      let preview = document.querySelector(".overlay");
-      preview.classList.remove("hidden");
-      currentModalWindow = preview;
+      overlay.classList.remove("hidden");
+      overlay.focus();
     };
+
+    //Функционал для закрытия превью
+    let close = document.querySelector('#picture-cancel');
+
+    let closePopup = function () {
+      overlay.classList.add("hidden");
+    }
+
+    overlay.addEventListener('keydown', function (evt) {
+      window.util.isEscEvent(evt, closePopup);
+    });
+
+    overlay.addEventListener('click', function (evt) {
+      if (evt.target == overlay) {
+        closePopup();
+      }
+    })
+
+    close.addEventListener('click', closePopup);
   };
 })();

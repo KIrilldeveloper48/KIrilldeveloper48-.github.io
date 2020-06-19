@@ -1,10 +1,9 @@
 (function () {
-
   let currentFilter;
-  let listEffects = window.uploadOverlay.querySelector(".effects__list")
+  let listEffects = window.uploadOverlay.querySelector(".effects__list");
   listEffects.addEventListener("click", function (evt) {
     if (evt.target.classList.contains("effects__preview")) {
-      onClickMouse(evt)
+      onClickMouse(evt);
     }
   });
 
@@ -15,8 +14,7 @@
     if (currentFilter.classList.contains("effects__preview--none") == false) {
       levelShow();
     } else levelHidden();
-
-  }
+  };
 
   var getFilter = function (evt) {
     return evt.target;
@@ -51,7 +49,7 @@
   var filtering = function (position) {
     levelDepth.style.width = position + "%";
     rewriteEffectValue(position);
-    let effect = getEffect(position)
+    let effect = getEffect(position);
     addEffect(effect);
     imgAddClass();
   };
@@ -67,31 +65,31 @@
     let effects = {
       grayscale: {
         multiplier: 0.01,
-        unit: ''
+        unit: "",
       },
       sepia: {
         multiplier: 0.01,
-        unit: ''
+        unit: "",
       },
       invert: {
         multiplier: 1,
-        unit: '%'
+        unit: "%",
       },
       blur: {
         multiplier: 0.03,
-        unit: 'px'
+        unit: "px",
       },
       brightness: {
         multiplier: 0.03,
-        unit: ''
+        unit: "",
       },
     };
 
     let nameEffect = getObj();
     let value = transparency * effects[nameEffect].multiplier;
 
-    if (nameEffect == 'brightness') {
-      value++
+    if (nameEffect == "brightness") {
+      value++;
     }
 
     let unit = effects[nameEffect].unit;
@@ -100,7 +98,7 @@
 
   var getObj = function () {
     let currentStyle = getComputedStyle(currentFilter).filter;
-    return currentStyle.slice(0, currentStyle.indexOf('('))
+    return currentStyle.slice(0, currentStyle.indexOf("("));
   };
 
   var addEffect = function (effect) {
@@ -108,15 +106,31 @@
   };
 
   var imgAddClass = function () {
-    let nameClass = currentFilter.classList[1]
+    let nameClass = currentFilter.classList[1];
     imgPreview.classList.add(nameClass);
   };
 
-  var callSlider = function () {
+  var callSlider = (function () {
     window.slider(filtering);
-  }();
+  })();
 
-})()
+  //Функционал закрытия формы
+  let close = window.uploadOverlay.querySelector("#upload-cancel");
+
+  window.formClose = function () {
+    window.uploadOverlay.classList.add("hidden");
+    cleaning();
+    document.querySelector('.img-upload__form').reset();
+  };
+
+  close.addEventListener("click", formClose);
+
+  window.uploadOverlay.addEventListener("click", function (evt) {
+    if (evt.target == window.uploadOverlay) {
+      formClose();
+    }
+  });
+})();
 
 //----------------------------------------------
 var scaleControl = (function () {
@@ -154,5 +168,4 @@ var scaleControl = (function () {
   var addResizeImg = function () {
     imgPreview.style.transform = "scale" + "(" + resizeValue.value + ")";
   };
-
 })();

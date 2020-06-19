@@ -12,9 +12,11 @@
   var hashTagArray;
   var erorrString = "";
 
-  //Tracking the element in focus
-  uploadform.addEventListener("focusin", function () {
-    currentFocusEl = document.activeElement;
+  //Открытие формы после выбора загружаемого файла
+  let uploadFile = document.querySelector("#upload-file");
+  uploadFile.addEventListener("change", function () {
+    window.uploadOverlay.classList.remove("hidden");
+    hashTagInput.focus();
   });
 
   //When 'submit the form' button is pressed, reading and checking the entered data. Showing the error message, if any found
@@ -28,7 +30,7 @@
       window.upload(
         new FormData(uploadform),
         function () {
-          window.uploadOverlay.classList.add("hidden");
+          formClose();
         },
         function (message) {
           console.error(message);
@@ -110,4 +112,6 @@
       hashTagInput.setCustomValidity(erorrString);
     }
   };
+
+
 })();
