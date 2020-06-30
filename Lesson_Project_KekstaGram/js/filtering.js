@@ -26,10 +26,11 @@
   let levelDepth = window.uploadOverlay.querySelector(".effect-level__depth");
   let levelPin = window.uploadOverlay.querySelector(".effect-level__pin");
 
-  var cleaning = function () {
+  window.cleaning = function () {
     imgPreview.style.filter = "";
     imgPreview.className = "";
     transparency = 0;
+    levelHidden();
     levelPin.style.left = 0;
     levelDepth.style.width = 0;
   };
@@ -85,7 +86,7 @@
       },
     };
 
-    let nameEffect = getObj();
+    let nameEffect = getObjKey();
     let value = transparency * effects[nameEffect].multiplier;
 
     if (nameEffect == "brightness") {
@@ -96,7 +97,7 @@
     return nameEffect + "(" + value + unit + ")";
   };
 
-  var getObj = function () {
+  var getObjKey = function () {
     let currentStyle = getComputedStyle(currentFilter).filter;
     return currentStyle.slice(0, currentStyle.indexOf("("));
   };
@@ -114,22 +115,7 @@
     window.slider(filtering);
   })();
 
-  //Функционал закрытия формы
-  let close = window.uploadOverlay.querySelector("#upload-cancel");
 
-  window.formClose = function () {
-    window.uploadOverlay.classList.add("hidden");
-    cleaning();
-    document.querySelector('.img-upload__form').reset();
-  };
-
-  close.addEventListener("click", formClose);
-
-  window.uploadOverlay.addEventListener("click", function (evt) {
-    if (evt.target == window.uploadOverlay) {
-      formClose();
-    }
-  });
 })();
 
 //----------------------------------------------
