@@ -1,11 +1,11 @@
 (function () {
   window.preview = function () {
     let overlay = document.querySelector(".overlay");
-    var addOnClick = (function () {
-      var pictures = document.querySelectorAll(".picture__img");
+    let addOnClick = (function () {
+      let pictures = document.querySelectorAll(".picture__img");
 
-      for (var i = 0; i < pictures.length; i++) {
-        pictures[i].addEventListener("click", function (evt) {
+      for (let item of pictures) {
+        item.addEventListener("click", function (evt) {
           evt.preventDefault();
 
           let index = findIndex(evt.target.id);
@@ -19,12 +19,12 @@
     })();
 
     //Determinig the object index according to the id of the image
-    var findIndex = function (imgId) {
+    let findIndex = function (imgId) {
       return imgId.slice(4, imgId.length);
     };
 
     //Filling the preview with content
-    var fillingPreview = function (currentEl) {
+    let fillingPreview = function (currentEl) {
       let commentsCount = document.querySelector(".social__comment-count");
       let comments = document.querySelector(".comments-count");
       let img = document.querySelector(".big-picture__img>img");
@@ -40,16 +40,15 @@
     };
 
     //Creating DOM elements for the comments
-    var getComments = function (currentEl) {
+    let getComments = function (currentEl) {
       let container = document.querySelector(".social__comments");
-      let cycleTime = currentEl.comments.length;
 
       clearContainer(container);
 
-      for (var i = 0; i < cycleTime; i++) {
+      for (let item of currentEl.comments) {
         let list = getList();
-        let avatar = getImg(currentEl, i);
-        let message = getDesc(currentEl, i);
+        let avatar = getImg(item);
+        let message = getDesc(item);
 
         list.append(avatar);
         list.append(message);
@@ -57,59 +56,59 @@
       }
     };
 
-    var clearContainer = function (container) {
+    let clearContainer = function (container) {
       while (container.firstChild) {
         container.firstChild.remove();
       }
     };
 
-    var getList = function () {
+    let getList = function () {
       let li = document.createElement("li");
       li.classList.add("social__comment", "social__comment--text");
       return li;
     };
 
-    var getImg = function (data, i) {
+    let getImg = function (el) {
       let img = document.createElement("img");
       img.classList.add("social__picture");
-      img.src = data.comments[i].avatar;
-      img.alt = data.comments[i].name;
+      img.src = el.avatar;
+      img.alt = el.name;
       img.style.width = "35px";
       img.style.height = "35px";
 
       return img;
     };
 
-    var getDesc = function (data, i) {
+    let getDesc = function (el) {
       desc = document.createElement("p");
       desc.classList.add("social__text");
-      desc.textContent = data.comments[i].message;
+      desc.textContent = el.message;
 
       return desc;
     };
 
-    var showPreview = function () {
+    let showPreview = function () {
       overlay.classList.remove("hidden");
       overlay.focus();
     };
 
     //Функционал для закрытия превью
-    let close = document.querySelector('#picture-cancel');
+    let close = document.querySelector("#picture-cancel");
 
     let closePopup = function () {
       overlay.classList.add("hidden");
-    }
+    };
 
-    overlay.addEventListener('keydown', function (evt) {
+    overlay.addEventListener("keydown", function (evt) {
       window.util.isEscEvent(evt, closePopup);
     });
 
-    overlay.addEventListener('click', function (evt) {
+    overlay.addEventListener("click", function (evt) {
       if (evt.target == overlay) {
         closePopup();
       }
-    })
+    });
 
-    close.addEventListener('click', closePopup);
+    close.addEventListener("click", closePopup);
   };
 })();
