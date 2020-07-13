@@ -9,7 +9,15 @@
       x: mapPin.clientWidth / 2,
     };
 
+    let cycleTime = mapPins.children.length - 2;
+    for (let i = 0; i < cycleTime; i++) {
+      mapPins.lastChild.remove();
+    }
+
     for (var i = 0; i < arrayAD.length; i++) {
+      if (arrayAD[i].visible === false) {
+        continue;
+      }
       let clone = mapPin.cloneNode(true);
       let avatar = clone.querySelector("img");
       let left = String(arrayAD[i].location.x - axisShift.x) + "px";
