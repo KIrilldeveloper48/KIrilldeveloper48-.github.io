@@ -6,7 +6,6 @@
   let inputImages = document.querySelector("#images");
   //Куда вставляем изображения
   let avatar = document.querySelector(".ad-form-header__preview>img");
-  let imagesContainer = document.querySelector(".ad-form__photo");
   //Основная функция для загрузки фото, в параметрах передаём инпут с которого будем забирать файл и img в src которого будем подставлять data: URL
   let loadPhoto = function (input, img) {
     //Сохраняем в отдельную переменную объект, описывающий файл, который хотим загрузить
@@ -30,9 +29,25 @@
     }
   };
 
+  let getPhotoContainer = function () {
+    let container = document.createElement("div");
+    container.classList.add("ad-form__photo");
+    return container;
+  };
+
+  let getImg = function () {
+    let img = document.createElement("img");
+    img.style.width = "70px";
+    img.style.height = "70px";
+    return img;
+  };
+
   //Добавляем изображение на страницу
   let addHousePhotos = function (img) {
-    imagesContainer.append(img);
+    //Создаём контейнер в который будем добавлять изображение
+    let container = getPhotoContainer();
+    container.append(img);
+    document.querySelector(".ad-form__photo-container").append(container);
   };
 
   inputAvatar.addEventListener("change", function (evt) {
@@ -41,7 +56,7 @@
 
   inputImages.addEventListener("change", function (evt) {
     //Создаём img в src которого будет записывать data: URL загружаемого файла
-    let houseImg = document.createElement("img");
+    let houseImg = getImg();
     loadPhoto(evt.target, houseImg);
     addHousePhotos(houseImg);
   });
