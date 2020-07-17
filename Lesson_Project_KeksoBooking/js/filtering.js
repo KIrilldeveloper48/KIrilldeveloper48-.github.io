@@ -80,7 +80,7 @@
       item.addEventListener("change", function (evt) {
         let key = evt.target.id.slice(num, evt.target.id.length);
         obj[key] = evt.target[val];
-        filtering();
+        setTimeout(filtering, 500);
       });
     }
   };
