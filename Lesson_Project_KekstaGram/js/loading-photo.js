@@ -3,7 +3,6 @@
   const fileTypes = ["gif", "png", "jpg", "jpeg"];
   //Инпут
   let inputImage = document.querySelector("#upload-file");
-
   //Основная функция для загрузки фото, в параметрах передаём инпут с которого будем забирать файл и img в src которого будем подставлять data: URL
   let loadPhoto = function (input, img) {
     //Сохраняем в отдельную переменную объект, описывающий файл, который хотим загрузить

@@ -1,107 +1,43 @@
 (function () {
+  //Сохраняем название выбранного фильтра для дальнейших манипуляций с ним
   let currentFilter;
-  let listEffects = window.uploadOverlay.querySelector(".effects__list");
-  listEffects.addEventListener("click", function (evt) {
-    if (evt.target.classList.contains("effects__preview")) {
-      onClickMouse(evt);
-    }
-  });
-
-  var onClickMouse = function (evt) {
-    currentFilter = getFilter(evt);
-    cleaning();
-
-    if (currentFilter.classList.contains("effects__preview--none") == false) {
-      levelShow();
-    } else levelHidden();
+  //Функция для скрытия или показа полузнка насыщенности
+  let displayLevel = function () {
+    let levelContainer = window.uploadOverlay.querySelector(".effect-level");
+    //Если текущий фильтр - "Оригинал", то скрываем ползунок насыщенности, иначе наоборот показываем его
+    if (currentFilter.classList.contains("effects__preview--none")) {
+      levelContainer.classList.add("hidden");
+    } else levelContainer.classList.remove("hidden");
   };
-
-  var getFilter = function (evt) {
-    return evt.target;
-  };
-
+  //Изображение для редактирования
   let imgPreview = window.uploadOverlay.querySelector(
     ".img-upload__preview>img"
   );
-
+  //Глубина эффекта изображения
   let levelDepth = window.uploadOverlay.querySelector(".effect-level__depth");
+  //Пин ползунка насыщенности
   let levelPin = window.uploadOverlay.querySelector(".effect-level__pin");
-
+  //Функция для очистки редакироваемого изображения от стилей и классов, а также скрытия ползунка насыщенности
   window.cleaning = function () {
     imgPreview.style.filter = "";
     imgPreview.className = "";
-    transparency = 0;
-    levelHidden();
+    window.uploadOverlay.querySelector(".effect-level").classList.add("hidden");
     levelPin.style.left = 0;
     levelDepth.style.width = 0;
   };
-
-  let levelContainer = window.uploadOverlay.querySelector(".effect-level");
-
-  var levelShow = function () {
-    levelContainer.classList.remove("hidden");
-  };
-
-  var levelHidden = function () {
-    levelContainer.classList.add("hidden");
-  };
+  //Навешиваем обработчик клика на контейнер, в котором лежат radioButtons с превью эффектов
+  let effectsContainer = window.uploadOverlay.querySelector(".effects__list");
+  effectsContainer.addEventListener("click", function (evt) {
+    //Проверяем что клик прошёл именно по превью
+    if (evt.target.classList.contains("effects__preview")) {
+      //Присваиваем переменной элемент, по которому прошёл клик
+      currentFilter = evt.target;
+      window.cleaning();
+      displayLevel();
+    }
+  });
 
   //-------------------------------------------------------------------
-
-  var filtering = function (position) {
-    levelDepth.style.width = position + "%";
-    rewriteEffectValue(position);
-    let effect = getEffect(position);
-    addEffect(effect);
-    imgAddClass();
-  };
-
-  var rewriteEffectValue = function (transparency) {
-    let effectsValue = window.uploadOverlay.querySelector(
-      ".effect-level__value"
-    );
-    effectsValue.value = transparency;
-  };
-
-  var getEffect = function (transparency) {
-    let effects = {
-      grayscale: {
-        multiplier: 0.01,
-        unit: "",
-      },
-      sepia: {
-        multiplier: 0.01,
-        unit: "",
-      },
-      invert: {
-        multiplier: 1,
-        unit: "%",
-      },
-      blur: {
-        multiplier: 0.03,
-        unit: "px",
-      },
-      brightness: {
-        multiplier: 0.03,
-        unit: "",
-      },
-    };
-
-    let nameEffect = getObjKey();
-    let value = transparency * effects[nameEffect].multiplier;
-
-    if (nameEffect == "brightness") {
-      value++;
-    }
-
-    let unit = effects[nameEffect].unit;
-    return nameEffect + "(" + value + unit + ")";
-  };
-
-  var getObjKey = function () {
-    let currentStyle = getComputedStyle(currentFilter).filter;
-    return currentStyle.slice(0, currentStyle.indexOf("("));
-  };
 
   var addEffect = function (effect) {
     imgPreview.style.filter = effect;
@@ -111,10 +47,62 @@
     let nameClass = currentFilter.classList[1];
     imgPreview.classList.add(nameClass);
   };
+  //Перезаписываем значение инпута для соотвествия ТЗ
+  let rewriteEffectValue = function (transparency) {
+    window.uploadOverlay.querySelector(
+      ".effect-level__value"
+    ).value = transparency;
+  };
+  //Достаём значение свойства filter из текущего выбранного фильтра, отрезаем всё лишнее и возврщаем только название
+  var getObjKey = function () {
+    let currentStyle = getComputedStyle(currentFilter).filter;
+    return currentStyle.slice(0, currentStyle.indexOf("("));
+  };
+  //Функция, которая возвращает уже готовое значение свойства filter для подставновки его в style редактируемого изображения
+  let getEffect = function (transparency) {
+    //Объект с названием фильтра, значением (произведение положения ползунка (в процентах) на множитель конкретного фильтра), и единицей измерения
+    let effects = {
+      grayscale: {
+        value: 0.01 * transparency,
+        unit: "",
+      },
+      sepia: {
+        value: 0.01 * transparency,
+        unit: "",
+      },
+      invert: {
+        value: 1 * transparency,
+        unit: "%",
+      },
+      blur: {
+        value: 0.03 * transparency,
+        unit: "px",
+      },
+      //Для яркости увеличиваем значение на единицу, так как начальное значение свойства filter: brightness равняется единице
+      brightness: {
+        value: 0.3 * transparency + 1,
+        unit: "",
+      },
+    };
+    //Получаем название фильтра, по которому будет искать в объекте
+    let nameEffect = getObjKey();
+    //Для упрощённой записи запишем значения объекта в отдельные переменные
+    let value = effects[nameEffect].value;
+    let unit = effects[nameEffect].unit;
 
-  var callSlider = (function () {
-    window.slider(filtering);
-  })();
+    return nameEffect + "(" + value + unit + ")";
+  };
+  //Эту функцию передаём в модуль slider.js
+  let filtering = function (position) {
+    levelDepth.style.width = position + "%";
+    rewriteEffectValue(position);
+    let effect = getEffect(position);
+    addEffect(effect);
+    imgAddClass();
+  };
+  //Вызываем функцию из модуля slider.js для работы ползунка насыщенности
+  window.slider(filtering);
+
   //----------------------------------------------
 
   let resizePlus = window.uploadOverlay.querySelector(
@@ -151,5 +139,4 @@
   var addResizeImg = function () {
     imgPreview.style.transform = "scale" + "(" + resizeValue.value + ")";
   };
-
 })();
