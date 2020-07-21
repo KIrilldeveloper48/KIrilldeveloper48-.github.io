@@ -23,6 +23,7 @@
   let imgPreview = window.uploadOverlay.querySelector(
     ".img-upload__preview>img"
   );
+
   let levelDepth = window.uploadOverlay.querySelector(".effect-level__depth");
   let levelPin = window.uploadOverlay.querySelector(".effect-level__pin");
 
@@ -114,12 +115,8 @@
   var callSlider = (function () {
     window.slider(filtering);
   })();
+  //----------------------------------------------
 
-
-})();
-
-//----------------------------------------------
-var scaleControl = (function () {
   let resizePlus = window.uploadOverlay.querySelector(
     ".scale__control--bigger"
   );
@@ -150,8 +147,9 @@ var scaleControl = (function () {
   var addResizeValue = function () {
     resizeValue.value = String(scaleValue) + "%";
   };
-
+  console.log(imgPreview);
   var addResizeImg = function () {
     imgPreview.style.transform = "scale" + "(" + resizeValue.value + ")";
   };
+
 })();
