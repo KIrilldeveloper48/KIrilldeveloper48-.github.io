@@ -39,14 +39,6 @@
 
   //-------------------------------------------------------------------
 
-  var addEffect = function (effect) {
-    imgPreview.style.filter = effect;
-  };
-
-  var imgAddClass = function () {
-    let nameClass = currentFilter.classList[1];
-    imgPreview.classList.add(nameClass);
-  };
   //Перезаписываем значение инпута для соотвествия ТЗ
   let rewriteEffectValue = function (transparency) {
     window.uploadOverlay.querySelector(
@@ -78,9 +70,8 @@
         value: 0.03 * transparency,
         unit: "px",
       },
-      //Для яркости увеличиваем значение на единицу, так как начальное значение свойства filter: brightness равняется единице
       brightness: {
-        value: 0.3 * transparency + 1,
+        value: 0.02 * transparency + 1,
         unit: "",
       },
     };
@@ -92,12 +83,20 @@
 
     return nameEffect + "(" + value + unit + ")";
   };
+  //Добавляем в style свойство filter со значением из функции getEffect
+  var addEffect = function (effect) {
+    imgPreview.style.filter = effect;
+  };
+  //Берём первый класс из списка классов у выбранного фильтра и добавляем его к изображению
+  var imgAddClass = function () {
+    let nameClass = currentFilter.classList[1];
+    imgPreview.classList.add(nameClass);
+  };
   //Эту функцию передаём в модуль slider.js
   let filtering = function (position) {
     levelDepth.style.width = position + "%";
     rewriteEffectValue(position);
-    let effect = getEffect(position);
-    addEffect(effect);
+    addEffect(getEffect(position));
     imgAddClass();
   };
   //Вызываем функцию из модуля slider.js для работы ползунка насыщенности

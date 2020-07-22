@@ -61,7 +61,7 @@
 
     //вычисляем положение пина ползунка
     var getPosition = function () {
-      return Math.floor((100 / line.clientWidth) * (pin.offsetLeft + pin.clientWidth / 2));
+      return Math.floor((100 / line.clientWidth) * pin.offsetLeft);
     }
   };
 })();
