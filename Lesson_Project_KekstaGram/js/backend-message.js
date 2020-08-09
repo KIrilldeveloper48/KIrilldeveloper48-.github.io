@@ -25,7 +25,7 @@
       window.util.isEscEvent(evt, closePopup)
     });
 
-    uploadOverlay.append(clone);
+    window.uploadOverlay.append(clone);
     clone.focus();
   };
 

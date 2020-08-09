@@ -101,41 +101,4 @@
   };
   //Вызываем функцию из модуля slider.js для работы ползунка насыщенности
   window.slider(filtering);
-
-  //----------------------------------------------
-
-  let resizePlus = window.uploadOverlay.querySelector(
-    ".scale__control--bigger"
-  );
-  let resizeMinus = window.uploadOverlay.querySelector(
-    ".scale__control--smaller"
-  );
-  let resizeValue = window.uploadOverlay.querySelector(
-    ".scale__control--value"
-  );
-  let scaleValue = 100;
-
-  resizePlus.addEventListener("click", function () {
-    if (resizeValue.value != "100%") {
-      scaleValue += 25;
-      addResizeValue();
-      addResizeImg();
-    }
-  });
-
-  resizeMinus.addEventListener("click", function () {
-    if (resizeValue.value != "25%") {
-      scaleValue -= 25;
-      addResizeValue();
-      addResizeImg();
-    }
-  });
-
-  var addResizeValue = function () {
-    resizeValue.value = String(scaleValue) + "%";
-  };
-  console.log(imgPreview);
-  var addResizeImg = function () {
-    imgPreview.style.transform = "scale" + "(" + resizeValue.value + ")";
-  };
 })();
