@@ -1,12 +1,11 @@
-(function () {
-  return (window.utils = {
-    getRndNum: function (factor) {
-      return Math.floor(Math.random() * factor);
-    },
+window.util = (function () {
+  let ESCKeyCode = 27;
+
+  return {
     isEscEvent: function (evt, action) {
       if (evt.keyCode === ESCKeyCode) {
         action();
       }
     },
-  });
+  }
 })();

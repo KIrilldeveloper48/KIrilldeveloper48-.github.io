@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-  var addClickPin = function () {
+  window.addClickPin = function () {
     let mapPins = document.querySelectorAll(".map__pin");
 
     for (var i = 0; i < mapPins.length; i++) {
@@ -111,6 +111,4 @@
       card.remove();
     })
   }
-
-  window.mainPin.addEventListener("mouseup", addClickPin);
 })();

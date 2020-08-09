@@ -42,7 +42,7 @@
             </fieldset>
 
             <!-- Форма редактирования изображения -->
-            <div class="img-upload__overlay  hidden">
+            <div class="img-upload__overlay  hidden" tabindex="0">
               <div class="img-upload__wrapper">
                 <div class="img-upload__preview-container">
 
@@ -129,6 +129,10 @@
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
                   <input class="text__hashtags" name="hashtags" placeholder="#хэш-тег" value="" maxlength="104">
+                  <div class="hashtags__errors hidden">
+                    <ul>
+                    </ul>
+                  </div>
                   <textarea class="text__description" name="description" placeholder="Ваш комментарий..."
                     maxlength="140"></textarea>
                 </fieldset>
@@ -146,7 +150,7 @@
     </section>
 
     <!-- Полноэкранный показ изображения -->
-    <section class="big-picture  overlay  hidden">
+    <section class="big-picture  overlay  hidden" tabindex="0">
       <h2 class="big-picture__title  visually-hidden">Просмотр фотографии</h2>
       <div class="big-picture__preview">
 
@@ -179,7 +183,7 @@
           </ul>
 
           <!-- Кнопка для загрузки новой порции комментариев -->
-          <button type="button" class="social__comments-loader  comments-loader">Загрузить еще</button>
+          <button type="button" class="social__comments-loader  comments-loader hidden">Загрузить еще</button>
 
           <!-- Форма для отправки комментария -->
           <div class="social__footer">
@@ -259,8 +263,12 @@
   <script src="js/data.js"></script>
   <script src="js/picture.js"></script>
   <script src="js/preview.js"></script>
+  <script src="js/img-filters.js"></script>
   <script src="js/slider.js"></script>
-  <script src="js/filtering.js"></script>
+  <script src="js/close-and-open-form.js"></script>
+  <script src="js/loading-photo.js"></script>
+  <script src="js/resize.js"></script>
+  <script src=" js/filtering.js"> </script>
   <script src="js/form.js"></script>
   <script src="js/main.js"></script>
 </body>
