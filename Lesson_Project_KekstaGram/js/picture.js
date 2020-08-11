@@ -1,4 +1,5 @@
 (function () {
+  window.uploadOverlay = document.querySelector(".img-upload__overlay");
   window.picture = function (data) {
     let container = document.querySelector(".pictures");
     let template = document.querySelector("#picture").content;

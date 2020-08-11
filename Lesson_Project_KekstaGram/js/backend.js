@@ -2,7 +2,7 @@
 
 //Загрузка данных с сервера
 (function () {
-  let URL = "https://javascript.pages.academy/kekstagram/data";
+  const URL = "https://javascript.pages.academy/kekstagram/data";
 
   window.load = function (onSuccess, onError) {
     let xhr = new XMLHttpRequest();
@@ -11,10 +11,8 @@
     xhr.addEventListener("load", function () {
       if (xhr.status === 200) {
         onSuccess(xhr.response);
-
       } else {
         onError(xhr.status + " " + xhr.statusText);
-
       }
     });
 
@@ -35,7 +33,7 @@
 
 //Отправка данных формы на сервер
 (function () {
-  let URL = "https://javascript.pages.academy/kekstagram";
+  const URL = "https://javascript.pages.academy/kekstagram";
 
   window.upload = function (data, onSuccess, onError) {
     let xhr = new XMLHttpRequest();

@@ -188,11 +188,11 @@ main {
   cursor: pointer;
 }
 
-.img-filters__radio:focus + .img-filters__label {
+.img-filters__radio:focus+.img-filters__label {
   outline: auto 5px highlight;
 }
 
-.img-filters__radio:checked + .img-filters__label {
+.img-filters__radio:checked+.img-filters__label {
   color: #ff4e4e;
   text-decoration: none;
 
@@ -301,7 +301,6 @@ main {
 
 .img-upload__wrapper {
   margin: 0 auto;
-  padding-bottom: 60px;
   width: 582px;
 
   text-align: center;
@@ -379,7 +378,7 @@ main {
   transform: scale(1.1);
 }
 
-.img-upload__input:focus + .img-upload__label {
+.img-upload__input:focus+.img-upload__label {
   outline: auto 5px highlight;
 }
 
@@ -652,7 +651,7 @@ main {
 
 .effects__label:hover,
 .effects__label:focus,
-.effects__radio:checked + .effects__label {
+.effects__radio:checked+.effects__label {
   color: #ffe753;
 }
 
@@ -680,11 +679,11 @@ main {
   margin-right: 0;
 }
 
-.effects__radio:checked + .effects__label .effects__preview {
+.effects__radio:checked+.effects__label .effects__preview {
   border: 5px solid #ffe753;
 }
 
-.effects__radio:focus + .effects__label .effects__preview {
+.effects__radio:focus+.effects__label .effects__preview {
   outline: auto 5px highlight;
 }
 
@@ -1067,6 +1066,7 @@ main {
 }
 
 @keyframes spinner {
+
   0%,
   100% {
     box-shadow: 0em -2.6em 0em 0em #3b77c0,
